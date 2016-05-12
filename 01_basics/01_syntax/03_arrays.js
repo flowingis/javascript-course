@@ -1,5 +1,6 @@
 var a = [];
 var b;
+var i;
 
 console.log(JSON.stringify(a, undefined, 2) + '\n');
 
@@ -49,3 +50,7 @@ console.log(JSON.stringify(a, undefined, 2) + '\n');
 a.splice(4,2);
 
 console.log(JSON.stringify(a, undefined, 2) + '\n');
+
+for (i = 0; i < a.length; i++) {
+    console.log(a[i]);
+}

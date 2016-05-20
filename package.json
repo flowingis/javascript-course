@@ -7,6 +7,10 @@
     "type": "git",
     "url": "git+https://github.com/e-xtrategy/javascript-course.git"
   },
+  "scripts": {
+      "prestart": "npm install",
+      "start": "node ./node_modules/http-server/bin/http-server"
+  },
   "author": "e-xtrategy",
   "license": "WTFPL",
   "bugs": {

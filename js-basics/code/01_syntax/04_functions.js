@@ -15,7 +15,7 @@ myFunctionWithParams(3);
 //fucntion with return values
 function now() {
     return (new Date()).getTime();
-}
+};
 
 //functions as parameter
 function printResult(param){

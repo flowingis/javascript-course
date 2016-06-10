@@ -45,6 +45,20 @@ if(x){
 
 console.log("---");
 
+//And / Or
+
+if(true && false){
+    console.log('true && false is true');
+}else{
+    console.log('true && false is false');
+}
+
+if(true || false){
+    console.log('true || false is true');
+}else{
+    console.log('true || false is false');
+}
+
 //If Else If
 x = 3;
 

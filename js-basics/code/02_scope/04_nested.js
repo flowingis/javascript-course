@@ -5,7 +5,7 @@ var a = 1;
 function addToA(b){
     a = a + b;
     return a;
-};
+}
 
 addToA(1);
 
@@ -15,7 +15,7 @@ function addToLocalA(b) {
     var a = 0;
     a = a + b;
     return a;
-};
+}
 
 a = addToLocalA(4);
 

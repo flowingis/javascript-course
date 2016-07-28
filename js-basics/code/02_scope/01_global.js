@@ -6,7 +6,7 @@ console.log(global.a);
 function dummyFunction(){
     a++;
     b = a * a;
-};
+}
 
 dummyFunction();
 

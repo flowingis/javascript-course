@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 var addFunctionFactory = function(initialValue){
     var a = initialValue || 0;

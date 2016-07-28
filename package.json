@@ -8,14 +8,17 @@
     "url": "git+https://github.com/e-xtrategy/javascript-course.git"
   },
   "scripts": {
-      "deploy": "sh publish.sh",
-      "prestart": "npm install",
-      "start": "node ./node_modules/http-server/bin/http-server"
+    "deploy": "sh publish.sh",
+    "prestart": "npm install",
+    "start": "node ./node_modules/http-server/bin/http-server"
   },
   "author": "e-xtrategy",
   "license": "WTFPL",
   "bugs": {
     "url": "https://github.com/e-xtrategy/javascript-course/issues"
   },
-  "homepage": "https://github.com/e-xtrategy/javascript-course#readme"
+  "homepage": "https://github.com/e-xtrategy/javascript-course#readme",
+  "dependencies": {
+    "lodash": "4.14.0"
+  }
 }

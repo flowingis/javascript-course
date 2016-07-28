@@ -102,3 +102,10 @@ console.log(_.flatten([
         3
     ]
 ]));
+
+//Without
+console.log('Without');
+console.log('................\n');
+
+var toCheck = [1,2,3,4,5,6,7];
+console.log(_.without(toCheck,1,7));

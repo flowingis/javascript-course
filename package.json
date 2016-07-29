@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/e-xtrategy/javascript-course#readme",
   "dependencies": {
-    "lodash": "4.14.0"
+    "lodash": "4.14.0",
+    "moment": "2.14.1"
   }
 }

@@ -50,6 +50,19 @@ console.log(moment(start).subtract(1,'day').format('DD/MM/YYYY'));
 console.log(moment(start).subtract(1,'week').format('DD/MM/YYYY'));
 console.log(moment(start).subtract(10,'years').format('DD/MM/YYYY'));
 
+//Query
+console.log('Query');
+console.log('................\n');
+
+console.log(start.isBefore(end));
+console.log(start.isAfter(end));
+console.log(start.isSame(end,'year'));
+
+var toCheck = moment("31/12/2016","DD/MM/YYYY");
+
+console.log(toCheck.isBetween(start,end));
+
+
 //Duration
 console.log('Duration');
 console.log('................\n');

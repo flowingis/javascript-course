@@ -92,6 +92,15 @@ var highIds = _.filter(users,function (user) {
 
 print(highIds);
 
+//Find
+console.log('Find');
+console.log('................\n');
+
+var aFemale = _.find(users,{sex:"F"});
+
+print(aFemale);
+
+
 //Flatten
 console.log('Flatten');
 console.log('................\n');

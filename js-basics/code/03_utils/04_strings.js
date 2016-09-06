@@ -14,13 +14,13 @@ console.log(_.lowerFirst(TEMPLATE));
 console.log(_.capitalize(TEMPLATE.toLowerCase()));
 
 //Repeat
-console.log('Repeat');
+console.log('\nRepeat');
 console.log('................\n');
 
 console.log(_.repeat('*',10));
 
 //Replace
-console.log('Replace');
+console.log('\nReplace');
 console.log('................\n');
 
 var TEMPLATE = "I'm testing a test in testland";
@@ -28,7 +28,7 @@ var TEMPLATE = "I'm testing a test in testland";
 console.log(_.replace(TEMPLATE,new RegExp("test","g"),"pizza"));
 
 //Template
-console.log('Template');
+console.log('\nTemplate');
 console.log('................\n');
 
 var TEMPLATE = "hello <%= data %>!";

@@ -41,20 +41,20 @@ console.log('................\n');
 console.log(_.keys(user));
 
 //Values
-console.log('Values');
+console.log('\nValues');
 console.log('................\n');
 
 console.log(_.values(user));
 
 //Pick
-console.log('Pick');
+console.log('\nPick');
 console.log('................\n');
 
 var onlyName = _.pick(user,'name');
 console.log(onlyName);
 
 //Omit
-console.log('Omit');
+console.log('\nOmit');
 console.log('................\n');
 
 var withoutName = _.omit(user,'name');

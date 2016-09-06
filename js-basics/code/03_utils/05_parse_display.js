@@ -16,7 +16,7 @@ console.log(now1.toDate());
 console.log(now2.toDate());
 
 //Parse
-console.log('Parse');
+console.log('\nParse');
 console.log('................\n');
 
 var date1 = moment("01/01/2016","DD/MM/YYYY");
@@ -26,7 +26,7 @@ console.log(date1.toDate());
 console.log(date2.toDate());
 
 //Parse Time
-console.log('Parse Time');
+console.log('\nParse Time');
 console.log('................\n');
 
 var date1 = moment("12:30:45","HH:mm:ss");
@@ -34,7 +34,7 @@ var date1 = moment("12:30:45","HH:mm:ss");
 console.log(date1.toDate());
 
 //Format
-console.log('Format');
+console.log('\nFormat');
 console.log('................\n');
 
 var date = moment("01/01/2016 12:30:45","DD/MM/YYYY HH:mm:ss");
@@ -46,7 +46,7 @@ console.log(date.format("LLLL"));
 console.log(date.format("llll"));
 
 //Unix Timestamp
-console.log('Unix Timestamp');
+console.log('\nUnix Timestamp');
 console.log('................\n');
 
 var TIMESTAP_1ST_JAN_2017 = 1483225200;

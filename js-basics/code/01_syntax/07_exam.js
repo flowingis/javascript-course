@@ -1,6 +1,6 @@
 function printTodos(){
     console.log(JSON.stringify(todos, undefined, 2) + '\n');
-};
+}
 
 //Execution
 

@@ -1,7 +1,7 @@
 var _ = require('../../../node_modules/lodash');
 
 var print = function(data){
-    console.log(JSON.stringify(data, undefined, 2) + '\n');
+    console.log("data = ", JSON.stringify(data, undefined, 2) + '\n');
 };
 
 var users = [
@@ -48,7 +48,7 @@ _.each(users,function(user,index){
 });
 
 //Map
-console.log('Map');
+console.log('\nMap');
 console.log('................\n');
 
 var newUsers = _.map(users,function(user,index){
@@ -71,7 +71,7 @@ var veryLongName = _.reduce(users,function (name,user) {
 console.log(veryLongName);
 
 //OrderBy
-console.log('OrderBy');
+console.log('\nOrderBy');
 console.log('................\n');
 var orderedUsers = _.orderBy(users,['sex','-name']);
 
@@ -113,7 +113,7 @@ console.log(_.flatten([
 ]));
 
 //Without
-console.log('Without');
+console.log('\nWithout');
 console.log('................\n');
 
 var toCheck = [1,2,3,4,5,6,7];

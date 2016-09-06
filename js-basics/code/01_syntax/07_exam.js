@@ -8,7 +8,7 @@ printTodos();
 addTodo('Go to the Gym');
 console.log('Added a Todo');
 printTodos();
-addTodo('Got eat an Hambureger');
+addTodo('Go eat an Hambureger');
 console.log('Added a Todo');
 printTodos();
 updateTodo(1,'Got eat a Salad');

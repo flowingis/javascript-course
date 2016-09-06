@@ -2,8 +2,8 @@ var _ = require('../../../node_modules/lodash');
 var moment = require('../../../node_modules/moment');
 var itMomentLocale = require('../../../node_modules/moment/locale/it');
 
-var print = function (data) {
-    console.log(JSON.stringify(data, undefined, 2) + '\n');
+var print = function (message,data) {
+    console.log(message,JSON.stringify(data, undefined, 2) + '\n');
 };
 
 var users = [
@@ -187,11 +187,10 @@ var queryHelperFactory = function (users, workdata) {
 
 var queryHelper = queryHelperFactory(users, workData);
 
-print(queryHelper.getAll());
-print(queryHelper.getUnemployed());
-print(queryHelper.getOldest());
-print(queryHelper.getWhoCanICall("9:30"));
-print(queryHelper.getWhoCanICall());
-print(queryHelper.getHighestSenority('KONAMI'));
-print(queryHelper.getAnnualCostForCompany('KONAMI'));
-print(queryHelper.getAnnualCostForCompany('FoxHound')); //Case insensitive
+print("All = ", queryHelper.getAll());                                              //All the data from the two arrays
+print("Unemployed = ", queryHelper.getUnemployed());                                //All the users without a job
+print("Oldest = ", queryHelper.getOldest());                                        //The oldest user
+print("Who can I call at 9:30 = ", queryHelper.getWhoCanICall("9:30"));             //Who is working at 9:30
+print("Who can I call now = ", queryHelper.getWhoCanICall());                       //Who is working now
+print("Highest Senority = ", queryHelper.getHighestSenority('KONAMI'));             //get the highest senority for a company (Case insensitive)
+print("Annual Cost = ", queryHelper.getAnnualCostForCompany('FoxHound'));           //get the total of employee costs for a company (Case insensitive)

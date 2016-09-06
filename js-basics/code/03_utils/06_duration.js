@@ -17,7 +17,7 @@ console.log(end.diff(start,'days'));
 console.log(end.diff(start,'years'));
 
 //From / To
-console.log('From / To');
+console.log('\nFrom / To');
 console.log('................\n');
 
 console.log(start.fromNow());
@@ -27,7 +27,7 @@ console.log(start.toNow());
 console.log(end.toNow());
 
 //Start / End
-console.log('From / To');
+console.log('\nStart / End');
 console.log('................\n');
 
 console.log(moment(start).startOf('week').format('DD/MM/YYYY'));
@@ -39,7 +39,7 @@ console.log(moment(start).endOf('month').format('DD/MM/YYYY'));
 console.log(moment(start).endOf('year').format('DD/MM/YYYY'));
 
 //Add / Substract
-console.log('Add Substract');
+console.log('\nAdd Substract');
 console.log('................\n');
 
 console.log(moment(start).add(1,'day').format('DD/MM/YYYY'));
@@ -51,7 +51,7 @@ console.log(moment(start).subtract(1,'week').format('DD/MM/YYYY'));
 console.log(moment(start).subtract(10,'years').format('DD/MM/YYYY'));
 
 //Query
-console.log('Query');
+console.log('\nQuery');
 console.log('................\n');
 
 console.log(start.isBefore(end));
@@ -64,7 +64,7 @@ console.log(toCheck.isBetween(start,end));
 
 
 //Duration
-console.log('Duration');
+console.log('\nDuration');
 console.log('................\n');
 
 var diff = end.diff(start);

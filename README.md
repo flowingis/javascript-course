@@ -1,5 +1,5 @@
 # javascript-course
-Code examples for extrategy JavaScript course
+Code examples for extrategy JavaScript course. You can navigate the slides [here](https://e-xtrategy.github.io/javascript-course/).
 
 ##Start
 

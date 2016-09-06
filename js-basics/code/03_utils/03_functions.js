@@ -19,7 +19,7 @@ invoke(); //No Error
 
 
 //Before
-console.log('Before');
+console.log('\nBefore');
 console.log('................\n');
 
 var before = _.before(4,log);
@@ -30,7 +30,7 @@ before();
 before();
 
 //After
-console.log('After');
+console.log('\nAfter');
 console.log('................\n');
 
 var after = _.after(4,log);
@@ -41,16 +41,14 @@ after();
 after();
 
 //Once
-console.log('Once');
+console.log('\nOnce');
 console.log('................\n');
 
-var init = function(){
+var getTimestamp = function(){
     return (new Date()).getTime();
 };
 
-var onlyOnce = _.once(function(){
-   return (new Date()).getTime();
-});
+var onlyOnce = _.once(getTimestamp);
 
 console.log(onlyOnce());
 console.log(onlyOnce());
@@ -60,7 +58,7 @@ console.log(onlyOnce());
 console.log(onlyOnce());
 
 //Wrap
-console.log('Wrap');
+console.log('\nWrap');
 console.log('................\n');
 
 var wrappedLog = _.wrap(console.log,function(f,param){

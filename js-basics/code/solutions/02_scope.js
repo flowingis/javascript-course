@@ -1,5 +1,7 @@
+"use strict";
+
 var print = function(todos){
-    console.log(JSON.stringify(todos, undefined, 2) + '\n');
+    console.log("todos = ", JSON.stringify(todos, undefined, 2) + '\n');
 };
 
 var todoRepositoryFactory = function(){
@@ -30,7 +32,7 @@ var todoRepositoryFactory = function(){
 
     var getDone = function () {
         var doneTodos = [];
-        for (i = 0; i < todos.length; i++) {
+        for (var i = 0; i < todos.length; i++) {
             if(todos[i].done){
                 doneTodos.push(todos[i]);
             }

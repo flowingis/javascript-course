@@ -1,5 +1,7 @@
+"use strict";
+
 var print = function(todos){
-    console.log(JSON.stringify(todos, undefined, 2) + '\n');
+    console.log("todos = ", JSON.stringify(todos, undefined, 2) + '\n');
 };
 
 var todoRepositoryFactory = function(){

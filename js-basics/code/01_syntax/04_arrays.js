@@ -7,7 +7,7 @@ console.log("a = " , JSON.stringify(a, undefined, 2) + '\n');
 console.log('\nPush');
 console.log('................\n');
 
-var b = a.push(1);
+var b = a.push(3);
 
 console.log("a = " , JSON.stringify(a, undefined, 2) + '\n');
 console.log("b = " , JSON.stringify(b, undefined, 2) + '\n');

@@ -11,7 +11,7 @@ var addFunctionFactory = function(initialValue){
     return add;
 };
 
-var firstFunction = addFunctionFactory(0);
+var firstFunction = addFunctionFactory();
 var secondFunction = addFunctionFactory(2);
 
 firstFunction(2);

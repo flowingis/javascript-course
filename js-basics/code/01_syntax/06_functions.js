@@ -33,7 +33,10 @@ console.log('................\n');
 function testArguments(){
 	console.log("arguments.push = ", arguments.push);	//WAT?
 	console.log("arguments.pop = ", arguments.pop);		//WAT?
-	var args = Array.from(arguments);
+    //  ECMAScript 2015
+    //var args = Array.from(arguments);
+    //  old
+    var args = [].slice(arguments)
 	console.log("args.push = ",args.push);
 	console.log("args.pop = ",args.pop);
 }
@@ -46,6 +49,8 @@ console.log('................\n');
 function now() {
     return (new Date()).getTime();
 }
+
+console.log(now());
 
 console.log('\nfunctions as parametes');
 console.log('................\n');
@@ -80,17 +85,17 @@ var myObject = {
 	numberProp:42,
 	stringProp:"myString",
 	arrayProp: [1,2,3],
-	funProp: function(param){ 
-		console.log("I'm printing my param: "+param); 
+	funProp: function(param){
+		console.log("I'm printing my param: "+param);
 	},
 	mySubObject: {
 		boolProp:true,
 		numberProp:42,
 		stringProp:"myString",
 		arrayProp: [1,2,3],
-		funProp: function(param){ 
-			console.log("I'm printing my param: "+param); 
-		}	
+		funProp: function(param){
+			console.log("I'm printing my param: "+param);
+		}
 	}
 };
 

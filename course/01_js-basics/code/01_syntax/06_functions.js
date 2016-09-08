@@ -7,7 +7,7 @@ function myFunction(){
 
 myFunction();
 
-console.log('\nOverload');
+console.log('\nNo Overload');
 console.log('................\n');
 
 function myFunctionWithParams(param1,param2){

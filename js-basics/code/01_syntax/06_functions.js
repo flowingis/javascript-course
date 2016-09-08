@@ -12,6 +12,25 @@ function myFunctionWithParams(param1,param2){
 myFunctionWithParams(1,2);
 myFunctionWithParams(3);
 
+//arguments
+function usingArgs(){
+	console.log("arguments",arguments);
+}
+
+usingArgs();
+usingArgs(1,2);
+
+//arguments 2
+function testArguments(){
+	console.log("arguments.push = ", arguments.push);	//WAT?
+	console.log("arguments.pop = ", arguments.pop);		//WAT?
+	var args = Array.from(arguments);
+	console.log("args.push = ",args.push);
+	console.log("args.pop = ",args.pop);
+}
+
+testArguments();
+
 //fucntion with return values
 function now() {
     return (new Date()).getTime();

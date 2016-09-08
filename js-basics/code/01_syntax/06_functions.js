@@ -1,10 +1,15 @@
+console.log('Definition');
+console.log('................\n');
+
 function myFunction(){
     console.log('This is a function');
 }
 
 myFunction();
 
-//Overload
+console.log('\nOverload');
+console.log('................\n');
+
 function myFunctionWithParams(param1,param2){
     console.log('myFunctionWithParams:',param1,param2);
 }
@@ -12,7 +17,9 @@ function myFunctionWithParams(param1,param2){
 myFunctionWithParams(1,2);
 myFunctionWithParams(3);
 
-//arguments
+console.log('\nArguments');
+console.log('................\n');
+
 function usingArgs(){
 	console.log("arguments",arguments);
 }
@@ -20,7 +27,9 @@ function usingArgs(){
 usingArgs();
 usingArgs(1,2);
 
-//arguments 2
+console.log('\nArguments 2');
+console.log('................\n');
+
 function testArguments(){
 	console.log("arguments.push = ", arguments.push);	//WAT?
 	console.log("arguments.pop = ", arguments.pop);		//WAT?
@@ -31,19 +40,25 @@ function testArguments(){
 
 testArguments();
 
-//fucntion with return values
+console.log('\nreturn values');
+console.log('................\n');
+
 function now() {
     return (new Date()).getTime();
 }
 
-//functions as parameter
+console.log('\nfunctions as parametes');
+console.log('................\n');
+
 function printResult(param){
     console.log(param());
 }
 
 printResult(now);
 
-//Function are types
+console.log('\nfunctions has a type');
+console.log('................\n');
+
 console.log(typeof now);
 
 function printResult2(param){
@@ -57,7 +72,9 @@ function printResult2(param){
 printResult2(now);
 printResult2("The End");
 
-//Function can be property of object
+console.log('\nfunctions can be property of an object');
+console.log('................\n');
+
 var myObject = {
 	boolProp:true,
 	numberProp:42,
@@ -85,7 +102,8 @@ myObject.mySubObject.funProp();
 myObject.mySubObject.funProp("Here I am!");
 myObject.mySubObject.funProp(myObject.mySubObject.numberProp);
 
-//Fuction can take function as param
+console.log('\nfunctions as parametes 2');
+console.log('................\n');
 var myModifier = function(element){
 	return element + " is modified";
 };

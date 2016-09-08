@@ -1,0 +1,25 @@
+{
+  "name": "javascript-course",
+  "version": "1.0.0",
+  "description": "Code examples for a javascript course",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/e-xtrategy/javascript-course.git"
+  },
+  "scripts": {
+    "deploy": "sh publish.sh",
+    "prestart": "npm install",
+    "start": "node ./node_modules/http-server/bin/http-server"
+  },
+  "author": "e-xtrategy",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/e-xtrategy/javascript-course/issues"
+  },
+  "homepage": "https://github.com/e-xtrategy/javascript-course#readme",
+  "dependencies": {
+    "lodash": "4.14.0",
+    "moment": "2.14.1"
+  }
+}

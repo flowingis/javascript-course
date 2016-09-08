@@ -1,4 +1,6 @@
-//IIFE: Immediately Invoked Function Expression.
+console.log('IIFE: Immediately Invoked Function Expression');
+console.log('................\n');
+
 var a = 1;
 
 (function(){
@@ -8,9 +10,8 @@ var a = 1;
 
 console.log(a);
 
-console.log('---');
-
-//IFEE with params
+console.log('IFEE with params');
+console.log('................\n');
 
 b = 1; //NOOOO Global scope!!
 

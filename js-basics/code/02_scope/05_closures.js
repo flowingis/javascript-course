@@ -11,10 +11,10 @@ var addFunctionFactory = function(initialValue){
     return add;
 };
 
-var firstFunction = addFunctionFactory();
-var secondFunction = addFunctionFactory(2);
+var firstAdd = addFunctionFactory();
+var secondAdd = addFunctionFactory(2);
 
-firstFunction(2);
-firstFunction(4);
-secondFunction(3);
-secondFunction(5);
+firstAdd(2);
+firstAdd(4);
+secondAdd(3);
+secondAdd(5);

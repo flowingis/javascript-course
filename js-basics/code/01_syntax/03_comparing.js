@@ -1,4 +1,6 @@
-//Coercion
+console.log('Coercion');
+console.log('................\n');
+
 var answer = "42";
 var doubleAnswer = answer * 2;
 
@@ -11,9 +13,9 @@ doubleAnswer = (answer * 2) + "";
 console.log(answer, typeof answer);
 console.log(doubleAnswer, typeof doubleAnswer);
 
-console.log('---');
+console.log('\nTruthy & Falsy');
+console.log('................\n');
 
-//Truthy & Falsy
 if(false){
     console.log('false is true');
 }else{
@@ -50,29 +52,31 @@ if(undefined){
     console.log('undefined is false');
 }
 
-//Quick boolean cast
+console.log('\nQuick boolean cast');
+console.log('................\n');
+
 console.log(!!"");
 
-console.log('---');
+console.log('\nOr operator for defaults');
+console.log('................\n');
 
-//Or operator
 var a = null;
 var b = a || 1;
 
 console.log("b", b);
 
-console.log('---');
+console.log('\nEquality');
+console.log('................\n');
 
-//Equality
 a = "42";
 b = 42;
 
 console.log('a == b',a == b);
 console.log('a === b',a === b);
 
-console.log('---');
+console.log('\nSpecial cases');
+console.log('................\n');
 
-//Special cases
 a = 0/0; //NaN
 b = NaN;
 

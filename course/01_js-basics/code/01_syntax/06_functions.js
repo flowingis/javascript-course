@@ -36,7 +36,7 @@ function testArguments(){
     //  ECMAScript 2015
     //var args = Array.from(arguments);
     //  old
-    var args = [].slice(arguments)
+    var args = [].slice(arguments);
 	console.log("args.push = ",args.push);
 	console.log("args.pop = ",args.pop);
 }

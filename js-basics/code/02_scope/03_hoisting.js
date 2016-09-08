@@ -1,20 +1,14 @@
 a = 1;
 var a;
-console.log(a);
-
-console.log('---');
+console.log("a = ", a);
 
 var b;
 b = 2;
-console.log(b);
+console.log("b = ", b);
 
-console.log('---');
-
-console.log(c);
+console.log("c = ", c);
 var c = 2;
 
-console.log('---');
-
 var d;
-console.log(d);
+console.log("d = ",  d);
 d = 2;

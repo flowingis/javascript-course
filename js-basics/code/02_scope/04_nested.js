@@ -7,7 +7,8 @@ function addToA(b){
     return a;
 }
 
-addToA(1);
+addToA(2);
+addToA(2);
 
 console.log(a);
 

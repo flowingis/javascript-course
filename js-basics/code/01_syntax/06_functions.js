@@ -109,17 +109,18 @@ myObject.mySubObject.funProp(myObject.mySubObject.numberProp);
 
 console.log('\nfunctions as parametes 2');
 console.log('................\n');
-var myModifier = function(element){
+
+function myModifier(element){
 	return element + " is modified";
 };
 
-var mySecondModifier = function(element){
+function mySecondModifier(element){
 	return element + 1;
 };
 
 var myArray = [10, 20, 0, 4, 8];
 
-var printModifiedArray = function(arr, elementModifier){
+function printModifiedArray(arr, elementModifier){
 	for (var i = 0; i < arr.length; i++) {
 		console.log("Log at Index("+i+"): "+elementModifier(arr[i]));
 	}
@@ -127,3 +128,27 @@ var printModifiedArray = function(arr, elementModifier){
 
 printModifiedArray(myArray, myModifier);
 printModifiedArray(myArray, mySecondModifier);
+
+console.log('\ncopy or reference?');
+console.log('................\n');
+
+function firstFunction(value) {
+	value = value + 1;
+};
+
+function secondFunction(value) {
+	value.child = value.child + 1;
+};
+
+var x = 1;
+var obj = {
+	child:1
+};
+
+console.log('x before = ', x);
+firstFunction(x);
+console.log('x after = ', x);
+
+console.log('obj before = ', obj);
+secondFunction(obj);
+console.log('obj after = ', obj);

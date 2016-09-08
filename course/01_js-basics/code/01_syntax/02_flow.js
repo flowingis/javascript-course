@@ -75,7 +75,7 @@ switch(x) {
 console.log('\nAnd/Or');
 console.log('................\n');
 
-//And / Or
+//And / Or / Not
 
 if(true && false){
     console.log('true && false is true');
@@ -87,6 +87,12 @@ if(true || false){
     console.log('true || false is true');
 }else{
     console.log('true || false is false');
+}
+
+if(!true){
+    console.log('!true is true');
+}else{
+    console.log('!true is false');
 }
 
 console.log('\nTry/Catch');

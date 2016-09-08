@@ -24,7 +24,7 @@ function printResult(param){
 
 printResult(now);
 
-//Function are objects
+//Function are types
 console.log(typeof now);
 
 function printResult2(param){

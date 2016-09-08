@@ -15,3 +15,6 @@ console.log("value of " + a + ": " + typeof a);
 
 a = { b: "c" };
 console.log("value of " + a + ": " + typeof a);
+
+a = ["a", 9];
+console.log("value of " + a + ": " + typeof a);

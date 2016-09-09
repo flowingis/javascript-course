@@ -1,5 +1,8 @@
-var moment = require('../../../node_modules/moment');
-var itMomentLocale = require('../../../node_modules/moment/locale/it');
+var moment = require('../../../../node_modules/moment');
+var itMomentLocale = require('../../../../node_modules/moment/locale/it');
+
+//Locales
+moment.locale('it');
 
 var start = moment("15/06/2016","DD/MM/YYYY");
 var end = moment("16/01/2017","DD/MM/YYYY");

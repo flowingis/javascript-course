@@ -1,4 +1,4 @@
-var _ = require('../../../node_modules/lodash');
+var _ = require('../../../../node_modules/lodash');
 
 var print = function(data){
     console.log(JSON.stringify(data, undefined, 2) + '\n');
@@ -57,5 +57,5 @@ console.log(onlyName);
 console.log('\nOmit');
 console.log('................\n');
 
-var withoutName = _.omit(user,'name');
+var withoutName = _.omit(user,'name','id');
 console.log(withoutName);

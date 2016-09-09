@@ -52,6 +52,18 @@ if(undefined){
     console.log('undefined is false');
 }
 
+if("0"){
+    console.log('"0" is true');
+}else{
+    console.log('"0" is false');
+}
+
+if("false"){
+    console.log('"false" is true');
+}else{
+    console.log('"false" is false');
+}
+
 console.log('\nQuick boolean cast');
 console.log('................\n');
 

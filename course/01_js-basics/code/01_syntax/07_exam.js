@@ -1,5 +1,14 @@
+var todos = [];
+
 function printTodos(){
     console.log(JSON.stringify(todos, undefined, 2) + '\n');
+}
+
+function addTodo(message) {
+    todos.push({
+        message:message,
+        done:false
+    });
 }
 
 //Execution

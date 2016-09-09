@@ -1,4 +1,4 @@
-var _ = require('../../../node_modules/lodash');
+var _ = require('../../../../node_modules/lodash');
 
 var print = function(data){
     console.log("data = ", JSON.stringify(data, undefined, 2) + '\n');

@@ -1,4 +1,4 @@
-var _ = require('../../../node_modules/lodash');
+var _ = require('../../../../node_modules/lodash');
 
 var log = function(){
     console.log('Hi Folks');

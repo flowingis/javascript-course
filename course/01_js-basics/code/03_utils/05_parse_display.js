@@ -1,5 +1,5 @@
-var moment = require('../../../node_modules/moment');
-var itMomentLocale = require('../../../node_modules/moment/locale/it');
+var moment = require('../../../../node_modules/moment');
+var itMomentLocale = require('../../../../node_modules/moment/locale/it');
 
 //Locales
 moment.locale('it');

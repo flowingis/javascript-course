@@ -1,6 +1,6 @@
-var _ = require('../../../node_modules/lodash');
-var moment = require('../../../node_modules/moment');
-var itMomentLocale = require('../../../node_modules/moment/locale/it');
+var _ = require('../../../../node_modules/lodash');
+var moment = require('../../../../node_modules/moment');
+var itMomentLocale = require('../../../../node_modules/moment/locale/it');
 
 var print = function (message,data) {
     console.log(message,JSON.stringify(data, undefined, 2) + '\n');

@@ -1,0 +1,15 @@
+{
+  "name": "js-course-lesson-02",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server",
+    "prestart": "npm install"
+  },
+  "author": "extrategy",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^0.9.0"
+  }
+}

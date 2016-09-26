@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>02 selector composition</title>
+        <script src="../../../../node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="../../../../node_modules/lodash/lodash.min.js"></script>
+        <script type="text/javascript">
+            var printInPage = function(params){
+                var title = params.title.toUpperCase();
+                console.log(title);
+                delete params.title;
+                console.log("--------------------"+title+"--------------------");
+                _.each(params, function(a, key){
+                    console.log(key+"-> ");
+                    console.log(a);
+                });
+                console.log("-------------------/"+title+"--------------------");
+            };
+        </script>
+        <style>
+            div.examples {
+                margin-bottom: 50px;
+                border: 1px solid #000000;
+                text-align: center;
+            }
+            div.examples * {
+                margin: 0px;
+                padding: 0px;
+                border: 0px;
+                width: 100%;
+                display: block;
+            }
+            div.examples *:nth-child(odd){
+                background-color: #00FF00;
+            }
+            div.examples *:nth-child(even){
+                background-color: #FF0000;
+            }
+            h1 {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>NESTING</h1>
+        <div class="examples nesting">
+            <span class="foo">foo span</span>
+            <div class="foo">foo div</div>
+            <span class="bar">bar span</span>
+            <div class="bar">baz div</div>
+            <span class="baz">baz span</span>
+            <div class="baz">baz div</div>
+        </div>
+        <script type="text/javascript">
+            var spanFooNested = document.querySelectorAll(".nesting > span.foo");
+            var spanBarNested = document.querySelectorAll(".nesting > span.bar");
+            var spanBazNested = document.querySelectorAll(".nesting > span.baz");
+
+            var jQuerySpanFooNested = $(".nesting > span.foo");
+            var jQuerySpanBarNested = $(".nesting > span.bar");
+            var jQuerySpanBazNested = $(".nesting > span.baz");
+
+            printInPage({
+                title:"nesting",
+                spanFooNested: spanFooNested,
+                spanBarNested: spanBarNested,
+                spanBazNested: spanBazNested,
+                jQuerySpanFooNested: jQuerySpanFooNested.get(),
+                jQuerySpanBarNested: jQuerySpanBarNested.get(),
+                jQuerySpanBazNested: jQuerySpanBazNested.get()
+            });
+        </script>
+        
+        <h1>COMBINE</h1>
+        <div class="examples combine">
+            <span class="foo">foo span</span>
+            <div class="foo">foo div</div>
+            <span class="bar">bar span</span>
+            <div class="bar">baz div</div>
+            <span class="baz">baz span</span>
+            <div class="baz">baz div</div>
+        </div>
+        <script type="text/javascript">
+            var spanFoo = document.querySelectorAll(".combine > span.foo");
+            var spanBar = document.querySelectorAll(".combine > span.bar");
+            var spanBaz = document.querySelectorAll(".combine > span.baz");
+
+            var jQuerySpanFoo = $(".combine > span.foo");
+            var jQuerySpanBar = $(".combine > span.bar");
+            var jQuerySpanBaz = $(".combine > span.baz");
+
+            printInPage({
+                title:"combine",
+                spanFoo: spanFoo,
+                spanBar: spanBar,
+                spanBaz: spanBaz,
+                jQuerySpanFoo: jQuerySpanFoo.get(),
+                jQuerySpanBar: jQuerySpanBar.get(),
+                jQuerySpanBaz: jQuerySpanBaz.get()
+            });
+        </script>
+
+        <h1>MULTIPLE SELECTION</h1>
+        <div class="examples multipleSelection">
+            <span class="foo">foo span</span>
+            <div class="foo">foo div</div>
+            <p class="foo">foo p</p>
+
+            <span class="bar">bar span</span>
+            <div class="bar">baz div</div>
+            <p class="bar">baz p</p>
+            
+            <span class="baz">baz span</span>
+            <div class="baz">baz div</div>
+            <p class="baz">baz p</p>
+
+        </div>
+        <script type="text/javascript">
+            var spanAndDiv = document.querySelectorAll(".multipleSelection > span, .multipleSelection > div");
+            
+            var jQuerySpanAndDiv = $(".multipleSelection > span, .multipleSelection > div");
+
+            printInPage({
+                title:"multipleSelection",
+                spanAndDiv: spanAndDiv,
+                jQuerySpanAndDiv: jQuerySpanAndDiv.get()
+            });
+        </script>
+
+        <h1>NEGATION</h1>
+        <div class="examples negation">
+            <span class="foo">foo span</span>
+            <div class="foo">foo div</div>
+            <p class="foo">foo p</p>
+        </div>
+        <script type="text/javascript">
+            var fooNotDiv = document.querySelectorAll(".negation > .foo:not(div)");
+            
+            var jQueryFooNotDiv = $(".negation > .foo:not(div)");
+
+            printInPage({
+                title:"negation",
+                fooNotDiv: fooNotDiv,
+                jQueryFooNotDiv: jQueryFooNotDiv.get()
+            });
+        </script>
+    </body>
+</html>

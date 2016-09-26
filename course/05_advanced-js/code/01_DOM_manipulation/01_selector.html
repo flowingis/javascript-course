@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>01 selector</title>
+        <script src="../../../../node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="../../../../node_modules/lodash/lodash.min.js"></script>
+        <script type="text/javascript">
+            var printInPage = function(params){
+                var title = params.title.toUpperCase();
+                console.log(title);
+                delete params.title;
+                console.log("--------------------"+title+"--------------------");
+                _.each(params, function(a, key){
+                    console.log(key+"-> ");
+                    console.log(a);
+                });
+                console.log("-------------------/"+title+"--------------------");
+            };
+        </script>
+        <style>
+            div.examples {
+                margin-bottom: 50px;
+                border: 1px solid #000000;
+                text-align: center;
+            }
+            div.examples * {
+                margin: 0px;
+                padding: 0px;
+                border: 0px;
+                width: 100%;
+                display: block;
+            }
+            div.examples *:nth-child(odd){
+                background-color: #00FF00;
+            }
+            div.examples *:nth-child(even){
+                background-color: #FF0000;
+            }
+            h1 {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>CLASS</h1>
+        <div class="examples">
+            <span class="oddSpan">my span 1</span>
+            <span class="evenSpan">my span 2</span>
+            <span class="oddSpan">my span 3</span>
+            <span class="evenSpan">my span 4</span>
+            <span class="oddSpan">my span 5</span>
+            <span class="evenSpan">my span 6</span>
+        </div>
+        <script type="text/javascript">
+            var pairSpans = document.getElementsByClassName("evenSpan");
+            var oddSpans = document.querySelectorAll(".oddSpan");
+
+            var jQueryPairSpans = $(".evenSpan");
+            var jQueryOddSpans = $(".oddSpan");
+            
+            printInPage({
+                title:"class",
+                pairSpans: pairSpans,
+                oddSpans: oddSpans,
+                jQueryPairSpans: jQueryPairSpans.get(),
+                jQueryOddSpans: jQueryOddSpans.get()
+            });
+        </script>
+        
+        <h1>TAG NAME</h1>
+        <div class="examples">
+            <span>my span 1</span>
+            <div>my div 1</div>
+            <div>my div 2</div>
+            <p>my p 1</p>
+            <p>my p 2</p>
+        </div>
+        <script type="text/javascript">
+            var p = document.getElementsByTagName("p");
+            var div = document.querySelectorAll("div");
+
+            var jQueryP = $("p");
+            var jQueryDiv = $("div");
+
+            printInPage({
+                title:"tag name",
+                p: p,
+                div: div,
+                jQueryP: jQueryP.get(),
+                jQueryDiv: jQueryDiv.get()
+            });
+        </script>
+        
+        <h1>NAME</h1>
+        <div class="examples">
+            <div name="firtsDiv" type="text">my first div with name</div>
+            <div name="secondDiv" type="text">my second div with name</div>
+        </div>
+        <script type="text/javascript">
+            var firtsDiv = document.getElementsByName("firtsDiv");
+            var secondDiv = document.querySelectorAll("[name=secondDiv]");
+
+            var jQueryfirtsDiv = $("[name=firtsDiv]");
+            var jQuerysecondDiv = $("[name=secondDiv]");
+
+            printInPage({
+                title:"name",
+                firtsDiv: firtsDiv,
+                secondDiv: secondDiv,
+                jQueryfirtsDiv: jQueryfirtsDiv.get(),
+                jQuerysecondDiv: jQuerysecondDiv.get()
+            });
+        </script>
+
+        <h1>ROLE</h1>
+        <div class="examples">
+            <span role="myCustomRole">my span with role</span>
+        </div>
+        <script type="text/javascript">
+            var spanWithRole = document.querySelectorAll("span[role='myCustomRole']");
+            
+            var jQuerySpanWithRole = $("span[role='myCustomRole']");
+
+            printInPage({
+                title:"role",
+                spanWithRole: spanWithRole,
+                jQuerySpanWithRole: jQuerySpanWithRole.get()
+            });
+        </script>
+
+        <h1>ID</h1>
+        <div class="examples">
+            <div id="myDivId">my div with id</div>
+        </div>
+        <script type="text/javascript">
+            var divWithId = document.getElementById("myDivId");
+            var divWithIdQuery = document.querySelectorAll("#myDivId");
+                        
+            var jQueryDivWithId = $("#myDivId");
+
+            printInPage({
+                title:"id",
+                divWithId: divWithId,
+                divWithIdQuery: divWithIdQuery,
+                jQueryDivWithId: jQueryDivWithId.get()
+            });
+        </script>
+        
+        <h1>ATTRIBUTE &amp; VALUE OF ATTRIBUTE</h1>
+        <div class="examples">
+            <div data-myCustomAttribute="attributeValue">div with custom attribute</div>
+            <div data-myCustomAttribute="attributeSecondValue">div with custom attribute with different value</div>
+            <div title="divTitle">div with title</div>
+            <div title="second div title">second div with title</div>
+        </div>
+        <script type="text/javascript">
+            var divWithCustomAttribute = document.querySelectorAll("[data-myCustomAttribute]");
+            var divWithTitle = document.querySelectorAll("[title]");
+
+            var jQueryDivWithCustomAttribute = $("[data-myCustomAttribute]");
+            var jQueryDivWithTitle = $("[title]");
+
+            var firstDivWithTitle = document.querySelectorAll("[title=divTitle]");
+            var secondDivWithTitle = document.querySelectorAll("[title='second div title']");
+            
+            var jQueryFirstDivWithTitle = $("[title=divTitle]");
+            var jQuerySecondDivWithTitle = $("[title='second div title']");
+
+            printInPage({
+                title:"attribute",
+                divWithCustomAttribute: divWithCustomAttribute,
+                divWithTitle: divWithTitle,
+                jQueryDivWithCustomAttribute: jQueryDivWithCustomAttribute.get(),
+                jQueryDivWithTitle: jQueryDivWithTitle.get()
+            });
+            
+            printInPage({
+                title:"value of attribute",
+                firstDivWithTitle: firstDivWithTitle,
+                secondDivWithTitle: secondDivWithTitle,
+                jQueryFirstDivWithTitle: jQueryFirstDivWithTitle.get(),
+                jQuerySecondDivWithTitle: jQuerySecondDivWithTitle.get()
+            });
+        </script>
+    </body>
+</html>

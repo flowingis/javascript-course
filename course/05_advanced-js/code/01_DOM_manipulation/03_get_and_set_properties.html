@@ -147,5 +147,37 @@
 
             })();
         </script>
+
+        <h1>MODIFY CLASS</h1>
+        <style type="text/css">
+            .hideClass{
+                display: none !important;
+            }
+            .showClass{
+                display: block !important;
+            }
+        </style>
+        <div class="examples modifyClass">
+            <p>this is p</p>
+            <div>this is div</div>
+            <span>this is span</span>
+        </div>
+        <button class="showButton">SHOW</button>
+        <button class="hideButton">HIDE</button>
+        <script type="text/javascript">
+            (function(){
+                var divToModify = document.querySelector(".modifyClass > div");
+
+                document.querySelector(".showButton").onclick = function(){
+                    divToModify.className = divToModify.className.replace(/hideClass/,'');
+                    divToModify.classList.add("showClass");
+                };
+
+                document.querySelector(".hideButton").onclick = function(){
+                    divToModify.className = divToModify.className.replace(/showClass/,'');
+                    divToModify.classList.add("hideClass");
+                };
+            })();
+        </script>
     </body>
 </html>

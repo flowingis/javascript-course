@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>04 add and remove elements</title>
+        <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="../../node_modules/lodash/lodash.min.js"></script>
+        <script type="text/javascript">
+            var printInPage = function(params){
+                var title = params.title.toUpperCase();
+                console.log(title);
+                delete params.title;
+                console.log("--------------------"+title+"--------------------");
+                _.each(params, function(a, key){
+                    console.log(key+"-> ");
+                    console.log(a);
+                });
+                console.log("-------------------/"+title+"--------------------");
+            };
+        </script>
+        <style>
+            div.examples {
+                margin-bottom: 50px;
+                border: 1px solid #000000;
+                text-align: center;
+            }
+            div.examples * {
+                margin: 0px;
+                padding: 0px;
+                border: 0px;
+                width: 100%;
+                display: block;
+            }
+            div.examples *:nth-child(odd){
+                background-color: #00FF00;
+            }
+            div.examples *:nth-child(even){
+                background-color: #FF0000;
+            }
+            h1, h3 {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>REMOVE ELEMENT</h1>
+        <div class="examples removeElement">
+            <ul>
+                <li>First li</li>
+                <li>Second li</li>
+                <li>Third li</li>
+                <li>Fourth li</li>
+            </ul>
+        </div>
+        <button class="removeLi">Remove li</button>
+        <button class="jQueryRemoveLi">Remove li with jQuery</button>
+        <script type="text/javascript">
+            (function(){
+                document.querySelector(".removeLi").onclick = function(){
+                    document.querySelector(".removeElement").querySelectorAll("li")[0].remove();
+                    // Alternative
+                    // document.querySelectorAll(".removeElement > ul > li")[0].remove();
+                };
+
+                $(".jQueryRemoveLi").click(function(){
+                    $($(".removeElement").find("li")[0]).remove();
+                });
+            })();
+        </script>
+
+        <h1>CREATE &amp; ADD ELEMENTS</h1>
+        <h3>Using insertAdjacentHTML</h3>
+        <div class="examples usingInsertAdjacentHTML">
+            <ul>
+                
+            </ul>
+        </div>
+        <script type="text/javascript">
+            (function(){
+                var firstDiv = '<div style="background-color: #000000; color: #FFFFFF">Before Ul</div>';
+                var firstLi = '<li style="background-color: #FFFFFF">First li</li>';
+                var secondLi = '<li style="background-color: #000000; color: #FFFFFF">Last li</li>';
+                var secondDiv = '<div style="background-color: #FFFFFF">After Ul</div>';
+
+                document.querySelector(".usingInsertAdjacentHTML > ul").insertAdjacentHTML('beforebegin', firstDiv);
+                document.querySelector(".usingInsertAdjacentHTML > ul").insertAdjacentHTML('afterbegin', firstLi);
+                document.querySelector(".usingInsertAdjacentHTML > ul").insertAdjacentHTML('beforeend', secondLi);
+                document.querySelector(".usingInsertAdjacentHTML > ul").insertAdjacentHTML('afterend', secondDiv);
+            })();
+        </script>
+
+        <h3>Using Strings</h3>
+        <div class="examples usingStrings">
+            <ul></ul>
+        </div>
+        <script type="text/javascript">
+            (function(){
+                var firstLi = $.parseHTML('<li style="background-color: #FFFFFF">First li</li>');
+                var secondLi = '<li style="background-color: #000000; color: #FFFFFF">Second li</li>';
+                var thirdLi = '<li style="background-color: #FFFFFF">Third li</li>';
+
+                $($(".usingStrings > ul")[0]).append(firstLi);
+
+                var jQueryUlElement = $($(".usingStrings > ul")[0]);
+                jQueryUlElement.html(jQueryUlElement.html()+secondLi);
+
+                var ulElement = document.querySelector(".usingStrings > ul");
+
+                ulElement.innerHTML = ulElement.innerHTML+thirdLi;
+            })();
+        </script>
+
+        <h3>Using createElement and appendChild</h3>
+        <div class="examples usingCreateElementAndAppendChild">
+            <ul>
+                
+            </ul>            
+        </div>
+        <script type="text/javascript">
+            (function(){
+                var firstLi = document.createElement("li");
+                firstLi.textContent = "First li";
+                var secondLi = document.createElement("li");
+                secondLi.textContent = "Second li";
+                document.querySelector(".usingCreateElementAndAppendChild > ul").appendChild(firstLi);
+                document.querySelector(".usingCreateElementAndAppendChild > ul").appendChild(secondLi);
+            })();
+        </script>
+
+        <h3>Using lodash/underscore template</h3>
+        <div class="examples usingLodashUnderscoreTemplate">
+            <ul></ul>
+        </div>
+        <script type="text/javascript">
+            var liTemplate = _.template("<li><%= text %></li>");
+            var ulElement = document.querySelector(".usingLodashUnderscoreTemplate > ul");
+            
+            _.each(["First template li", "Second template li"], function(text){
+                ulElement.innerHTML += liTemplate({ text: text});
+            });
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "04_js_advanced_1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "babel":"babel-node"
+  },
+  "author": "extrategy",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "6.5.1"
+  }
+}

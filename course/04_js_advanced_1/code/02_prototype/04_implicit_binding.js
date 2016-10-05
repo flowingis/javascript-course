@@ -17,3 +17,11 @@ var obj = {
 };
 
 obj.print();
+
+var printAgain = obj.print;
+
+try{
+    printAgain();
+}catch (e){
+    console.log('This is undefined in strict mode');
+}

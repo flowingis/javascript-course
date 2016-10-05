@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="html lesson">
+    <meta name="keywords" content="html, prometeia, lessons">
+    <meta name="author" content="extrategy">
+    <title>Lezioni Prometeia</title>
+    <style>
+      .text-box{
+        width:300px;
+        border:2px solid green;
+        padding:10px;
+      }
+      .first p{
+        white-space:normal; /* nowrap, pre, pre-wrap. pre-line */
+      }
+      .second p{
+        white-space:nowrap;
+        text-overflow:ellipsis;
+        overflow:hidden;
+      }
+      .third p{
+        word-wrap:break-word;
+      }
+      .fourth{
+        width:60px;
+      }
+      .fourth p{
+        word-break: break-all; /* keep-all */
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>CSS 3 Text Properties</h1>
+    </header>
+    <article>
+      <h2>white-space</h2>
+      <div class="text-box first">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+      </div>
+      <hr />
+      <h2>text-overflow</h2>
+      <div class="text-box second">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+      <hr />
+      <h2>word-wrap</h2>
+      <div class="text-box third">
+        <p>
+          Lorem 10000000090000909090909099000909090909090909090909 dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+      <hr />
+      <h2>word-break</h2>
+      <div class="text-box fourth">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+    </article>
+  </body>
+</html>

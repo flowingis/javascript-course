@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="html lesson">
+    <meta name="keywords" content="html, prometeia, lessons">
+    <meta name="author" content="extrategy">
+    <title>Lezioni Prometeia</title>
+    <style>
+    body{
+      background-color:red;
+    }
+    @media screen and (min-width: 0px) and (max-width: 479px) {
+        body {
+            background-color:yellow;
+        }
+    }
+    @media screen and (min-width: 480px) and (max-width: 1024px) {
+        body {
+            background-color:green;
+        }
+    }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>CSS 3 Mediaquery</h1>
+    </header>
+    <article>
+      <p>content with mediaquery break point</p>
+      <ol>
+        <li>default color: red</li>
+        <li>0px to 479px color: yellow</li>
+        <li>480px to 1024px color: green</li>
+      </ol>
+      <h2>viewport width</h2>
+      <pre>
+        @media screen and (min-width: 0px) and (max-width: 479px) {
+            body {
+                background-color:yellow;
+            }
+        }
+      </pre>
+      <hr />
+      <h2>device height</h2>
+      <pre>
+        @media screen and (max-device-height: 640px) {
+            body {
+                background-color:yellow;
+            }
+        }
+      </pre>
+      <hr />
+      <h2>viewport orientation (mobile)</h2>
+      <pre>
+        @media screen and (orientation: landscape) {
+            body {
+                background-color:red;
+            }
+        }
+      </pre>
+      <hr />
+      <h2>resolution</h2>
+      <pre>
+        @media screen and (min-resolution: 300dpi) {
+            body {
+                background-color:red;
+            }
+        }
+      </pre>
+    </article>
+  </body>
+</html>

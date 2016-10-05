@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="html lesson">
+    <meta name="keywords" content="html, prometeia, lessons">
+    <meta name="author" content="extrategy">
+    <title>Lezioni Prometeia</title>
+    <style>
+      div{
+        width:200px;
+        height:100px;
+        background-color: yellowgreen;
+        border: 1px solid red;
+      }
+      .div1{
+        -webkit-transform: rotateX(-50deg); /* Safari */
+        transform: rotateX(-50deg); /* Standard syntax */
+      }
+      .div2{
+        -webkit-transform: rotateY(50deg); /* Safari */
+        transform: rotateY(50deg); /* Standard syntax */
+      }
+      .div3{
+        -webkit-transform: rotateZ(-175deg); /* Safari */
+        transform: rotateZ(-175deg); /* Standard syntax */
+      }
+      button{
+        border:1px solid #ccc;
+        color:black;
+        background-color:yellow;
+        width:150px;
+        padding:10px;
+        font-size:16px;
+        cursor:pointer;
+      }
+      button:hover{
+        -ms-transform: scale(1.1,1.1); /* IE 9 */
+        -webkit-transform: scale(1.1,1.1); /* Safari */
+        transform: scale(1.1,1.1); /* Standard syntax */
+      }
+      img{
+        border:1px solid grey;
+      }
+      img:hover{
+        -ms-transform: rotate(1deg); /* IE 9 */
+        -webkit-transform: rotate(1deg); /* Safari */
+        transform: rotate(1deg); /* Standard syntax */
+        border:1px solid red;
+        cursor:pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>CSS 3 3D Transform</h1>
+    </header>
+    <article>
+      <h2>Rotate</h2>
+      <div class="div1">
+        Rotate
+      </div>
+      <br /><br />
+      <div class="div2">
+        Rotate
+      </div>
+      <br /><br />
+      <div class="div3">
+        Rotate
+      </div>
+      <hr />
+      <h2>Example</h2>
+      <button>
+        <span>Send</span>
+      </button>
+      <hr />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Mar_campechano.jpg/220px-Mar_campechano.jpg" alt="" />
+    </article>
+  </body>
+</html>

@@ -1,3 +1,5 @@
+"use strict";
+
 var printThis = function (param) {
     console.log(this,param);
 };
@@ -10,18 +12,18 @@ printThis(1);
 console.log('\nCall');
 console.log('................\n');
 
-printThis.call({},2);
+printThis.call({name:'call'},2);
 
 console.log('\nApply');
 console.log('................\n');
 
-printThis.apply({},[3]);
+printThis.apply({name:'apply'},[3]);
 
 console.log('\nBind');
 console.log('................\n');
 
 var newPrint = printThis.bind({
-    foo:'bar'
+    name:'bind'
 },'test');
 
 newPrint();

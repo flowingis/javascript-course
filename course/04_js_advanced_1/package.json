@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "babel": "babel-node",
-    "postinstall": "npm link tower-of-babel"
+    "postinstall": "npm link tower-of-babel && npm link babel-cli"
   },
   "author": "extrategy",
   "license": "ISC",

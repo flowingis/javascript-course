@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "babel":"babel-node"
+    "babel": "babel-node",
+    "postinstall": "npm link tower-of-babel"
   },
   "author": "extrategy",
   "license": "ISC",
   "devDependencies": {
-    "babel-cli": "6.5.1"
+    "babel-cli": "6.5.1",
+    "tower-of-babel": "0.8.0"
   }
 }

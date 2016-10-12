@@ -31,6 +31,9 @@ console.log(mySister.name + " " + mySister.surname);
 console.log(me.name + " " + me.surname);
 
 /*
-    È possibile recuperare il comportamento originario tramite Object.getPrototypeOf
+    È possibile recuperare il comportamento originario tramite Object.getPrototypeOf,
+    oppure passando dalla proprietà constructor
+
  */
 console.log(Object.getPrototypeOf(mySister).surname);
+console.log(mySister.constructor.prototype.surname);

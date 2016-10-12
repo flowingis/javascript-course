@@ -67,7 +67,7 @@ var PersonBuilder = function(){
     };
 };
 
-var me = new Male('Franceco','Strazzullo',30);
+var me = new Male('Francesco','Strazzullo',30);
 var myGirlfriend = new Female('Lucia','Morbidelli',29);
 
 var personBuilder = new PersonBuilder();

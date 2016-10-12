@@ -16,68 +16,28 @@ var pizzaBuilderFactory = function(){
         return pizza;
     };
 
-    var addSauce = function() {
-        invariant(pizza,'No pizza is created, create a pizza with "createNewPizza" method!');
-
-        pizza.sauce = true;
-
-        return builder;
-    };
-
-    var addToppings = function() {
-        var args = Array.prototype.slice.call(arguments);
-
-        invariant(pizza,'No pizza is created, create a pizza with "createNewPizza" method!');
-        invariant(args.length > 0,'No topping is provided');
-
-        for (var i = 0; i < args.length; i++) {
-            pizza.toppings.push(args[i]);
-        }
-
-        return builder;
-    };
-
-    var setDough = function(dough) {
-        invariant(pizza,'No pizza is created, create a pizza with "createNewPizza" method!');
-
-        pizza.dough = dough;
-
-        return builder;
-    };
-
-    var createNewPizza = function() {
-        pizza = {
-            sauce:false,
-            toppings:[],
-            dough:'classic'
-        };
-
-        return builder;
-    };
-
     var builder = {
-        getPizza:getPizza,
-        addSauce:addSauce,
-        addToppings:addToppings,
-        setDough:setDough,
-        createNewPizza:createNewPizza
+        getPizza:getPizza
     };
 
-    return builder;
-};
-
-var margheritaBuilderFactory = function(){
-    var builder = pizzaBuilderFactory();
-
-    builder.createMargherita = function(){
-        builder.createNewPizza().addSauce().addToppings('Mozzarella','Basilico','Olio a crudo');
-        return builder;
-    };
+    /*
+        Aggiungere qui le altre funzioni
+     */
 
     return builder;
 };
 
 var builder = pizzaBuilderFactory();
+
+/*
+    Dovete quindi creare i metodi
+        -createNewPizza: inizializza una nuova pizza per poter iniziare a lavorare
+        -addSauce: aggiunge la salsa (sauce = true) alla pizza
+        -setDough: imposta l'impasto (una stringa). Il valore di default è 'classic'
+        -addToppings: aggiunge uno o più condimenti
+
+    Provate ad utilizzare l'invariant nei metodi per rendere robuto il codice
+ */
 
 var pizza1 = builder.createNewPizza().addSauce().getPizza();
 var pizza2 = builder.createNewPizza().setDough('5 Cereali').getPizza();
@@ -86,6 +46,19 @@ var pizza3 = builder.createNewPizza().addToppings('Mozzarella').addToppings('Sal
 printPizza(pizza1);
 printPizza(pizza2);
 printPizza(pizza3);
+
+/*
+    Creiamo ora un builder con un 'preset' per la margherita
+ */
+var margheritaBuilderFactory = function(){
+    var builder = pizzaBuilderFactory();
+
+    builder.createMargherita = function(){
+        //Do Something...
+    };
+
+    return builder;
+};
 
 var margheritaBuilder = margheritaBuilderFactory();
 

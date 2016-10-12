@@ -1,36 +1,36 @@
-var Person = function(name,surname,age,sex){
+var Person = function(name,surname,age){
     this.name = name;
     this.surname = surname;
     this.age = age;
-    this.sex = sex;
+};
 
-    this.isAdult = function(){
-        return this.age >= 18;
-    };
+Person.prototype.getFullname = function () {
+    return this.name + " " + this.surname;
+};
 
-    this.getFullname = function () {
-        return this.name + " " + this.surname;
-    }
+Person.prototype.isAdult = function () {
+    return this.age >= 18;
 };
 
 var Male = function(name, surname, age){
-    Person.call(this,name, surname, age, 'M');
-
-    var originalGetFullname = this.getFullname.bind(this);
-
-    this.getFullname = function(){
-        return "Mr " + originalGetFullname();
-    };
+    Person.call(this,name, surname, age);
+    this.sex = 'M';
 };
 
 var Female = function(name, surname, age){
-    Person.call(this,name, surname, age, 'F');
+    Person.call(this,name, surname, age);
+    this.sex = 'F';
+};
 
-    var originalGetFullname = this.getFullname.bind(this);
+Male.prototype = Object.create(Person.prototype);
+Female.prototype = Object.create(Person.prototype);
 
-    this.getFullname = function(){
-        return "Ms " + originalGetFullname();
-    };
+Male.prototype.getFullname = function () {
+    return "Mr " + Person.prototype.getFullname.call(this);
+};
+
+Female.prototype.getFullname = function () {
+    return "Ms " + Person.prototype.getFullname.call(this);
 };
 
 var PersonBuilder = function(){

@@ -47,11 +47,6 @@ var femaleFactory = function (name,surname,age) {
     return female;
 };
 
-var Female = function(name, surname, age){
-    Person.call(this,name, surname, age);
-    this.sex = 'F';
-};
-
 var personBuilderFactory = function(){
     var person = false;
 

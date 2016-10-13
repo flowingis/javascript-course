@@ -1,0 +1,15 @@
+{
+  "name": "04_js_advanced_1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "npm link tower-of-babel && npm link babel-cli"
+  },
+  "author": "extrategy",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "6.5.1",
+    "tower-of-babel": "0.8.0"
+  }
+}

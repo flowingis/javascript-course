@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="html lesson">
+    <meta name="keywords" content="html, prometeia, lessons">
+    <meta name="author" content="extrategy">
+    <title>Lezioni Prometeia</title>
+    <style>
+      .box_gradient{
+        height:50px;
+        padding:10px;
+        color:white;
+        font-size:20px;
+        background: #c627a9;
+        background: -moz-linear-gradient(left,  #c627a9 0%, #f4f184 100%);
+        background: -webkit-linear-gradient(left,  #c627a9 0%,#f4f184 100%);
+        background: linear-gradient(to right,  #c627a9 0%,#f4f184 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c627a9', endColorstr='#f4f184',GradientType=1 );
+      }
+      button{
+        border:1px solid #ff701e;
+        border-radius:6px;
+        font-family:Helvetica, Arial, sans-serif;
+        font-size:15px;
+        font-weight:normal;
+        padding:10px;
+        color:#000;
+        background: #ff701e;
+        background: -moz-linear-gradient(top,  #ff701e 0%, #ffa477 100%);
+        background: -webkit-linear-gradient(top,  #ff701e 0%,#ffa477 100%);
+        background: linear-gradient(to bottom,  #ff701e 0%,#ffa477 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff701e', endColorstr='#ffa477',GradientType=0 );
+      }
+      .no_gradient{
+        background: #ff701e;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>CSS 3 Gradients</h1>
+    </header>
+    <article>
+      <div class="box_gradient">
+        Box with gradient
+      </div>
+      <hr />
+      <form>
+        <button type="button">
+          <span>Button with gradient</span>
+        </button>
+        <button type="button" class="no_gradient">
+          <span>Button with gradient</span>
+        </button>
+      </form>
+    </article>
+  </body>
+</html>

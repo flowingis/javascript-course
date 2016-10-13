@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Lezioni Prometeia</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="html lesson">
+    <meta name="keywords" content="html, prometeia, lessons">
+    <meta name="author" content="extrategy">
+    <!-- <meta http-equiv="refresh" content="30"> -->
+    <!-- <base href="http://www.e-xtrategy.net/demo/" target="_blank"> -->
+    <!-- <script>
+      function myAlert() {
+        alert('This is an alert');
+      }
+    </script> -->
+    <style>
+      body {background-color:white;}
+    </style>
+  </head>
+
+  <body>
+    <h1>Block elements</h1>
+    <hr />
+    <div>This is a div</div>
+    <hr />
+    <h1>Heading</h1>
+    <h2>Heading</h2>
+    <h3>Heading</h3>
+    <h4>Heading</h4>
+    <h5>Heading</h5>
+    <h6>Heading</h6>
+    <hr />
+    <p>Paragraph <br />with break </p>
+    <hr />
+    <pre>Pre-formatted text</pre>
+    <hr />
+    <q>short quotation</q>
+    <hr />
+    <blockquote cite="https://support.google.com/mail/answer/56256?hl=it&ref_topic=3394212">
+      long quotation:<br />
+      Creare un account Google è gratis. Puoi utilizzare il nome utente e la password creati per l'account Google e accedere sia a Gmail sia ad altri prodotti Google, come YouTube, Google Play e Google Drive.
+    </blockquote>
+    <hr />
+    <address>
+      Mauro Cappellon<br />
+      Via Dei Paschi, 34/B
+      20100 Milano
+    </address>
+    <hr />
+    <ul>
+      <li>unordered list item 1</li>
+      <li>unordered list item 2</li>
+      <li>unordered list item 3</li>
+    </ul>
+    <hr />
+    <ol>
+      <li>ordered list item 1</li>
+      <li>ordered list item 2</li>
+      <li>ordered list item 3</li>
+    </ol>
+    <hr />
+    <dl>
+      <dt>defined list item 1 title</dt>
+      <dd>defined list item 1 definition</dd>
+      <dt>defined list item 2 title</dt>
+      <dd>defined list item 2 definition</dd>
+      <dt>defined list item 3 title</dt>
+      <dd>defined list item 3 definition</dd>
+    </dl>
+    <hr />
+    <kbd>Keyboard input</kbd>
+    <hr />
+    <samp>
+      extrategy.net/demo log: September 15
+      Update version 4.0.12
+    </samp>
+    <hr />
+    <code>
+      var x = 5;
+      var y = 6;
+      var z = 10;
+    </code>
+    <hr />
+    <var>E</var> = <var>m</var><var>c</var><sup>2</sup>
+    <hr />
+    <table>
+      <caption>Table title</caption>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Cognome</th>
+          <th>Anni</th>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <td colspan="3">Totale: 3</td>
+        </tr>
+      </tfoot>
+      <tbody>
+        <tr>
+          <td>Mario</td>
+          <td>Gennari</td>
+          <td>39</td>
+        </tr>
+        <tr>
+          <td>Franco</td>
+          <td>Puliti</td>
+          <td>22</td>
+        </tr>
+        <tr>
+          <td>David</td>
+          <td>Leskor</td>
+          <td>59</td>
+        </tr>
+        <tr>
+          <td rowspan="2">Mauro</td>
+          <td>Ginetti</td>
+          <td>32</td>
+        </tr>
+        <tr>
+          <td>Pandolfi</td>
+          <td>44</td>
+        </tr>
+      </tbody>
+    </table>
+    <hr />
+    <form action="http://www.google.com/" method="post">
+      <fieldset>
+        <legend>Form dati anagrafici</legend>
+        <label for="name">Nome</label>
+        <input type="text" name="name" id="name" />
+        <label for="cognome">Cognome</label>
+        <input type="text" name="surname" id="cognome" />
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" />
+      </fieldset>
+      <fieldset>
+        <label for="test">Readonly input</label>
+        <input type="text" name="test" id="test" readonly />
+        <label for="test2">Disabled input</label>
+        <input type="text" name="test2" id="test2" disabled />
+        <label for="test3">Input with max length</label>
+        <input type="text" name="test3" id="test3" maxlength="5" />
+      </fieldset>
+      <fieldset>
+        <input type="radio" name="gender" value="male" checked> Male
+        <input type="radio" name="gender" value="female"> Female
+      </fieldset>
+      <fieldset>
+        <textarea name="message" rows="10" cols="30"></textarea>
+      </fieldset>
+      <fieldset>
+        <select>
+          <option value="1">Value 1</option>
+          <option value="2">Value 2</option>
+          <option value="3">Value 3</option>
+        </select>
+      </fieldset>
+      <fieldset>
+        <input type="submit" value="send" />
+        <input type="reset" value="reset" />
+      </fieldset>
+      <fieldset>
+        <button type="button">
+          <span>For sale</span>
+          <strong>Buy now!</strong>
+        </button>
+      </fieldset>
+    </form>
+
+  </body>
+</html>

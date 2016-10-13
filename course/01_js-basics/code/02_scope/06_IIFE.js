@@ -3,10 +3,12 @@ console.log('................\n');
 
 var a = 1;
 
-(function(){
-    var a = 2;
-    console.log(a);
-})();
+if(a > 0){
+    (function(){
+        var a = 2;
+        console.log(a);
+    })();
+}
 
 console.log(a);
 

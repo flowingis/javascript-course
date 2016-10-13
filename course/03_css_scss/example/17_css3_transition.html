@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="html lesson">
+    <meta name="keywords" content="html, prometeia, lessons">
+    <meta name="author" content="extrategy">
+    <title>Lezioni Prometeia</title>
+    <style>
+      .div1{
+        width:100px;
+        height:100px;
+        padding:10px;
+        background:green;
+        color:white;
+        -webkit-transition: all 2s; /* Safari */
+        transition: all 2s;
+        -webkit-transition-timing-function: ease-in-out; /* linear, ease-in, ease-out */
+        transition-timing-function: ease-in-out;
+        -webkit-transition-delay: 1s; /* Safari */
+        transition-delay: 1s;
+      }
+      .div1:hover{
+        width: 300px;
+        -webkit-transform: rotate(180deg); /* Safari */
+        transform: rotate(180deg);
+      }
+      a:link,
+      a:visited{
+        color:red;
+        font-size:20px;
+         -webkit-transition: all 0.5s; /* Safari */
+        transition: all 0.5s;
+        text-decoration:none;
+      }
+      a:hover,
+      a:active{
+        color:black;
+      }
+      button{
+        border:1px solid #ccc;
+        color:black;
+        background-color:yellow;
+        width:150px;
+        padding:10px;
+        font-size:16px;
+        cursor:pointer;
+        -webkit-transition: all 0.3s; /* Safari */
+        transition: all 0.3s;
+        -webkit-transition-timing-function: ease-in-out; /* linear, ease-in, ease-out */
+        transition-timing-function: ease-in-out;
+      }
+      button:hover{
+        -ms-transform: scale(1.1,1.1); /* IE 9 */
+        -webkit-transform: scale(1.1,1.1); /* Safari */
+        transform: scale(1.1,1.1); /* Standard syntax */
+      }
+      img{
+        -webkit-transition: all 0.3s; /* Safari */
+        transition: all 0.3s;
+        -webkit-transition-timing-function: ease-in-out; /* linear, ease-in, ease-out */
+        transition-timing-function: ease-in-out;
+        border:1px solid grey;
+      }
+      img:hover{
+        -ms-transform: rotate(1deg); /* IE 9 */
+        -webkit-transform: rotate(1deg); /* Safari */
+        transform: rotate(1deg); /* Standard syntax */
+        border:1px solid red;
+        cursor:pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>CSS 3 Transition</h1>
+    </header>
+    <article>
+      <div class="div1">
+        transition
+      </div>
+      <hr />
+      <a href="#">text link</a>
+      <hr />
+      <h2>Example</h2>
+      <button>
+        <span>Send</span>
+      </button>
+      <hr />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Mar_campechano.jpg/220px-Mar_campechano.jpg" alt="" />
+    </article>
+  </body>
+</html>

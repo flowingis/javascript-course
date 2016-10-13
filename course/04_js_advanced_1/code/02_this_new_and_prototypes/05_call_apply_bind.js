@@ -9,6 +9,10 @@ console.log('................\n');
 
 printThis(1);
 
+/*
+    Call e Apply permettono cambiare il this durante l'esecuzione. La differenza tra le due è nel modo di pasare i parametri.
+ */
+
 console.log('\nCall');
 console.log('................\n');
 
@@ -19,31 +23,13 @@ console.log('................\n');
 
 printThis.apply({name:'apply'},[3]);
 
+/*
+    A differenza di call e apply, bind crea una copia della funzione originaria con il 'this' fissato
+ */
+
 console.log('\nBind');
 console.log('................\n');
 
-var newPrint = printThis.bind({
-    name:'bind'
-},'test');
+var newPrint = printThis.bind({name:'bind'},'test');
 
 newPrint();
-
-console.log('\nHard Binding');
-console.log('................\n');
-
-var obj = {
-    a:1
-};
-
-var printA = function(){
-    console.log(this.a);
-};
-
-var objPrintA = printA.bind(obj);
-
-var otherObj = {
-    a:2,
-    print:objPrintA
-};
-
-otherObj.print();

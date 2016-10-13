@@ -1,3 +1,6 @@
+/*
+    Lo scopo di questo esercizio è eliminare qualsiasi riferimento a this, new e ai prototypes
+*/
 var Person = function(name,surname,age){
     this.name = name;
     this.surname = surname;

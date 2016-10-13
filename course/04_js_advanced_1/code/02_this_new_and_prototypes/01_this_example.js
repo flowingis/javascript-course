@@ -42,6 +42,11 @@ console.log(count);
 console.log('\nUsing Scope (in an another way)');
 console.log('................\n');
 
+/*
+    Ricordiamoci inoltre che le funcion sono degli object in JavaScript, quindi posso sfruttare il meccanismo di
+    hoisting per aggiungere proprietà alle funzioni. Considerate che questa strada anche se fattibile è generalmente considerata una
+    bad practice
+ */
 var notThisAganinFunction = function(message){
     console.log("not this again " +  message);
 

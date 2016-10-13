@@ -22,6 +22,10 @@ var Female = function(name, surname, age){
     this.sex = 'F';
 };
 
+/*
+    Per creare una sorta di ereditarietà bisogna passare per Object.create. Altrimenti passeremo semplicemente un rifierimento e non
+    una copia.
+ */
 Male.prototype = Object.create(Person.prototype);
 Female.prototype = Object.create(Person.prototype);
 

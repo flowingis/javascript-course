@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>05 event listner</title>
+        <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="../../node_modules/lodash/lodash.min.js"></script>
+        <script type="text/javascript">
+            var printInPage = function(params){
+                var title = params.title.toUpperCase();
+                console.log(title);
+                delete params.title;
+                console.log("--------------------"+title+"--------------------");
+                _.each(params, function(a, key){
+                    console.log(key+"-> ");
+                    console.log(a);
+                });
+                console.log("-------------------/"+title+"--------------------");
+            };
+        </script>
+        <style>
+            div.examples {
+                margin-bottom: 50px;
+                border: 1px solid #000000;
+                text-align: center;
+            }
+            div.examples * {
+                margin: 0px;
+                padding: 0px;
+                border: 0px;
+                width: 100%;
+                display: block;
+            }
+            div.examples *:nth-child(odd){
+                background-color: #00FF00;
+            }
+            div.examples *:nth-child(even){
+                background-color: #FF0000;
+            }
+            h1, h3 {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h1>Event Click</h1>
+        <div class="examples eventClick">
+            <div class="clickableDiv">Clickable DIV</div>
+            <div>Not Clickable DIV</div>
+        </div>
+        <script type="text/javascript">
+            (function(){
+                var clickableDiv = document.querySelector(".clickableDiv");
+
+                clickableDiv.addEventListener("click", function(){
+                    alert("DIV CLICKED");
+                });
+            })();
+        </script>
+
+        <h1>Event Mouse Over</h1>
+        <div class="examples eventMouseOver">
+            <div class="divWithOver" style="height: 100px;">div with over</div>
+        </div>
+        <script type="text/javascript">
+            (function(){
+                var divWithOver = document.querySelector(".divWithOver");
+
+                divWithOver.addEventListener("mouseover", function(){
+                    console.log("Mouse Over");
+                });
+            })();
+        </script>
+
+        <h1>Event Mouse Out</h1>
+        <div class="examples eventMouseOut">
+            <div class="divWithOut" style="height: 100px;">div with out</div>
+        </div>
+        <script type="text/javascript">
+            (function(){
+                var divWithOut = document.querySelector(".divWithOut");
+
+                divWithOut.addEventListener("mouseout", function(){
+                    console.log("Mouse Out");
+                });
+            })();
+        </script>
+
+        <h1>Event add and remove event listener</h1>
+        <div class="addAndRemoveEventListener">
+            <div class="widthHeightOutput">
+                
+            </div>
+            <button class="add">Add resize listener</button>
+            <button class="remove">Remove resize listener</button>
+        </div>
+        <script type="text/javascript">
+            (function(){
+                var addButton = document.querySelector(".addAndRemoveEventListener > .add");
+                var removeButton = document.querySelector(".addAndRemoveEventListener > .remove");
+                var widthHeightOutput = document.querySelector(".addAndRemoveEventListener > .widthHeightOutput");
+                var changing = 0;
+
+
+                var printWindowSize = function(){
+                    changing++;
+                    widthHeightOutput.innerHTML = "width: "+window.innerWidth+"<br />"+"height: "+window.innerHeight+"<br />"+changing;
+                };
+
+                addButton.onclick = function(){
+                    window.addEventListener("resize", printWindowSize);
+                };
+                removeButton.onclick = function(){
+                    window.removeEventListener("resize", printWindowSize);
+                };
+
+            })();
+        </script>
+
+        <h1>Custom event</h1>
+        <div class="customEvent">
+            <input class="myText" type="text">
+            <div class="myTextOutput"></div>
+            <div class="myLog"></div>
+        </div>
+        <script type="text/javascript">
+            (function(){
+                var myCustomEvent = new CustomEvent("isWebURL", { "detail": new Date()});
+
+                var myText = document.querySelector(".customEvent .myText");
+                var myTextOutput = document.querySelector(".customEvent .myTextOutput");
+                var myLog = document.querySelector(".customEvent .myLog");
+
+                var isWebURL = function(val){
+                    return val.match(/www\./g) && (val.match(/www\./g).length === 1) && val.match(/\..{2}/g) && (val.match(/\..{2}/g).length >= 2);
+                };
+
+                myText.addEventListener("input", function(){
+                    if(isWebURL(myText.value)){
+                        myText.dispatchEvent(myCustomEvent);
+                    }
+                    myTextOutput.innerHTML = myText.value;
+                });
+
+                myText.addEventListener("isWebURL", function(e){
+                    myLog.innerHTML += "INSERT: "+myText.value+" AT "+e.detail+"<br />";
+                });
+            })();
+        </script>
+
+    </body>
+</html>

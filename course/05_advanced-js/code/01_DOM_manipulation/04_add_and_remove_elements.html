@@ -139,5 +139,28 @@
             });
 
         </script>
+
+        <h3>Using data from input</h3>
+        <div class="examples usingDataFromInput">
+            <ul>
+                
+            </ul>
+        </div>
+        <button class="addFromInput">ADD</button>
+        <input class="textToPutInLi" type="text" />
+        <script type="text/javascript">
+            (function(){
+                var input = document.querySelector(".textToPutInLi");
+
+                var liTemplate = _.template("<li><%= text %></li>");
+                var ulElement = document.querySelector(".usingDataFromInput > ul");
+                
+                document.querySelector(".addFromInput").onclick = function(){
+                    var text = input.value || "default";
+                    ulElement.innerHTML += liTemplate({ text: text});
+                };
+            })();
+        </script>
+
     </body>
 </html>

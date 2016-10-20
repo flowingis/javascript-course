@@ -21,6 +21,8 @@ var Person = function(name){
     this.print = print;
 
     console.log('Printing inside constructor');
+
+    // Not Bounded!
     print();
 };
 

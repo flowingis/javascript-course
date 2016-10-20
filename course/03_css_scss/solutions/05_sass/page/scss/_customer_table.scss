@@ -1,0 +1,32 @@
+/* customer_table */
+.customer_table{
+  width:100%;
+  border-collapse:collapse;
+  border:1px solid $greytone;
+  thead{
+    th{
+      background-color:$table-bg;
+      font-weight:bold;
+      padding:8px;
+      text-align:left;
+      font-size:20px;
+      border-bottom:1px solid $greytone;
+    }
+  }
+  tbody{
+    td{
+      background-color:$neutral-white;
+      padding:8px;
+      text-align:left;
+      font-size:20px;
+      border-bottom:1px solid $greytone;
+      color:$text2-color;
+    }  
+  }
+  .second_column{
+    text-align:center;
+  }
+  .third_column{
+    text-align:right;
+  }
+}

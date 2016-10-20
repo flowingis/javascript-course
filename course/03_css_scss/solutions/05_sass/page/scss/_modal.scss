@@ -1,0 +1,49 @@
+/* modal */
+.modal{
+  @include border-radius(12px);
+  border:1px solid $greytone;
+  background-color:$modal-bg;
+  width:40%;
+  margin:100px auto;
+  .modal_login_form{
+    padding:20px;
+    fieldset{
+      border:none;
+      text-align:center;
+      legend{
+        font-size:25px;
+        margin-bottom:40px;
+      }
+    }
+    .modal_fields{
+      margin-bottom:30px;
+      input{
+        font-size:25px;
+        border:1px solid $greytone;
+        background-color:white;
+        padding:10px;
+      }
+    }
+    .submit_button{
+      text-align:center;
+      input{
+        @include border-radius(12px);
+        font-size:15px;
+        border:1px solid $greytone;
+        background-color:$secondary-grey;
+        color:$text2-color;
+        padding:10px;
+        width:100px;
+        &:focus{
+          outline:none;
+        }
+      }
+    }
+  }
+  .modal_close{
+    float:right;
+    text-decoration:none;
+    margin:10px 10px 0 0;
+    color:black;
+  }
+}

@@ -10,7 +10,7 @@ class Person {
     }
 
     getFullname(){
-        return `${this.name} ${this.surname}`
+        return `${this.name} ${this.surname}`;
     }
 }
 

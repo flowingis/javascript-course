@@ -2,8 +2,8 @@
 <html>
     <head>
         <title>06 Exam</title>
-        <script src="../../../../node_modules/jquery/dist/jquery.min.js"></script>
-        <script src="../../../../node_modules/lodash/lodash.min.js"></script>
+        <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="../../node_modules/lodash/lodash.min.js"></script>
         <script type="text/javascript">
             var todoList = function(){
                 var todos = [];
@@ -28,11 +28,19 @@
                         }
                     });
                 };
+                
+                var getStatus = function(desc){
+                    var todo = _.find(todos, function(todo){
+                        return todo.text === desc;
+                    });
+                    return todo.done;
+                };
 
                 return {
                     add: add,
                     remove: remove,
-                    changeDoneStatus: changeDoneStatus
+                    changeDoneStatus: changeDoneStatus,
+                    getStatus: getStatus
                 };
             };
 
@@ -41,21 +49,47 @@
             };
 
             var myTodoList = todoList();
+            
 
             var addToList = function(){
-
+                var text = document.getElementById("descNewTodo").value;
+                console.log(text);
+                myTodoList.add(text);
+                var html = "";
+                html += '<div id="'+makeIdFromDescription(text)+'" class="todo">';
+                html += '   <div class="description">'+text+'</div>';
+                html += '   <button onclick="removeFromList(\''+text+'\')">REMOVE</button>';
+                html += '   <span class="doneCheck notDone" onclick="changeStatus(\''+text+'\')">&#9744;</span>';
+                html += '</div>';
+                var myList = document.getElementById("myTodoList");
+                myList.innerHTML += html;
             };
 
             var removeFromList = function(desc){
-
+                myTodoList.remove(desc);
+                document.getElementById(makeIdFromDescription(desc)).remove();
             };
 
             var changeStatus = function(desc){
-
+                myTodoList.changeDoneStatus(desc);
+                var todo = document.getElementById(makeIdFromDescription(desc));
+                var doneCheck = todo.querySelectorAll(".doneCheck")[0];
+                if(myTodoList.getStatus(desc)){
+                    doneCheck.innerHTML = "&#9745;";
+                    doneCheck.classList.remove("notDone");
+                    doneCheck.classList.add("done");
+                }else{
+                    doneCheck.innerHTML = "&#9744;";
+                    doneCheck.classList.remove("done");
+                    doneCheck.classList.add("notDone");
+                }
             };
 
         </script>
         <style type="text/css">
+            .todo {
+                border: 1px solid #000000;
+            }
             .todo:nth-child(odd){
                 background-color: #FFFFFF;
             }
@@ -92,7 +126,7 @@
 
         <div id="myTodoList">
             <!-- This is an examples of todo -->
-            <div class="todo">
+            <!-- <div class="todo">
                 <div class="description">description of fisrt todo</div>
                 <button>REMOVE</button>
                 <span class="doneCheck notDone">&#9744;</span>
@@ -101,7 +135,7 @@
                 <div class="description">description of second todo</div>
                 <button>REMOVE</button>
                 <span class="doneCheck done">&#9745;</span>
-            </div>
+            </div> -->
         </div>
         
     </body>

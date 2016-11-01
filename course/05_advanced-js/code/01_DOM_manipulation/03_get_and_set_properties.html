@@ -179,5 +179,28 @@
                 };
             })();
         </script>
+
+        <h1>PARENT</h1>
+        <div class="parent">
+            <div style="width: 100%; text-align: center;" title="Parent" class="divParent">
+                this is parent
+                <div style="color: #FFFFFF; background-color: #000000" title="Child" class="divChild">this is child</div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            (function(){
+                var parent = document.querySelectorAll(".divChild")[0].parentElement;
+                var jQueryParent = $($(".divChild")[0]).parent();
+                
+                var parentTitle = parent.title;
+                var jQueryParentTitle = jQueryParent[0].title;
+
+                printInPage({
+                    title:"parent",
+                    parentTitle: parentTitle,
+                    jQueryParentTitle: jQueryParentTitle
+                });
+            })();
+        </script>
     </body>
 </html>

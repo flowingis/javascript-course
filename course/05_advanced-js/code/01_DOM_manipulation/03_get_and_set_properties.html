@@ -93,11 +93,11 @@
             (function(){
                 var span = document.querySelectorAll(".customAttributes > span")[0];
                 var spanAttribute = span.getAttribute("data-myCustomAttribute");
-                var spanAttributeWithDash = span["data-myCustomAttribute"];
-                var spanAttributeWithCamelCase = span.dataMyCustomAttribute;
+                var spanAttributeWithDash = span["data-myCustomAttribute"]; //this doesn't work
+                var spanAttributeWithCamelCase = span.dataMyCustomAttribute; //this doesn't work
 
                 var jQuerySpan = $(".customAttributes > span")[0];
-                var jQuerySpanAttributeProp = $(jQuerySpan).prop("data-myCustomAttribute");
+                var jQuerySpanAttributeProp = $(jQuerySpan).prop("data-myCustomAttribute"); //this doesn't work
                 var jQuerySpanAttributeAttr = $(jQuerySpan).attr("data-myCustomAttribute");
                 var jQuerySpanAttributeData = $(jQuerySpan).data("mycustomattribute");
 

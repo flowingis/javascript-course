@@ -169,12 +169,12 @@
                 var divToModify = document.querySelector(".modifyClass > div");
 
                 document.querySelector(".showButton").onclick = function(){
-                    divToModify.className = divToModify.className.replace(/hideClass/,'');
+                    divToModify.classList.remove("hideClass");
                     divToModify.classList.add("showClass");
                 };
 
                 document.querySelector(".hideButton").onclick = function(){
-                    divToModify.className = divToModify.className.replace(/showClass/,'');
+                    divToModify.classList.remove("showClass");
                     divToModify.classList.add("hideClass");
                 };
             })();

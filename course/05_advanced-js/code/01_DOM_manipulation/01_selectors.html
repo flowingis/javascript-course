@@ -117,9 +117,9 @@
             <span role="myCustomRole">my span with role</span>
         </div>
         <script type="text/javascript">
-            var spanWithRole = document.querySelectorAll("span[role='myCustomRole']");
+            var spanWithRole = document.querySelectorAll("[role='myCustomRole']");
             
-            var jQuerySpanWithRole = $("span[role='myCustomRole']");
+            var jQuerySpanWithRole = $("[role='myCustomRole']");
 
             printInPage({
                 title:"role",

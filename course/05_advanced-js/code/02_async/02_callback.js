@@ -1,11 +1,11 @@
 "use strict"
 
-const val = {
+let val = {
     sync_value: "foo",
     async_value: "bar"
 };
 
-const val2 = {
+let val2 = {
     sync_value: "foo",
     async_value: "bar"
 };
@@ -18,6 +18,7 @@ let put_async_value = function(val, callback){
     }, 1000);
 };
 
+// without callback only sync value is changed when we print it
 // <without callback>
 put_async_value(val);
 
@@ -27,6 +28,7 @@ console.log(val.async_value);
 console.log("/AFTER CALL \n");
 // </without callback>
 
+// without callback but with delay we can see both value changed
 // <without callback after delay>
 setTimeout(function(){
     console.log("2 SECONDS AFTER CALL")
@@ -36,6 +38,7 @@ setTimeout(function(){
 }, 2000);
 // </without callback after delay>
 
+// with call back we can print both value when we are sure they are both changed
 // <with callback>
 put_async_value(val2, function(){
     console.log("IN CALLBACK");

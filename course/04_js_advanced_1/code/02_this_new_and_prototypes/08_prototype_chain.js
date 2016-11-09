@@ -11,7 +11,7 @@ console.log(Person.prototype.toString === Object.prototype.toString);
 console.log(Person.prototype.hasOwnProperty === Object.prototype.hasOwnProperty);
 
 /*
-    Notate però che i due prototype sono una la copia dell'altro e non la stessa istanza
+    Notate però che i due prototype sono una la copia dell'altro e non la stessa istanza, perché i prototype vengono generati per copia
  */
 
 console.log(Person.prototype === Object.prototype);

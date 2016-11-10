@@ -91,7 +91,7 @@
         </div>
         <script type="text/javascript">
             (function(){
-                var span = document.querySelectorAll(".customAttributes > span")[0];
+                var span = document.querySelector(".customAttributes > span");
                 var spanAttribute = span.getAttribute("data-myCustomAttribute");
                 var spanAttributeWithDash = span["data-myCustomAttribute"]; //this doesn't work
                 var spanAttributeWithCamelCase = span.dataMyCustomAttribute; //this doesn't work
@@ -123,7 +123,7 @@
         <button class="resetWidth">RESET WIDTH</button>
         <script type="text/javascript">
             (function(){
-                var p = document.querySelectorAll(".property > p")[0];
+                var p = document.querySelector(".property > p");
                 var pWidth = p.offsetWidth;
 
                 var jQueryP = $(".property > p")[0];

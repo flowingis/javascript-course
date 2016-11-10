@@ -19,7 +19,6 @@ var increaseVal2ByValueWithCallback = function(counter, val, callback){
     }, 1500);
 };
 
-
 var getCounterPlusValue = function(counter, value){
     return new Promise(function(resolve, reject){
         setTimeout(function(){

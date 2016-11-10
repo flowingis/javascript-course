@@ -56,13 +56,24 @@
         <script type="text/javascript">
             (function(){
                 document.querySelector(".removeLi").onclick = function(){
-                    document.querySelector(".removeElement").querySelectorAll("li")[0].remove();
-                    // Alternative
-                    // document.querySelectorAll(".removeElement > ul > li")[0].remove();
+                    var elementToRemove = document.querySelector(".removeElement").querySelector("li");
+                    // Alternatives
+                    // var elementToRemove = document.querySelector(".removeElement > ul > li");
+                    // var elementToRemove = document.querySelector(".removeElement li");
+                    if(elementToRemove){
+                        elementToRemove.remove();
+                    }else{
+                        console.log("No element to remove left");
+                    }
                 };
 
                 $(".jQueryRemoveLi").click(function(){
-                    $($(".removeElement").find("li")[0]).remove();
+                    var elementToRemove = $(".removeElement").find("li")[0];
+                    if(elementToRemove){
+                        $(elementToRemove).remove();
+                    }else{
+                        console.log("No element to remove with jQuery left");   
+                    }
                 });
             })();
         </script>
@@ -70,8 +81,8 @@
         <h1>CREATE &amp; ADD ELEMENTS</h1>
         <h3>Using insertAdjacentHTML</h3>
         <div class="examples usingInsertAdjacentHTML">
-            <ul>
-                
+            <ul style="border: 3px solid #00FF00">
+                <li>li already in</li>
             </ul>
         </div>
         <script type="text/javascript">

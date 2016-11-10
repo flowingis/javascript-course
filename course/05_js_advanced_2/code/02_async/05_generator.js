@@ -1,6 +1,5 @@
 "use strict"
 
-
 var infiniteSequentialUnitGenerator = function* (){
     var counter = 0
     while(true){

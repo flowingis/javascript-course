@@ -50,24 +50,30 @@
             <div class="bar">baz div</div>
             <span class="baz">baz span</span>
             <div class="baz">baz div</div>
+            <div>
+                <div class="foo">deep foo div</div>
+            </div>
         </div>
         <script type="text/javascript">
-            var spanFooNested = document.querySelectorAll(".nesting > span.foo");
-            var spanBarNested = document.querySelectorAll(".nesting > span.bar");
-            var spanBazNested = document.querySelectorAll(".nesting > span.baz");
+            var fooNested = document.querySelectorAll(".nesting > .foo");
+            var barNested = document.querySelectorAll(".nesting > .bar");
+            var bazNested = document.querySelectorAll(".nesting > .baz");
+            var deepFooNested = document.querySelectorAll(".nesting .foo");
 
-            var jQuerySpanFooNested = $(".nesting > span.foo");
-            var jQuerySpanBarNested = $(".nesting > span.bar");
-            var jQuerySpanBazNested = $(".nesting > span.baz");
+            var jQueryFooNested = $(".nesting > .foo");
+            var jQueryBarNested = $(".nesting > .bar");
+            var jQueryBazNested = $(".nesting > .baz");
+
 
             printInPage({
                 title:"nesting",
-                spanFooNested: spanFooNested,
-                spanBarNested: spanBarNested,
-                spanBazNested: spanBazNested,
-                jQuerySpanFooNested: jQuerySpanFooNested.get(),
-                jQuerySpanBarNested: jQuerySpanBarNested.get(),
-                jQuerySpanBazNested: jQuerySpanBazNested.get()
+                fooNested: fooNested,
+                deepFooNested: deepFooNested,
+                barNested: barNested,
+                bazNested: bazNested,
+                jQueryFooNested: jQueryFooNested.get(),
+                jQueryBarNested: jQueryBarNested.get(),
+                jQueryBazNested: jQueryBazNested.get()
             });
         </script>
         

@@ -36,7 +36,11 @@ server.post('/kebab', function(req, res){
     /*
         Una volta installato il body parser, possiamo leggere il valore dalla request
      */
-    res.send(_.kebabCase(req.body));
+    if(!req.body){
+        res.status(400).send();
+    }else{
+        res.status(200).send(_.kebabCase(req.body));
+    }
 });
 
 

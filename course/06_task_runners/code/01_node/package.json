@@ -1,0 +1,11 @@
+{
+  "name": "js-course-lesson-06-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "extrategy",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.2"
+  }
+}

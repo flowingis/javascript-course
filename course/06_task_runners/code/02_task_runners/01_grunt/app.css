@@ -10,6 +10,11 @@ form {
     width: 500px;
 }
 
+li {
+    position: relative;
+}
+
 a.close {
-    float: right;
+    position: absolute;
+    right: 0;
 }

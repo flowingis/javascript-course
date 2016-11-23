@@ -1,0 +1,20 @@
+form {
+    display: inline-block;
+}
+.form-group {
+    text-align: center;
+    padding-bottom: 25px;
+}
+#todo {
+    margin: 0 auto;
+    width: 500px;
+}
+
+li {
+    position: relative;
+}
+
+a.close {
+    position: absolute;
+    right: 0;
+}

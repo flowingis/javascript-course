@@ -34,3 +34,4 @@ node_modules
 .idea
 course/06_task_runners/code/02_task_runners/01_grunt/build
 course/06_task_runners/code/02_task_runners/02-gulp/build
+course/06_task_runners/code/02_task_runners/03_webpack/build

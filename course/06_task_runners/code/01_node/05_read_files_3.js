@@ -6,13 +6,25 @@ var process = require('process');
 
 var startPath = process.argv[2] || os.tmpdir();
 
-var readDir = function (startPath,callback) {
+var readDirectoryContent = function (startPath, callback) {
 
     var tree = [];
+
+    /*
+        Inizializzamo la callback a noop per evitare errori
+     */
     callback = callback || _.noop;
 
+
+    /*
+        Questa è la nostra funzione di stop, ogni volta che aggiungiamo
+        un elemento, controlliamo se abbiamo riempito l'array. Notate che
+        nella nostra implementazione conosciamo prima la lunghezza dell'array
+        e poi il suo contenuto
+     */
     var addToTree = function (element,desiredLength) {
       tree.push(element);
+
       if(tree.length === desiredLength){
           callback(tree);
       }
@@ -44,8 +56,13 @@ var readDir = function (startPath,callback) {
                     type:isDirectory ? 'directory' : 'file'
                 };
 
+                /*
+                    Quando è una directory chiamo l'addToTree come callback
+                    della funzione interna
+                 */
+
                 if(isDirectory){
-                    readDir(currentPath, function(innerTree){
+                    readDirectoryContent(currentPath, function(innerTree){
                         fileData.content = innerTree;
                         addToTree(fileData,length);
                     });
@@ -57,7 +74,7 @@ var readDir = function (startPath,callback) {
     });
 };
 
-readDir(startPath,function(tree){
+readDirectoryContent(startPath,function(tree){
     console.log(JSON.stringify(tree,undefined,2));
 });
 

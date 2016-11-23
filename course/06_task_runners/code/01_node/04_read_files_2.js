@@ -15,6 +15,7 @@ var process = require('process');
     - F file2.txt
     - D directory2
     -- F file3.mp3
+    F file4.zip
  */
 var readDirectoryContent = function (startPath, level) {
     fs.readdir(startPath,function(err,data){

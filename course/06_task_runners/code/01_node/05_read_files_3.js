@@ -4,8 +4,6 @@ var _ = require('lodash');
 var path = require('path');
 var process = require('process');
 
-var startPath = process.argv[2] || os.tmpdir();
-
 var readDirectoryContent = function (startPath, callback) {
 
     var tree = [];
@@ -73,6 +71,8 @@ var readDirectoryContent = function (startPath, callback) {
         });
     });
 };
+
+var startPath = process.argv[2] || os.tmpdir();
 
 readDirectoryContent(startPath,function(tree){
     console.log(JSON.stringify(tree,undefined,2));

@@ -1,17 +1,25 @@
 var os = require('os');
-var express = require('express');
-var bodyParser = require('body-parser');
 var _ = require('lodash');
+// Express is a minimal and flexible Node.js web application framework that provides 
+// a robust set of features for web and mobile applications.
+// http://expressjs.com/
+var express = require('express');
+// body-parser extract the entire body portion of an incoming request stream and exposes it on req.body 
+// as something easier to interface with
+// https://www.npmjs.com/package/body-parser
+var bodyParser = require('body-parser');
 
 /*
-    Creiamo un'isntanza di server semplicemente inizializzando express
+    Creiamo un'istanza di server semplicemente inizializzando express
  */
 var server = express();
 
 /*
     Aggiungiamo un body parser per leggere i dati dalle post
  */
-server.use(bodyParser.text());
+
+// var jsonParser = bodyParser.json()
+var textParser = bodyParser.text();
 
 /*
     Tramite i metodi get, post, delete, etc possiamo definire le rotte alla quali il nostro server risponde
@@ -27,12 +35,12 @@ server.get('/status', function(req, res) {
         Notate che la chiamata rimane pending finché non viene invocato res.send
      */
     setTimeout(function () {
-        res.send(status)
+        res.send(status);
     },1000);
 
 });
 
-server.post('/kebab', function(req, res){
+server.post('/kebab', textParser, function(req, res){
     /*
         Una volta installato il body parser, possiamo leggere il valore dalla request
      */

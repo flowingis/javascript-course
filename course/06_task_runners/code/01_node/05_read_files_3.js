@@ -2,7 +2,6 @@ var fs = require('fs');
 var os = require('os');
 var _ = require('lodash');
 var path = require('path');
-var process = require('process');
 
 var readDirectoryContent = function (startPath, callback) {
 

@@ -1,8 +1,9 @@
 var fs = require('fs');
 var os = require('os');
 var _ = require('lodash');
+// The path module provides utilities for working with file and directory paths
+// https://nodejs.org/api/path.html
 var path = require('path');
-var process = require('process');
 
 /*
     Complichiamo un po' le cose, se il path che analizziamo è una directory ne stampiamo il contenuto.

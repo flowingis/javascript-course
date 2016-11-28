@@ -7,7 +7,7 @@ var _ = require('lodash');
 
 var server = express();
 
-server.use(bodyParser.text());
+var textParser = bodyParser.text();
 
 var readDirectoryContent = function (startPath, callback) {
 
@@ -62,7 +62,7 @@ var readDirectoryContent = function (startPath, callback) {
 };
 
 
-server.post('/listing', function(req, res){
+server.post('/listing', textParser, function(req, res){
     var startPath = req.body || os.tmpdir();
     readDirectoryContent(startPath,function(err, tree){
         if(err){

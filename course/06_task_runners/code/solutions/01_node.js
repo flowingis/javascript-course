@@ -7,7 +7,7 @@ var _ = require('lodash');
 
 var server = express();
 
-var textParser = bodyParser.text();
+var bodyParser = bodyParser.text();
 
 var readDirectoryContent = function (startPath, callback) {
 
@@ -17,7 +17,9 @@ var readDirectoryContent = function (startPath, callback) {
 
 
     var addToTree = function (element,desiredLength) {
-        tree.push(element);
+        if (element) {
+            tree.push(element);
+        }
 
         if(tree.length === desiredLength){
             callback(undefined, tree);
@@ -30,6 +32,10 @@ var readDirectoryContent = function (startPath, callback) {
         }else{
             var length = data.length;
 
+            if (length === 0) {
+                addToTree(null,0);
+            }
+            
             _.each(data,function(innerPath, index){
                 var currentPath = path.join(startPath,innerPath);
 
@@ -47,7 +53,7 @@ var readDirectoryContent = function (startPath, callback) {
                         };
 
                         if(isDirectory){
-                            readDirectoryContent(currentPath, function(innerTree){
+                            readDirectoryContent(currentPath, function(err, innerTree){
                                 fileData.content = innerTree;
                                 addToTree(fileData,length);
                             });
@@ -62,7 +68,7 @@ var readDirectoryContent = function (startPath, callback) {
 };
 
 
-server.post('/listing', textParser, function(req, res){
+server.post('/listing', bodyParser, function(req, res){
     var startPath = req.body || os.tmpdir();
     readDirectoryContent(startPath,function(err, tree){
         if(err){

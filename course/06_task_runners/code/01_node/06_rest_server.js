@@ -18,8 +18,8 @@ var server = express();
 Aggiungiamo un body parser per leggere i dati dalle post
 */
 
-// var jsonParser = bodyParser.json()
-var textParser = bodyParser.text();
+// var bodyParser = bodyParser.json()
+var bodyParser = bodyParser.text();
 
 /*
 Tramite i metodi get, post, delete, etc possiamo definire le rotte alla quali il nostro server risponde
@@ -40,7 +40,7 @@ server.get('/status', function(req, res) {
     
 });
 
-server.post('/kebab', textParser, function(req, res){
+server.post('/kebab', bodyParser, function(req, res){
     /*
     Una volta installato il body parser, possiamo leggere il valore dalla request
     */

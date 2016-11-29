@@ -8,7 +8,7 @@
   "scripts": {
     "build": "gulp build",
     "prestart": "npm install",
-    "start": "gulp connect"
+    "start": "gulp"
   },
   "dependencies": {
     "bootstrap": "^3.3.7",

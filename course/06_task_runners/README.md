@@ -15,3 +15,5 @@ task runner
 - utilizzo del pacchetto importato con uno script gulp
 
 yarn
+https://blog.madewithenvy.com/getting-started-with-webpack-2-ed2b86c68783#.j0b8gdhbm
+https://medium.freecodecamp.com/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#.bvyh8za9a

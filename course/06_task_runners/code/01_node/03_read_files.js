@@ -9,12 +9,14 @@ var os = require('os');
     devono essere asincrone. Il pattern utilizzato dalla community node è una callback in cui il primo parametro
     è sempre l'eventuale errore.
  */
-fs.readdir(os.tmpdir(),function(err,data){
-   if(err){
-       console.log('error in reading directory ' + os.tmpdir());
+ 
+var directory = os.tmpdir();
+ 
+fs.readdir(directory, function (err, data) {
+   if (err) {
+       console.log('error in reading directory ' + directory);
        console.log(err);
        process.exit();
    }
-
    console.log(data);
 });

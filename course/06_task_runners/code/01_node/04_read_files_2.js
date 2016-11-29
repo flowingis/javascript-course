@@ -67,7 +67,7 @@ var readDirectoryContent = function (startPath, level) {
  */
 
 var startPath = process.argv[2] || os.tmpdir();
-var level = 0;
+var level = 1;
 
 readDirectoryContent(startPath,level);
 

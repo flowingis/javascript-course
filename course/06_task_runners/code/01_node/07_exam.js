@@ -11,7 +11,7 @@ var bodyParser = bodyParser.text();
 
 /*
     Lo scopo è creare un server rest con una rotta che ritorni
-    l'albero della directory passata nel body sotto forma di json
+    l'albero della directory passata nel body
  */
 server.post('/listing', bodyParser, function(req, res){
     var startPath = req.body || os.tmpdir()

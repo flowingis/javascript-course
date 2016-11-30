@@ -1,2 +1,2 @@
-curl -H "Content-Type: text/plain" -X POST -d "daniele luconi extrategy" http://127.0.0.1:3000/kebab
-curl -H "Content-Type: application/json" -X POST -d '{"stringa": "daniele luconi extrategy"}' http://127.0.0.1:3000/kebab
+curl -v -H "Content-Type: text/plain" -X POST -d "daniele luconi extrategy" http://127.0.0.1:3000/kebab
+curl -v -H "Content-Type: application/json" -X POST -d '{"stringa": "daniele luconi extrategy"}' http://127.0.0.1:3000/kebab

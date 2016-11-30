@@ -43,7 +43,7 @@ var readDirectoryContent = function (startPath, callback) {
 
                 fs.lstat(currentPath ,function (err,stats) {
                     if(err){
-                        callback('error in reading directory ' + startPath);
+                        callback('error in lsstat ' + currentPath);
                     }else{
                         var isDirectory = stats.isDirectory();
 
@@ -54,8 +54,12 @@ var readDirectoryContent = function (startPath, callback) {
 
                         if(isDirectory){
                             readDirectoryContent(currentPath, function(err, innerTree){
-                                fileData.content = innerTree;
-                                addToTree(fileData,length);
+                                if (err) {
+                                    callback('errore');
+                                } else {
+                                    fileData.content = innerTree;
+                                    addToTree(fileData,length);
+                                }
                             });
                         }else{
                             addToTree(fileData,length);

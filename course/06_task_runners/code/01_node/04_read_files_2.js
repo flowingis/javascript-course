@@ -6,7 +6,7 @@ var _ = require('lodash');
 var path = require('path');
 
 /*
-    Complichiamo un po' le cose, se il path che analizziamo è una directory ne stampiamo il contenuto.
+    Complichiamo un po' le cose, se il path che analizziamo è una directory ne stampiamo il contenuto ricorsivamente.
     Per farlo usiamo questa funzione ricorsiva.
 
     L'output che vogliamo ottenere è qualcosa del tipo

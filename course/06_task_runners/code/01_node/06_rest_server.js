@@ -26,7 +26,7 @@ Tramite i metodi get, post, delete, etc possiamo definire le rotte alla quali il
 */
 server.get('/status', function(req, res) {
     var status = {
-        platform:os.platform(),
+        platform: os.platform(),
         uptime: os.uptime(),
         username:  os.userInfo().username
     };

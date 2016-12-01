@@ -16,9 +16,12 @@
   },
   "devDependencies": {
     "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.13",
     "gulp-clean-dest": "^0.1.1",
     "gulp-cli": "^1.2.2",
     "gulp-connect": "^5.0.0",
+    "gulp-if": "^2.0.2",
+    "gulp-uglify": "^2.0.0",
     "gulp-useref": "^3.1.2"
   }
 }

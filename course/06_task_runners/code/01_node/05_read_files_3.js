@@ -3,15 +3,9 @@ var os = require('os');
 var _ = require('lodash');
 var path = require('path');
 
-var readDirectoryContent = function (startPath, callback) {
+var readDirectoryContent = function (startPath) {
     
     var tree = [];
-    
-    /*
-    Inizializzamo la callback a noop per evitare errori
-    */
-    callback = callback || _.noop;
-    
     
     /*
     Questa è la nostra funzione di stop, ogni volta che aggiungiamo
@@ -23,57 +17,43 @@ var readDirectoryContent = function (startPath, callback) {
         tree.push(element);
         
         if(tree.length === desiredLength){
-            callback(tree);
+            return tree;
         }
     };
     
-    fs.readdir(startPath,function(err,data){
-        if(err){
-            console.log('error in reading directory ' + startPath);
-            process.exit();
+    var data = fs.readdirSync(startPath);
+    
+    var length = data.length;
+    
+    _.each(data,function(innerPath){
+        var currentPath = path.join(startPath,innerPath);
+        
+        console.log('reading ' + currentPath);
+        
+        var stats = fs.lstatSync(currentPath);
+
+        var isDirectory = stats.isDirectory();
+        
+        var fileData = {
+            path:innerPath,
+            type:isDirectory ? 'directory' : 'file'
+        };
+        
+        if(isDirectory){
+            var innerTree = readDirectoryContent(currentPath);
+            fileData.content = innerTree;
+            addToTree(fileData,length);
+        }else{
+            addToTree(fileData,length);
         }
-        
-        var length = data.length;
-        
-        _.each(data,function(innerPath){
-            var currentPath = path.join(startPath,innerPath);
-            
-            console.log('reading ' + currentPath);
-            
-            fs.lstat(currentPath, function (err,stats) {
-                if(err){
-                    console.log('error in reading stats ' + innerPath);
-                    process.exit();
-                }
-                
-                var isDirectory = stats.isDirectory();
-                
-                var fileData = {
-                    path:innerPath,
-                    type:isDirectory ? 'directory' : 'file'
-                };
-                
-                /*
-                Quando è una directory chiamo l'addToTree come callback
-                della funzione interna
-                */
-                
-                if(isDirectory){
-                    readDirectoryContent(currentPath, function(innerTree){
-                        fileData.content = innerTree;
-                        addToTree(fileData,length);
-                    });
-                }else{
-                    addToTree(fileData,length);
-                }
-            });
-        });
     });
+    
+    return tree;
 };
 
 var startPath = process.argv[2] || os.tmpdir();
 
-readDirectoryContent(startPath,function(tree){
-    console.log(JSON.stringify(tree,undefined,2));
-});
+var tree = readDirectoryContent(startPath);
+
+console.log(JSON.stringify(tree,undefined,2));
 

@@ -17,6 +17,11 @@
     * Dependency Injection in JavaScript  
 * Esercizio Kata da analizzare e scrivere insieme (a turni?) 
 
+# Katas
+
+* [Anagrams](http://codekata.com/kata/kata06-anagrams/)
+* [Word Chains](http://codekata.com/kata/kata19-word-chains/) 
+
 # Bonus
 
 * User stories

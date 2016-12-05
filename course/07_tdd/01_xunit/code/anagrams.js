@@ -2,10 +2,10 @@ const fs = require('fs');
 const path = require('path');
 const _ = require('lodash');
 
-const findCombinations = (word) => {
+const findPermutations = (word) => {
     const words = [];
 
-    const executeFindCombinations = (prefix, str) => {
+    const executeFindPermutations = (prefix, str) => {
         if (str.length === 1) {
             words.push(prefix + str);
         } else {
@@ -13,12 +13,12 @@ const findCombinations = (word) => {
 
             chars.forEach(function(char, index) {
                 const stringWithoutChar = str.substring(0, index) + str.substring(index + 1);
-                executeFindCombinations(prefix + char, stringWithoutChar);
+                executeFindPermutations(prefix + char, stringWithoutChar);
             });
         }
     };
 
-    executeFindCombinations('', word);
+    executeFindPermutations('', word);
 
     return words;
 };
@@ -54,9 +54,9 @@ module.exports = (phrase, opts = {}) => {
     const toReturn = {};
 
     words.forEach(word => {
-        const combinations = findCombinations(word);
+        const permutations = findPermutations(word);
 
-        let validCombinations = combinations.filter(combination => {
+        let validPermutations = permutations.filter(combination => {
             let isValid = dictionary.includes(combination) && word !== combination;
 
             if(isValid && opts.blacklist){
@@ -66,15 +66,15 @@ module.exports = (phrase, opts = {}) => {
             return isValid;
         });
 
-        if(validCombinations.length){
+        if(validPermutations.length){
 
-            if(validCombinations.length > 1){
-                validCombinations = _.uniq(validCombinations);
+            if(validPermutations.length > 1){
+                validPermutations = _.uniq(validPermutations);
             }
 
 
-            validCombinations.sort();
-            toReturn[word] = validCombinations;
+            validPermutations.sort();
+            toReturn[word] = validPermutations;
         }
     });
 

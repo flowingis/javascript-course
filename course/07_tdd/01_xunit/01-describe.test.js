@@ -6,6 +6,8 @@
             inner again
                 second
 
+    si può inoltre utilizzare il comando 'only' per forzare l'esecuzione di un solo test/suite
+
  */
 describe('outer', () => {
     describe('inner', () => {

@@ -28,13 +28,20 @@ module.exports = (phrase, opts = {}) => {
         throw new Error('please provide a phrase')
     }
 
-    if(typeof phrase !== 'string'){
-        throw new Error('please provide a string')
+    let words;
+
+    if(_.isArray(phrase)){
+        words = phrase;
+    }else{
+        if(typeof phrase !== 'string'){
+            throw new Error('please provide a string')
+        }
+
+        words = phrase.split(opts.separator || " ");
     }
 
-    const dictionary = JSON.parse(fs.readFileSync(path.join(__dirname,'..','..','words.json')));
 
-    let words = phrase.split(opts.separator || " ");
+    const dictionary = JSON.parse(fs.readFileSync(path.join(__dirname,'..','..','words.json')));
 
     if(opts.minLength){
        words = words.filter(word => word.length >= opts.minLength);

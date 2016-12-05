@@ -1,0 +1,9 @@
+{
+  "name": "07_tdd",
+  "version": "1.0.0",
+  "author": "extrategy",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^17.0.3"
+  }
+}

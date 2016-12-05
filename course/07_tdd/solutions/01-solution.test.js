@@ -1,4 +1,4 @@
-const anagrams = require('./code/anagrams');
+const anagrams = require('./../01_xunit/code/anagrams');
 
 describe('anagrams', () => {
     it('should find all the valid anagrams of a word', () => {

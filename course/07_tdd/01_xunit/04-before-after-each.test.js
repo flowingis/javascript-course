@@ -28,6 +28,12 @@ describe('divide', () => {
         let done;
         let originalDoDivide;
 
+        /*
+            In questo caso vogliamo essere sicuri che
+            la funzione doDivide venga invocata.
+            Per fare ciò sostituiamo il suo riferimento a runtime per poi rimetterla a posto.
+            Stiamo facendo quello che si chiama un mock
+         */
         beforeEach(() => {
             originalDoDivide = doDivide;
             doDivide = (a,b) => {

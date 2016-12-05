@@ -95,4 +95,11 @@ describe('anagrams', () => {
 
         expect(result).toEqual(result1);
     });
+
+    it('should manage an array as input', () => {
+        const result = anagrams(['party','day']);
+        const result1 = anagrams('party day');
+
+        expect(result).toEqual(result1);
+    });
 });

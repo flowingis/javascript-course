@@ -23,7 +23,6 @@ const findCombinations = (word) => {
     return words;
 };
 
-
 module.exports = (phrase, opts = {}) => {
     if(!phrase){
         throw new Error('please provide a phrase')
@@ -35,10 +34,14 @@ module.exports = (phrase, opts = {}) => {
 
     const dictionary = JSON.parse(fs.readFileSync(path.join(__dirname,'..','..','words.json')));
 
-    let words = phrase.split(" ");
+    let words = phrase.split(opts.separator || " ");
 
     if(opts.minLength){
        words = words.filter(word => word.length >= opts.minLength);
+    }
+
+    if(opts.maxLength){
+        words = words.filter(word => word.length <= opts.maxLength);
     }
 
     const toReturn = {};

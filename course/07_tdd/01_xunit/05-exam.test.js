@@ -46,6 +46,17 @@ describe('anagrams', () => {
         expect(result).toEqual(EXPECTATION);
     });
 
+    it('should exclude all the words with a length smaller than maxLenght opt', () => {
+        const result = anagrams('the right side', {maxLength:4});
+
+        const EXPECTATION = {
+            the:['eth','het'],
+            side:['dies','ides']
+        };
+
+        expect(result).toEqual(EXPECTATION);
+    });
+
     it('should exclude all the words with no valid anagrams', () => {
         const result = anagrams('catch a ride');
 
@@ -76,5 +87,12 @@ describe('anagrams', () => {
         };
 
         expect(result).toEqual(EXPECTATION);
+    });
+
+    it('should manage a different separator than " "', () => {
+        const result = anagrams('party-day', {separator:"-"});
+        const result1 = anagrams('party day');
+
+        expect(result).toEqual(result1);
     });
 });

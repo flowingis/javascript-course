@@ -4,7 +4,8 @@
   "author": "extrategy",
   "license": "ISC",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test-watch": "jest --watch"
   },
   "devDependencies": {
     "jest": "^17.0.3"

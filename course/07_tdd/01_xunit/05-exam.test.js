@@ -55,4 +55,26 @@ describe('anagrams', () => {
 
         expect(result).toEqual(EXPECTATION);
     });
+
+    it('should contain only unique values', () => {
+        const result = anagrams('doom');
+
+        const EXPECTATION = {
+            doom:['mood']
+        };
+
+        expect(result).toEqual(EXPECTATION);
+    });
+
+    it('should exclude all the blacklist anagrams', () => {
+        const result = anagrams('this is sparta', {blacklist:['shit']});
+
+        const EXPECTATION = {
+            is:['si'],
+            sparta:['satrap'],
+            'this':['hist','hits','sith']
+        };
+
+        expect(result).toEqual(EXPECTATION);
+    });
 });

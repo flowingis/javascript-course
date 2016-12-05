@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const _ = require('lodash');
 
 const findCombinations = (word) => {
     const words = [];
@@ -45,9 +46,23 @@ module.exports = (phrase, opts = {}) => {
     words.forEach(word => {
         const combinations = findCombinations(word);
 
-        const validCombinations = combinations.filter(combination => dictionary.includes(combination) && word !== combination);
+        let validCombinations = combinations.filter(combination => {
+            let isValid = dictionary.includes(combination) && word !== combination;
+
+            if(isValid && opts.blacklist){
+                return !opts.blacklist.includes(combination);
+            }
+
+            return isValid;
+        });
 
         if(validCombinations.length){
+
+            if(validCombinations.length > 1){
+                validCombinations = _.uniq(validCombinations);
+            }
+
+
             validCombinations.sort();
             toReturn[word] = validCombinations;
         }

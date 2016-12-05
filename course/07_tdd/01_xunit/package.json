@@ -1,8 +1,11 @@
 {
-  "name": "07_tdd",
+  "name": "07_tdd-xunit",
   "version": "1.0.0",
   "author": "extrategy",
   "license": "ISC",
+  "scripts": {
+    "test": "jest"
+  },
   "devDependencies": {
     "jest": "^17.0.3"
   }

@@ -7,11 +7,6 @@ const divide = (a,b) => {
     return doDivide(a,b);
 };
 
-/*
- expect in realtà ha un API più complessa del semplice toBe.
- Potete fare asserzioni di vario tipo che vanno dall'esistenza fino al deepEqual
- */
-
 describe('divide', () => {
     it('should correctly divide two numbers', () => {
         const result = divide(2,1);

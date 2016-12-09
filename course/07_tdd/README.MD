@@ -1,8 +1,8 @@
 # Prima Parte
 
 * Testing: Definizione  [Wiki](https://en.wikipedia.org/wiki/Software_testing)
-* Piramide del testing [Immagine](https://www.scrumalliance.org/community/spotlight/mike-cohn/december-2014/test-automation-let-service-be-your-middle-man)
-* Costo --> [Shuhari](https://en.wikipedia.org/wiki/Shuhari)
+* Costo
+    * Piramide del testing [Immagine](https://www.scrumalliance.org/community/spotlight/mike-cohn/december-2014/test-automation-let-service-be-your-middle-man)
 * xUnit [Wiki](https://it.wikipedia.org/wiki/XUnit)
     * Mocking (moment?)
 * Esercizio: Kata risolto in cui vanno scritti test di non regressione
@@ -13,6 +13,7 @@
 * TDD: Definizione [Wiki](https://it.wikipedia.org/wiki/Test_driven_development)
 * Ciclo di Testing
 * Cosa --> Come
+* [Shuhari](https://en.wikipedia.org/wiki/Shuhari)
 * Design By TDD
     * Dependency Injection in JavaScript  
 * Esercizio Kata da analizzare e scrivere insieme (a turni?) 

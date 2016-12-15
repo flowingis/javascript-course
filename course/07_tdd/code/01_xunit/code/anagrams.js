@@ -1,17 +1,17 @@
-const fs = require('fs');
-const path = require('path');
-const _ = require('lodash');
+var fs = require('fs');
+var path = require('path');
+var _ = require('lodash');
 
-const findPermutations = (word) => {
-    const words = [];
+var findPermutations = (word) => {
+    var words = [];
 
-    const executeFindPermutations = (prefix, str) => {
+    const executeFindPermutations = function(prefix, str) {
         if (str.length === 1) {
             words.push(prefix + str);
         } else {
             const chars = str.split("");
 
-            chars.forEach(function(char, index) {
+            _.each(chars,function(char, index) {
                 const stringWithoutChar = str.substring(0, index) + str.substring(index + 1);
                 executeFindPermutations(prefix + char, stringWithoutChar);
             });
@@ -28,7 +28,7 @@ module.exports = (phrase, opts = {}) => {
         throw new Error('please provide a phrase')
     }
 
-    let words;
+    var words;
 
     if(_.isArray(phrase)){
         words = phrase;
@@ -41,26 +41,26 @@ module.exports = (phrase, opts = {}) => {
     }
 
 
-    const dictionary = JSON.parse(fs.readFileSync(path.join(__dirname,'..','..','words.json')));
+    var dictionary = JSON.parse(fs.readFileSync(path.join(__dirname,'..','..','words.json')));
 
     if(opts.minLength){
        words = words.filter(word => word.length >= opts.minLength);
     }
 
     if(opts.maxLength){
-        words = words.filter(word => word.length <= opts.maxLength);
+        words = _.filter(words, word => word.length <= opts.maxLength);
     }
 
-    const toReturn = {};
+    var toReturn = {};
 
-    words.forEach(word => {
-        const permutations = findPermutations(word);
+    _.each(words, word => {
+        var permutations = findPermutations(word);
 
-        let validPermutations = permutations.filter(combination => {
-            let isValid = dictionary.includes(combination) && word !== combination;
+        var validPermutations = permutations.filter(combination => {
+            var isValid = _.includes(dictionary, combination) && word !== combination;
 
             if(isValid && opts.blacklist){
-                return !opts.blacklist.includes(combination);
+                return !_.includes(opts.blacklist, combination);
             }
 
             return isValid;

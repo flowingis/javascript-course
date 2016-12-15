@@ -60,7 +60,6 @@ describe('switchObject', () => {
             In questo caso non usiamo il toBe, in quanto sarebbe l'equivalente di scrivere target === EXPECATATION.
             Quello che a noi serve è un deep equal tra i due oggetti
         */
-
        expect(result).toEqual(EXPECTATION);
    })
 });

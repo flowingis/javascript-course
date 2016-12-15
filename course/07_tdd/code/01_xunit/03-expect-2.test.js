@@ -1,4 +1,4 @@
-const _ = require('lodash')
+const _ = require('lodash');
 
 const random = () => _.random(0, 5);
 

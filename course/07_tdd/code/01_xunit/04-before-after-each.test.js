@@ -20,7 +20,7 @@ describe('divide', () => {
     });
 
     describe('use doDivide', () => {
-        let done;
+        let done = false;
         let originalDoDivide;
 
         /*
@@ -32,7 +32,6 @@ describe('divide', () => {
         beforeEach(() => {
             originalDoDivide = doDivide;
             doDivide = (a,b) => {
-                const result = originalDoDivide(a,b);
                 done = true;
             }
         });

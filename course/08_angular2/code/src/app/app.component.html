@@ -1,6 +1,15 @@
 <div *ngIf="currentWeahterInfo">
     <p-panel header="Bologna Weather">
-        {{currentWeahterInfo| json}}
+        <dl>
+            <dt>Weather</dt>
+            <dd>{{currentWeahterInfo.weather[0].description}}<img [src]="'http://openweathermap.org/img/w/' + currentWeahterInfo.weather[0].icon + '.png'"/></dd>
+            <dt>Temperature (Min/Max)</dt>
+            <dd>{{currentWeahterInfo.main.temp_min}}/{{currentWeahterInfo.main.temp_max}} °F</dd>
+            <dt>Pressure</dt>
+            <dd>{{currentWeahterInfo.main.pressure}}</dd>
+            <dt>Humidity</dt>
+            <dd>{{currentWeahterInfo.main.humidity}} %</dd>
+        </dl>
     </p-panel>
 </div>
 <div *ngIf="!currentWeahterInfo">

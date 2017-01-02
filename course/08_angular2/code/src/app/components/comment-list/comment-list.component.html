@@ -1,0 +1,10 @@
+<div *ngIf="comments.length">
+  <p-dataList [value]="comments">
+    <template let-comment>
+      {{comment}}
+    </template>
+  </p-dataList>
+</div>
+<div *ngIf="!comments.length">
+  No comments available
+</div>

@@ -1,3 +1,9 @@
-<p-panel header="Angular2 Course">
-    {{title}}
-</p-panel>
+<div *ngIf="currentWeahterInfo">
+    <p-panel header="Bologna Weather">
+        {{currentWeahterInfo| json}}
+    </p-panel>
+</div>
+<div *ngIf="!currentWeahterInfo">
+    Loading...
+</div>
+

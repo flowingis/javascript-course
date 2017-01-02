@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { PanelModule } from 'primeng/primeng';
 
 import { AppComponent } from './app.component';
+import { WeatherService } from './services/weather.service';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,9 @@ import { AppComponent } from './app.component';
     HttpModule,
     PanelModule
   ],
-  providers: [],
+  providers: [
+    WeatherService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

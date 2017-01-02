@@ -1,2 +1,1 @@
-<input type="text" pInputText placeholder="Insert city..."  [(ngModel)]="value"/>
-<button pButton type="text" (click)="onClick()" icon="fa-search" iconPos="right" label="Search" [disabled]="!value"></button>
+<p-autoComplete [(ngModel)]="value" placeholder="Insert city..."  [suggestions]="filteredCities" (onSelect)="search($event)" (completeMethod)="completeCity($event)" ></p-autoComplete>

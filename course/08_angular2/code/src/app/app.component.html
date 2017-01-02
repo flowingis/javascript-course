@@ -9,7 +9,7 @@
             <dt>Weather</dt>
             <dd>{{currentWeahterInfo.weather[0].description}}<weather-icon [weather]="currentWeahterInfo.weather[0]"></weather-icon></dd>
             <dt>Temperature (Min/Max)</dt>
-            <dd>{{currentWeahterInfo.main.temp_min}}/{{currentWeahterInfo.main.temp_max}} °F</dd>
+            <dd>{{currentWeahterInfo.main.temp_min | celsius}}/{{currentWeahterInfo.main.temp_max | celsius}} °F</dd>
             <dt>Pressure</dt>
             <dd>{{currentWeahterInfo.main.pressure}}</dd>
             <dt>Humidity</dt>

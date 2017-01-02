@@ -11,13 +11,15 @@ import { CitiesService } from './services/cities.service';
 import { WeatherIconComponent } from './components/weather-icon/weather-icon.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { CommentListComponent } from './components/comment-list/comment-list.component';
+import { CelsiusPipe } from './pipes/celsius.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     WeatherIconComponent,
     SearchBarComponent,
-    CommentListComponent
+    CommentListComponent,
+    CelsiusPipe
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,15 @@
+/* customer_details */
+.customer_details{
+  margin:0 0 50px 0;
+  list-style:none;
+  li{
+    float:left;
+    margin-right:100px;
+    font-size:25px;
+    span{
+      display:block;
+      font-size:18px;
+      margin:20px 0 0 0;
+    }
+  }
+}

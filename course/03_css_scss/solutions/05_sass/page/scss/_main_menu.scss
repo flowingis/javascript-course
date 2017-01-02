@@ -1,0 +1,23 @@
+/* main_menu */
+.main_menu{
+  text-align:center;
+  list-style:none;
+  margin:20px 0 20px 0;
+  padding:0;
+  li{
+    display:inline-block;
+    background-color:$secondary-grey;
+    border:1px solid $greytone;
+    width:23%;
+    height:100px;
+    margin:50px 3% 50px 3%;
+    padding:40px 0 0 0;
+    color:$text2-color;
+    a:link,
+    a:visited{
+      color:$text2-color;
+      text-decoration:none;
+      font-size:18px;
+    }
+  }
+}

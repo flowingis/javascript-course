@@ -15,7 +15,7 @@ console.log(person.isAdult());
 /*
     A livello semantico in realtà, tutta la gestione dei constructor è solo zucchero sintattico.
     I quali però si portano dietro i pericoli del this e del prototype. È possibile ottenere un risultato migliore
-    con una sempice factory.
+    con una semplice factory.
  */
 
 var personFactory = function (name,age) {

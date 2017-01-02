@@ -10,7 +10,7 @@ class Person {
     }
 
     getFullname(){
-        return `${this.name} ${this.surname}`
+        return `${this.name} ${this.surname}`;
     }
 }
 
@@ -67,18 +67,18 @@ class PersonBuilder {
     }
 
     getPerson(){
-        var chosenClass = this.person.sex === 'M' ? Male : Female;
+        const chosenClass = this.person.sex === 'M' ? Male : Female;
         return new chosenClass(this.person);
     }
 }
 
 
-var me = new Male({name:'Francesco',surname:'Strazzullo',age:30});
-var myGirlfriend = new Female({name:'Lucia',surname:'Morbidelli',age:29});
+const me = new Male({name:'Francesco',surname:'Strazzullo',age:30});
+const myGirlfriend = new Female({name:'Lucia',surname:'Morbidelli',age:29});
 
-var personBuilder = new PersonBuilder();
+const personBuilder = new PersonBuilder();
 
-var anotherMe = personBuilder.createPerson().setSex('M').setName('Francesco').setSurname('Strazzullo').setAge(30).getPerson();
+const anotherMe = personBuilder.createPerson().setSex('M').setName('Francesco').setSurname('Strazzullo').setAge(30).getPerson();
 
 console.log(me.getFullname());
 console.log(myGirlfriend.getFullname());

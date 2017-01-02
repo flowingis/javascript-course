@@ -16,13 +16,13 @@ var pizzaBuilderFactory = function(){
         return pizza;
     };
 
-    var builder = {
-        getPizza:getPizza
-    };
-
     /*
         Aggiungere qui le altre funzioni
      */
+
+    var builder = {
+        getPizza:getPizza
+    };
 
     return builder;
 };

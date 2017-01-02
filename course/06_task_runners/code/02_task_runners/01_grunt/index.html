@@ -1,0 +1,24 @@
+<html>
+<head>
+    <!-- build:css style.min.css -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="app.css">
+    <!-- /build -->
+    <!-- build:js app.min.js -->
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="index.js"></script>
+    <!-- /build -->
+</head>
+<body>
+<div class="form-group">
+    <h1>To-Do <small>List</small></h1>
+    <form role="form">
+        <input type="text" class="form-control" placeholder="Your Task" name="task">
+    </form>
+    <button role="add" type="button" class="btn btn btn-primary">Add</button>
+</div>
+<div></div>
+<ul class="list-unstyled" id="todo"></ul>
+</body>
+</html>

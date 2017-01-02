@@ -1,0 +1,1 @@
+curl -v -H "Content-Type: text/plain" -X POST -d "/home/nandoluc/prova" http://127.0.0.1:3000/listing

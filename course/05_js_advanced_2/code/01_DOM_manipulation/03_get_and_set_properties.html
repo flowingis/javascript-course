@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>03 get and set properties</title>
+        <script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="../../../node_modules/lodash/lodash.min.js"></script>
+        <script type="text/javascript">
+            var printInPage = function(params){
+                var title = params.title.toUpperCase();
+                console.log(title);
+                delete params.title;
+                console.log("--------------------"+title+"--------------------");
+                _.each(params, function(a, key){
+                    console.log(key+"-> ");
+                    console.log(a);
+                });
+                console.log("-------------------/"+title+"--------------------");
+            };
+        </script>
+        <style>
+            div.examples {
+                margin-bottom: 50px;
+                border: 1px solid #000000;
+                text-align: center;
+            }
+            div.examples * {
+                margin: 0px;
+                padding: 0px;
+                border: 0px;
+                width: 100%;
+                display: block;
+            }
+            div.examples *:nth-child(odd){
+                background-color: #00FF00;
+            }
+            div.examples *:nth-child(even){
+                background-color: #FF0000;
+            }
+            h1 {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>ATTRIBUTES</h1>
+        <div class="examples attributes">
+            <p title="my p title">this is p</p>
+            <div title="my div title">this is div</div>
+            <span title="my span title">this is span</span>
+        </div>
+        <button class="directlyChange">Trigger Change Directly</button>
+        <button class="methodChange">Trigger Change Method</button>
+        <button class="jQueryButton">Trigger Change jQuery</button>
+        <script type="text/javascript">
+            (function(){
+                var span = document.querySelector(".attributes > span");
+                var spanTitle = span.title;
+                var spanTitle2 = span.getAttribute("title");
+
+                var jQuerySpan = $(".attributes > span")[0];
+                var jQuerySpanTitle = jQuerySpan.title;
+                var jQuerySpanTitle2 = $(jQuerySpan).prop("title");
+
+                printInPage({
+                    title:"attributes",
+                    spanTitle: spanTitle,
+                    spanTitle2: spanTitle2,
+                    jQuerySpanTitle: jQuerySpanTitle,
+                    jQuerySpanTitle2: jQuerySpanTitle2
+                });
+
+                document.querySelector(".directlyChange").onclick = function(){
+                    span.title = "new direct title";
+                };
+
+                document.querySelector(".methodChange").onclick = function(){
+                    span.setAttribute("title", "new method title");
+                };
+
+                $($(".jQueryButton")[0]).click(function(){
+                    $(jQuerySpan).prop("title", "new title changed by jQuery");
+                });
+            })();
+        </script>
+
+        <h1>CUSTOM ATTRIBUTES</h1>
+        <div class="examples customAttributes">
+            <p data-myCustomAttribute="my p attribute">this is p</p>
+            <div data-myCustomAttribute="my div attribute">this is div</div>
+            <span data-myCustomAttribute="my span attribute">this is span</span>
+        </div>
+        <script type="text/javascript">
+            (function(){
+                var span = document.querySelector(".customAttributes > span");
+                var spanAttribute = span.getAttribute("data-myCustomAttribute");
+                var spanAttributeWithDash = span["data-myCustomAttribute"]; //this doesn't work
+                var spanAttributeWithCamelCase = span.dataMyCustomAttribute; //this doesn't work
+
+                var jQuerySpan = $(".customAttributes > span")[0];
+                var jQuerySpanAttributeProp = $(jQuerySpan).prop("data-myCustomAttribute"); //this doesn't work
+                var jQuerySpanAttributeAttr = $(jQuerySpan).attr("data-myCustomAttribute");
+                var jQuerySpanAttributeData = $(jQuerySpan).data("mycustomattribute");
+
+                printInPage({
+                    title:"customAttributes",
+                    spanAttribute: spanAttribute,
+                    spanAttributeWithDash: spanAttributeWithDash,
+                    spanAttributeWithCamelCase: spanAttributeWithCamelCase,
+                    jQuerySpanAttributeProp: jQuerySpanAttributeProp,
+                    jQuerySpanAttributeAttr: jQuerySpanAttributeAttr,
+                    jQuerySpanAttributeData: jQuerySpanAttributeData
+                });
+            })();
+        </script>
+
+        <h1>PROPERTY</h1>
+        <div class="examples property">
+            <p>this is p</p>
+            <div>this is div</div>
+            <span>this is span</span>
+        </div>
+        <button class="changeWidth">CHANGE WIDTH</button>
+        <button class="resetWidth">RESET WIDTH</button>
+        <script type="text/javascript">
+            (function(){
+                var p = document.querySelector(".property > p");
+                var pWidth = p.offsetWidth;
+
+                var jQueryP = $(".property > p")[0];
+                var jQueryPWidth = $(jQueryP).width();
+
+                printInPage({
+                    title: "property",
+                    pWidth: pWidth,
+                    jQueryPWidth: jQueryPWidth
+                });
+
+                document.querySelector(".changeWidth").onclick = function(){
+                    document.querySelector(".property > p").setAttribute("style","width:50%");
+                    $($(".property > span")).width("75%");
+                };
+
+                document.querySelector(".resetWidth").onclick = function(){
+                    document.querySelector(".property > span").setAttribute("style","width:100%");
+                    $($(".property > p")).width("100%");
+                };
+
+            })();
+        </script>
+
+        <h1>MODIFY CLASS</h1>
+        <style type="text/css">
+            .hideClass{
+                display: none !important;
+            }
+            .showClass{
+                display: block !important;
+            }
+        </style>
+        <div class="examples modifyClass">
+            <p>this is p</p>
+            <div>this is div</div>
+            <span>this is span</span>
+        </div>
+        <button class="showButton">SHOW</button>
+        <button class="hideButton">HIDE</button>
+        <script type="text/javascript">
+            (function(){
+                var divToModify = document.querySelector(".modifyClass > div");
+
+                document.querySelector(".showButton").onclick = function(){
+                    divToModify.classList.remove("hideClass");
+                    divToModify.classList.add("showClass");
+                };
+
+                document.querySelector(".hideButton").onclick = function(){
+                    divToModify.classList.remove("showClass");
+                    divToModify.classList.add("hideClass");
+                };
+            })();
+        </script>
+
+        <h1>PARENT</h1>
+        <div class="parent">
+            <div style="width: 100%; text-align: center;" title="Parent" class="divParent">
+                this is parent
+                <div style="color: #FFFFFF; background-color: #000000" title="Child" class="divChild">this is child</div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            (function(){
+                var parent = document.querySelectorAll(".divChild")[0].parentElement;
+                var jQueryParent = $($(".divChild")[0]).parent();
+                
+                var parentTitle = parent.title;
+                var jQueryParentTitle = jQueryParent[0].title;
+
+                printInPage({
+                    title:"parent",
+                    parentTitle: parentTitle,
+                    jQueryParentTitle: jQueryParentTitle
+                });
+            })();
+        </script>
+    </body>
+</html>

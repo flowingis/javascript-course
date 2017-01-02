@@ -1,0 +1,27 @@
+{
+  "name": "js-course-lesson-06-grunt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "extrategy",
+  "license": "ISC",
+  "scripts": {
+    "build": "gulp build",
+    "prestart": "npm install",
+    "start": "gulp"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.1.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.13",
+    "gulp-clean-dest": "^0.1.1",
+    "gulp-cli": "^1.2.2",
+    "gulp-connect": "^5.0.0",
+    "gulp-if": "^2.0.2",
+    "gulp-uglify": "^2.0.0",
+    "gulp-useref": "^3.1.2"
+  }
+}

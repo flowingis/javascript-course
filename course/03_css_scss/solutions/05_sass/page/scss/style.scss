@@ -1,0 +1,25 @@
+/* Main SCSS */
+
+/* mixin */
+@mixin box-sizing($valuesizing){
+    box-sizing:$valuesizing;
+    -moz-box-sizing:$valuesizing;
+}
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    -o-border-radius: $radius;
+    border-radius: $radius;
+}
+
+
+
+/* import */
+@import 'theme';
+@import 'layout';
+@import 'atoms';
+@import 'customer_table';
+@import 'customer_details';
+@import 'main_menu';
+@import 'modal';

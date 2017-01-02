@@ -1,7 +1,7 @@
 <search-bar (onSearch)="onSearch($event)"></search-bar>
 <hr />
 <div *ngIf="currentWeahterInfo">
-    <p-panel header="Bologna Weather">
+    <p-panel header="{{currentWeahterInfo.name}} Weather">
         <dl>
             <dt>Weather</dt>
             <dd>{{currentWeahterInfo.weather[0].description}}<weather-icon [weather]="currentWeahterInfo.weather[0]"></weather-icon></dd>

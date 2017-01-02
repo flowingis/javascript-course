@@ -12,6 +12,7 @@ import { WeatherIconComponent } from './components/weather-icon/weather-icon.com
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { CommentListComponent } from './components/comment-list/comment-list.component';
 import { CelsiusPipe } from './pipes/celsius.pipe';
+import { HotColdFeedbackDirective } from './directives/hot-cold-feedback.directive';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CelsiusPipe } from './pipes/celsius.pipe';
     WeatherIconComponent,
     SearchBarComponent,
     CommentListComponent,
-    CelsiusPipe
+    CelsiusPipe,
+    HotColdFeedbackDirective
   ],
   imports: [
     BrowserModule,

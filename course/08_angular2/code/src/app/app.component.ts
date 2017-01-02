@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { WeatherService } from './services/weather.service'
+import { WeatherService } from './services/weather.service';
+import { CommentsService } from './services/comments.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ export class AppComponent {
   currentWeahterInfo;
   loading=false;
 
-  constructor(private weatherService: WeatherService){
+  constructor(private weatherService: WeatherService, private commentsService: CommentsService){
    
   }
 
@@ -19,6 +20,10 @@ export class AppComponent {
     this.weatherService.current(searchString).subscribe(res => {
       this.currentWeahterInfo = res;
       this.loading = false;
+    })
+
+    this.commentsService.list(searchString).subscribe(res => {
+      console.log(res)
     })
   }
 }

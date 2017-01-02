@@ -6,6 +6,7 @@ import { PanelModule, InputTextModule, ButtonModule } from 'primeng/primeng';
 
 import { AppComponent } from './app.component';
 import { WeatherService } from './services/weather.service';
+import { CommentsService } from './services/comments.service';
 import { WeatherIconComponent } from './components/weather-icon/weather-icon.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 
@@ -24,7 +25,8 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
     ButtonModule
   ],
   providers: [
-    WeatherService
+    WeatherService,
+    CommentsService
   ],
   bootstrap: [AppComponent]
 })

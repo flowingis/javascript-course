@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule, Routes } from '@angular/router';
 import { PanelModule, InputTextModule, ButtonModule, DataListModule, AutoCompleteModule } from 'primeng/primeng';
 
 import { AppComponent } from './app.component';
@@ -13,6 +14,19 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { CommentListComponent } from './components/comment-list/comment-list.component';
 import { CelsiusPipe } from './pipes/celsius.pipe';
 import { HotColdFeedbackDirective } from './directives/hot-cold-feedback.directive';
+import { HomeComponent } from './pages/home/home.component';
+import { NewCommentComponent } from './pages/new-comment/new-comment.component';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: HomeComponent
+  },
+  {
+    path: 'new-comment',
+    component: NewCommentComponent
+  }
+];
 
 @NgModule({
   declarations: [
@@ -21,9 +35,12 @@ import { HotColdFeedbackDirective } from './directives/hot-cold-feedback.directi
     SearchBarComponent,
     CommentListComponent,
     CelsiusPipe,
-    HotColdFeedbackDirective
+    HotColdFeedbackDirective,
+    HomeComponent,
+    NewCommentComponent
   ],
   imports: [
+    RouterModule.forRoot(routes, {useHash: true}),
     BrowserModule,
     FormsModule,
     HttpModule,

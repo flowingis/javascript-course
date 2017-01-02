@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { WeatherService } from './services/weather.service';
 import { CommentsService } from './services/comments.service';
+import { Observable } from 'rxjs/Observable';
+
+import 'rxjs/add/operator/zip';
+
 
 @Component({
   selector: 'app-root',
@@ -17,13 +21,12 @@ export class AppComponent {
 
   onSearch(searchString) {
     this.loading = true;
-    this.weatherService.current(searchString).subscribe(res => {
-      this.currentWeahterInfo = res;
-      this.loading = false;
-    })
 
-    this.commentsService.list(searchString).subscribe(res => {
-      console.log(res)
+    this.weatherService.current(searchString).zip(this.commentsService.list(searchString)).subscribe(results => {
+      const currentWeahterInfo = results[0];
+      currentWeahterInfo.comments = results[1];
+      this.currentWeahterInfo = currentWeahterInfo;
+      this.loading = false;
     })
   }
 }

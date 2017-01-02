@@ -2,7 +2,7 @@
     <p-panel header="Bologna Weather">
         <dl>
             <dt>Weather</dt>
-            <dd>{{currentWeahterInfo.weather[0].description}}<img [src]="'http://openweathermap.org/img/w/' + currentWeahterInfo.weather[0].icon + '.png'"/></dd>
+            <dd>{{currentWeahterInfo.weather[0].description}}<weather-icon [weather]="currentWeahterInfo.weather[0]"></weather-icon></dd>
             <dt>Temperature (Min/Max)</dt>
             <dd>{{currentWeahterInfo.main.temp_min}}/{{currentWeahterInfo.main.temp_max}} °F</dd>
             <dt>Pressure</dt>

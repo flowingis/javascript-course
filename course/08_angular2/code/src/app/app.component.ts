@@ -8,14 +8,17 @@ import { WeatherService } from './services/weather.service'
 })
 export class AppComponent {
   currentWeahterInfo;
+  loading=false;
 
   constructor(private weatherService: WeatherService){
-    weatherService.current().subscribe(res => {
-      this.currentWeahterInfo = res;
-    })
+   
   }
 
   onSearch(searchString) {
-    console.log(searchString)
+    this.loading = true;
+    this.weatherService.current(searchString).subscribe(res => {
+      this.currentWeahterInfo = res;
+      this.loading = false;
+    })
   }
 }

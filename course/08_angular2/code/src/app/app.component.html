@@ -1,5 +1,8 @@
 <search-bar (onSearch)="onSearch($event)"></search-bar>
 <hr />
+<div *ngIf="loading">
+    Loading...
+</div>
 <div *ngIf="currentWeahterInfo">
     <p-panel header="{{currentWeahterInfo.name}} Weather">
         <dl>
@@ -13,8 +16,5 @@
             <dd>{{currentWeahterInfo.main.humidity}} %</dd>
         </dl>
     </p-panel>
-</div>
-<div *ngIf="!currentWeahterInfo">
-    Loading...
 </div>
 

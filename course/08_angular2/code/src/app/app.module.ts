@@ -1,3 +1,4 @@
+import { LoggedInGuardService } from './services/logged-in-guard.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -17,6 +18,8 @@ import { HotColdFeedbackDirective } from './directives/hot-cold-feedback.directi
 import { HomeComponent } from './pages/home/home.component';
 import { NewCommentComponent } from './pages/new-comment/new-comment.component';
 import { LastWeatherInfoService } from './services/last-weather-info.service';
+import { CurrentUserService } from './services/current-user.service';
+import { LoginComponent } from './pages/login/login.component';
 
 const routes: Routes = [
   {
@@ -25,7 +28,12 @@ const routes: Routes = [
   },
   {
     path: 'new-comment',
-    component: NewCommentComponent
+    component: NewCommentComponent,
+    canActivate:[LoggedInGuardService]
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   }
 ];
 
@@ -38,7 +46,8 @@ const routes: Routes = [
     CelsiusPipe,
     HotColdFeedbackDirective,
     HomeComponent,
-    NewCommentComponent
+    NewCommentComponent,
+    LoginComponent
   ],
   imports: [
     RouterModule.forRoot(routes, {useHash: true}),
@@ -55,7 +64,9 @@ const routes: Routes = [
     WeatherService,
     CommentsService,
     CitiesService,
-    LastWeatherInfoService
+    LastWeatherInfoService,
+    CurrentUserService,
+    LoggedInGuardService
   ],
   bootstrap: [AppComponent]
 })

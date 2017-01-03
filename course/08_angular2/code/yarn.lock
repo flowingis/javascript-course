@@ -76,6 +76,10 @@
     magic-string "^0.16.0"
     source-map "^0.5.6"
 
+"@types/chartist@^0.9.34":
+  version "0.9.34"
+  resolved "https://registry.yarnpkg.com/@types/chartist/-/chartist-0.9.34.tgz#2b2d6b6191f28d34d23b8054c748fcbfebc29e81"
+
 "@types/jasmine@2.5.38", "@types/jasmine@^2.2.31":
   version "2.5.38"
   resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-2.5.38.tgz#a4379124c4921d4e21de54ec74669c9e9b356717"
@@ -892,6 +896,10 @@ chalk@^1.0.0, chalk@^1.1.0, chalk@^1.1.1, chalk@^1.1.3:
 charenc@~0.0.1:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/charenc/-/charenc-0.0.2.tgz#c0a1d2f3a7092e03774bfa83f14c0fc5790a8667"
+
+chartist@^0.10.1:
+  version "0.10.1"
+  resolved "https://registry.yarnpkg.com/chartist/-/chartist-0.10.1.tgz#3dd513d531dfca6b78e777fe0500d9c7e6406931"
 
 chokidar@^1.4.1, chokidar@^1.4.3, chokidar@^1.6.0:
   version "1.6.1"

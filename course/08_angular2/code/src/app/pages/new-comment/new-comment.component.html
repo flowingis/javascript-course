@@ -8,4 +8,4 @@
     <p>Publish Date</p>
     <p-calendar [formControl]="form.controls.date"></p-calendar>
 </form>
-<button pButton type="button" (click)="onSave()" label="Click"></button>
+<button pButton type="button" (click)="onSave()" label="Click" [disabled]="form.invalid"></button>

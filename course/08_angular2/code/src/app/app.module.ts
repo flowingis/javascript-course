@@ -71,7 +71,8 @@ const routes: Routes = [
     LastWeatherInfoService,
     CurrentUserService,
     LoggedInGuardService,
-    LoginService
+    LoginService,
+    CelsiusPipe
   ],
   bootstrap: [AppComponent]
 })

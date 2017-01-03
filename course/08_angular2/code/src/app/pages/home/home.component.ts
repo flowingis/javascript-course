@@ -13,6 +13,8 @@ import 'rxjs/add/operator/zip';
 export class HomeComponent implements OnInit{
 currentWeahterInfo;
   loading=false;
+  minDataChars;
+  maxDataChars;
 
   constructor(
     private weatherService: WeatherService, 
@@ -29,12 +31,33 @@ currentWeahterInfo;
   onSearch(searchString) {
     this.loading = true;
 
-    this.weatherService.current(searchString).zip(this.commentsService.list(searchString)).subscribe(results => {
-      const currentWeahterInfo = results[0];
-      currentWeahterInfo.comments = results[1];
-      this.currentWeahterInfo = currentWeahterInfo;
-      this.lastWeatherInfoService.set(currentWeahterInfo);
-      this.loading = false;
-    })
+    this.weatherService.current(searchString)
+      .zip(this.commentsService.list(searchString),this.weatherService.temperatures(searchString))
+      .subscribe(results => {
+        const currentWeahterInfo = results[0];
+        this.lastWeatherInfoService.set(currentWeahterInfo);
+
+
+        currentWeahterInfo.comments = results[1];
+        this.currentWeahterInfo = currentWeahterInfo;
+
+        const temperaturesData = results[2];
+        
+        this.minDataChars = temperaturesData.map(t => {
+          return {
+            label:t.name,
+            value:t.min
+          }
+        });
+
+        this.maxDataChars = temperaturesData.map(t => {
+          return {
+            label:t.name,
+            value:t.max
+          }
+        });
+
+        this.loading = false;
+      })
   }
 }

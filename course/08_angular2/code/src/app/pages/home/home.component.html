@@ -28,7 +28,12 @@
                 <button pButton type="button" label="New Comment" routerLink="/new-comment"></button>
             </p-tabPanel>
             <p-tabPanel header="Charts">
-                <temperatures-chart></temperatures-chart>
+                <div class="ui-g">
+                    <div class="ui-g-6"><h2>Min</h2></div>
+                    <div class="ui-g-6"><h2>Max</h2></div>
+                    <div class="ui-g-6"><temperatures-chart [values]="minDataChars"></temperatures-chart></div>
+                    <div class="ui-g-6"><temperatures-chart [values]="maxDataChars"></temperatures-chart></div>
+                </div>
             </p-tabPanel>
         </p-tabView>
     </p-panel>

@@ -3,6 +3,7 @@ import { CommentsService } from './../../services/comments.service';
 import { LastWeatherInfoService } from './../../services/last-weather-info.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-new-comment',
@@ -11,12 +12,27 @@ import { Router } from '@angular/router';
 export class NewCommentComponent implements OnInit {
   private lastWeatherInfo;
   message;
+  reactions;
+  form;
 
   constructor(
     private currentUserService: CurrentUserService,
     private lastWeatherInfoService: LastWeatherInfoService,
     private commentsService: CommentsService,
-    private router: Router) { }
+    private router: Router,
+    private formBuilder: FormBuilder) { 
+      this.reactions = [
+        'Happy',
+        'Sad',
+        'Angry'
+      ];
+
+      this.form = this.formBuilder.group({
+          reaction: [this.reactions[0]],
+          message: ['', Validators.required],
+          date: [new Date(), Validators.required]
+      });
+    }
 
   ngOnInit() {
     this.lastWeatherInfo = this.lastWeatherInfoService.get();

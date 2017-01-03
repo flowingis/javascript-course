@@ -1,2 +1,11 @@
-<textarea pInputTextarea [(ngModel)]="message" autoResize="autoResize"></textarea>
-<button pButton type="button" (click)="onSave()" label="Click" [disabled]="!message"></button>
+<form [formGroup]="form">
+    <p>Reaction</p>
+    <select [formControl]="form.controls.reaction">
+        <option [value]="reaction" *ngFor="let reaction of reactions">{{reaction}}</option>
+    </select>
+    <p>Message</p>
+    <textarea pInputTextarea [formControl]="form.controls.message" autoResize="autoResize"></textarea>
+    <p>Publish Date</p>
+    <p-calendar [formControl]="form.controls.date"></p-calendar>
+</form>
+<button pButton type="button" (click)="onSave()" label="Click"></button>

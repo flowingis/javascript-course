@@ -2,10 +2,10 @@ import { LoginService } from './services/login.service';
 import { LoggedInGuardService } from './services/logged-in-guard.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
-import { PanelModule, InputTextModule, ButtonModule, DataListModule, AutoCompleteModule, TabViewModule } from 'primeng/primeng';
+import { PanelModule, InputTextModule, ButtonModule, DataListModule, AutoCompleteModule, TabViewModule, CalendarModule } from 'primeng/primeng';
 
 import { AppComponent } from './app.component';
 import { WeatherService } from './services/weather.service';
@@ -56,13 +56,15 @@ const routes: Routes = [
     RouterModule.forRoot(routes, {useHash: true}),
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     PanelModule,
     InputTextModule,
     ButtonModule,
     DataListModule,
     AutoCompleteModule,
-    TabViewModule
+    TabViewModule,
+    CalendarModule
   ],
   providers: [
     WeatherService,

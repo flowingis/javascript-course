@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
-import { PanelModule, InputTextModule, ButtonModule, DataListModule, AutoCompleteModule } from 'primeng/primeng';
+import { PanelModule, InputTextModule, ButtonModule, DataListModule, AutoCompleteModule, TabViewModule } from 'primeng/primeng';
 
 import { AppComponent } from './app.component';
 import { WeatherService } from './services/weather.service';
@@ -21,6 +21,7 @@ import { NewCommentComponent } from './pages/new-comment/new-comment.component';
 import { LastWeatherInfoService } from './services/last-weather-info.service';
 import { CurrentUserService } from './services/current-user.service';
 import { LoginComponent } from './pages/login/login.component';
+import { TemperaturesChartComponent } from './components/temperatures-chart/temperatures-chart.component';
 
 const routes: Routes = [
   {
@@ -48,7 +49,8 @@ const routes: Routes = [
     HotColdFeedbackDirective,
     HomeComponent,
     NewCommentComponent,
-    LoginComponent
+    LoginComponent,
+    TemperaturesChartComponent
   ],
   imports: [
     RouterModule.forRoot(routes, {useHash: true}),
@@ -59,7 +61,8 @@ const routes: Routes = [
     InputTextModule,
     ButtonModule,
     DataListModule,
-    AutoCompleteModule
+    AutoCompleteModule,
+    TabViewModule
   ],
   providers: [
     WeatherService,

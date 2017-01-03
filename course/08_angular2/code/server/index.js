@@ -46,6 +46,19 @@ app.post('/api/login', function(req, res) {
     }
 });
 
+app.post('/api/login', function(req, res) {
+    const loginData = req.body;
+    if(loginData.password === 'password'){
+        res.status(200).send({
+            ok:true
+        });
+    }else{
+        res.status(400).send({
+            ok:false
+        });
+    }
+});
+
 app.get('/api/cities', function(req, res) {
     res.send(CITIES);
 });

@@ -22,6 +22,7 @@ import { LastWeatherInfoService } from './services/last-weather-info.service';
 import { CurrentUserService } from './services/current-user.service';
 import { LoginComponent } from './pages/login/login.component';
 import { TemperaturesChartComponent } from './components/temperatures-chart/temperatures-chart.component';
+import { SunPositionChartComponent } from './components/sun-position-chart/sun-position-chart.component';
 
 const routes: Routes = [
   {
@@ -50,7 +51,8 @@ const routes: Routes = [
     HomeComponent,
     NewCommentComponent,
     LoginComponent,
-    TemperaturesChartComponent
+    TemperaturesChartComponent,
+    SunPositionChartComponent
   ],
   imports: [
     RouterModule.forRoot(routes, {useHash: true}),

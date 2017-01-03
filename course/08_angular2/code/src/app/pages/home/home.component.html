@@ -35,6 +35,9 @@
                     <div class="ui-g-6"><temperatures-chart [values]="maxDataChars"></temperatures-chart></div>
                 </div>
             </p-tabPanel>
+            <p-tabPanel header="Sun">
+                <sun-position-chart [sunset]="currentWeahterInfo.sys.sunset" [sunrise]="currentWeahterInfo.sys.sunrise"></sun-position-chart>
+            </p-tabPanel>
         </p-tabView>
     </p-panel>
 </div>

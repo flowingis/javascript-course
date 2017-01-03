@@ -23,6 +23,7 @@
     "@angular/router": "3.2.3",
     "chartist": "^0.10.1",
     "core-js": "^2.4.1",
+    "d3": "^4.4.0",
     "font-awesome": "^4.7.0",
     "moment": "^2.17.1",
     "primeng": "^1.1.2",
@@ -33,6 +34,7 @@
   "devDependencies": {
     "@angular/compiler-cli": "2.2.3",
     "@types/chartist": "^0.9.34",
+    "@types/d3": "^4.4.0",
     "@types/jasmine": "2.5.38",
     "@types/node": "^6.0.42",
     "angular-cli": "1.0.0-beta.22",

@@ -1,3 +1,4 @@
+import { LoginService } from './services/login.service';
 import { LoggedInGuardService } from './services/logged-in-guard.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -66,7 +67,8 @@ const routes: Routes = [
     CitiesService,
     LastWeatherInfoService,
     CurrentUserService,
-    LoggedInGuardService
+    LoggedInGuardService,
+    LoginService
   ],
   bootstrap: [AppComponent]
 })

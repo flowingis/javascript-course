@@ -1,3 +1,4 @@
+import { CurrentUserService } from './../../services/current-user.service';
 import { CommentsService } from './../../services/comments.service';
 import { LastWeatherInfoService } from './../../services/last-weather-info.service';
 import { Component, OnInit } from '@angular/core';
@@ -12,22 +13,24 @@ export class NewCommentComponent implements OnInit {
   message;
 
   constructor(
+    private currentUserService: CurrentUserService,
     private lastWeatherInfoService: LastWeatherInfoService,
     private commentsService: CommentsService,
     private router: Router) { }
 
   ngOnInit() {
     this.lastWeatherInfo = this.lastWeatherInfoService.get();
-    if(!this.lastWeatherInfo){
-        this.router.navigate(['/']);
+    if (!this.lastWeatherInfo) {
+      this.router.navigate(['/']);
     }
   }
 
   onSave() {
-    if(this.message){
+    if (this.message) {
       const comment = {
-        message:this.message,
-        city:this.lastWeatherInfo.name
+        message: this.message,
+        city: this.lastWeatherInfo.name,
+        username: this.currentUserService.get()
       };
 
       this.commentsService.add(comment).subscribe((r) => {

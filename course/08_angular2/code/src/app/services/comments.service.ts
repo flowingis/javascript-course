@@ -18,7 +18,7 @@ export class CommentsService {
 
   add(comment) {
     const URL = 'api/comments';
-    return this.http.post(URL, comment);
+    return this.http.post(URL, comment).map(response => response.json());
   }
 
 }

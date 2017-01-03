@@ -1,3 +1,2 @@
-<p>
-  new-comment works!
-</p>
+<textarea pInputTextarea [(ngModel)]="message" autoResize="autoResize"></textarea>
+<button pButton type="button" (click)="onSave()" label="Click" [disabled]="!message"></button>

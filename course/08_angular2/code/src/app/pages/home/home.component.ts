@@ -20,7 +20,10 @@ currentWeahterInfo;
     private lastWeatherInfoService: LastWeatherInfoService){ }
 
   ngOnInit() {
-    this.currentWeahterInfo = this.lastWeatherInfoService.get()
+   const lastWeatherInfo = this.lastWeatherInfoService.get();
+   if(lastWeatherInfo){
+     this.onSearch(lastWeatherInfo.name);
+   }
   }
 
   onSearch(searchString) {

@@ -1,7 +1,7 @@
 <div *ngIf="comments.length">
   <p-dataList [value]="comments">
     <template let-comment>
-      {{comment}}
+      {{comment.message}}
     </template>
   </p-dataList>
 </div>

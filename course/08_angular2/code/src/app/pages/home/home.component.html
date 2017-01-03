@@ -1,3 +1,21 @@
-<p>
-  home works!
-</p>
+<search-bar (onSearch)="onSearch($event)"></search-bar>
+<hr />
+<div *ngIf="loading">
+    Loading...
+</div>
+<div *ngIf="currentWeahterInfo">
+    <p-panel header="{{currentWeahterInfo.name}} Weather">
+        <dl>
+            <dt>Weather</dt>
+            <dd>{{currentWeahterInfo.weather[0].description}}<weather-icon [weather]="currentWeahterInfo.weather[0]"></weather-icon></dd>
+            <dt>Temperature (Min/Max)</dt>
+            <dd><span [hotColdFeedback]="currentWeahterInfo.main.temp_min | celsius">{{currentWeahterInfo.main.temp_min | celsius}}</span>/<span [hotColdFeedback]="currentWeahterInfo.main.temp_max | celsius">{{currentWeahterInfo.main.temp_max | celsius}}</span> °C</dd>
+            <dt>Pressure</dt>
+            <dd>{{currentWeahterInfo.main.pressure}}</dd>
+            <dt>Humidity</dt>
+            <dd>{{currentWeahterInfo.main.humidity}} %</dd>
+        </dl>
+        <comment-list [comments]="currentWeahterInfo.comments"></comment-list>
+        <button pButton type="button" label="New Comment" routerLink="/new-comment"></button>
+    </p-panel>
+</div>

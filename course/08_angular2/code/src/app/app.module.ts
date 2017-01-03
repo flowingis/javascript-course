@@ -16,6 +16,7 @@ import { CelsiusPipe } from './pipes/celsius.pipe';
 import { HotColdFeedbackDirective } from './directives/hot-cold-feedback.directive';
 import { HomeComponent } from './pages/home/home.component';
 import { NewCommentComponent } from './pages/new-comment/new-comment.component';
+import { LastWeatherInfoService } from './services/last-weather-info.service';
 
 const routes: Routes = [
   {
@@ -53,7 +54,8 @@ const routes: Routes = [
   providers: [
     WeatherService,
     CommentsService,
-    CitiesService
+    CitiesService,
+    LastWeatherInfoService
   ],
   bootstrap: [AppComponent]
 })

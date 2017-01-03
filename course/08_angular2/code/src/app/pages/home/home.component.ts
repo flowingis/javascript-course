@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { LastWeatherInfoService } from './../../services/last-weather-info.service';
+import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../../services/weather.service';
 import { CommentsService } from '../../services/comments.service';
 import { Observable } from 'rxjs/Observable';
@@ -9,11 +10,18 @@ import 'rxjs/add/operator/zip';
   selector: 'app-home',
   templateUrl: './home.component.html'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
 currentWeahterInfo;
   loading=false;
 
-  constructor(private weatherService: WeatherService, private commentsService: CommentsService){ }
+  constructor(
+    private weatherService: WeatherService, 
+    private commentsService: CommentsService, 
+    private lastWeatherInfoService: LastWeatherInfoService){ }
+
+  ngOnInit() {
+    this.currentWeahterInfo = this.lastWeatherInfoService.get()
+  }
 
   onSearch(searchString) {
     this.loading = true;
@@ -22,6 +30,7 @@ currentWeahterInfo;
       const currentWeahterInfo = results[0];
       currentWeahterInfo.comments = results[1];
       this.currentWeahterInfo = currentWeahterInfo;
+      this.lastWeatherInfoService.set(currentWeahterInfo);
       this.loading = false;
     })
   }

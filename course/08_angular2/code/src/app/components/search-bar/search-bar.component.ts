@@ -10,6 +10,7 @@ export class SearchBarComponent {
   value = '';
   cities = [];
   filteredCities = [];
+  loading = false;
 
   constructor(private citiesService: CitiesService) {
     citiesService.list().map(cities => cities.map(city => city.name)).subscribe(cities => {
@@ -22,6 +23,15 @@ export class SearchBarComponent {
       return city.toLowerCase().indexOf(event.query.toLowerCase()) != -1;
     });
   }
+
+  nearestCity() {
+    this.loading = true;
+    this.citiesService.nearest().subscribe(c => {
+      this.search(c);
+      this.loading = false;
+    })
+  }
+
 
   search(query){
     this.onSearch.emit(query);

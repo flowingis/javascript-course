@@ -42,6 +42,7 @@ export class SunPositionChartComponent implements OnChanges {
 
     this.untilSunset = moment.duration(now.diff(moment.unix(this.sunset))).humanize();
     const svgContainer = d3.select(this.element.nativeElement)
+      .html("")
       .append('svg')
       .attr('width', '100%')
       .attr('viewBox', '0 0 1100 350');

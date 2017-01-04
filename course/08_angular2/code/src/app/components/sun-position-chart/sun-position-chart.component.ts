@@ -46,7 +46,7 @@ export class SunPositionChartComponent implements OnChanges {
       .attr('width', '100%')
       .attr('viewBox', '0 0 1100 350');
 
-    const sun = createSun(svgContainer, now.subtract(6,'hours').unix(), this.sunrise, this.sunset)
+    const sun = createSun(svgContainer, now.unix(), this.sunrise, this.sunset)
 
     const ground = svgContainer.append("rect")
       .attr("x", 0)

@@ -6,13 +6,15 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   results;
-
+  loading = false;
   constructor(private wheaterService: WheaterService) {}
 
-  ngOnInit() {
-    this.wheaterService.current('bologna').subscribe(results => {
+  onSearch(value) {
+    this.loading = true;
+    this.wheaterService.current(value).subscribe(results => {
+      this.loading = false;
       this.results = results;
     })
   }

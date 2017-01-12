@@ -1,5 +1,10 @@
-<p-panel header="Angular2 Course">
-    <ul *ngIf="results">
+<search-bar (onSearch)="onSearch($event)">
+</search-bar>
+<div *ngIf="laoding">
+    Getting data...
+</div>
+<p-panel *ngIf="!laoding && results" header="{{results.name}}">
+    <ul>
         <li>
             {{results.weather[0].main}}
             <img [src]="'http://openweathermap.org/img/w/' + results.weather[0].icon + '.png'" />

@@ -6,10 +6,12 @@ import { HttpModule } from '@angular/http';
 import { PanelModule } from 'primeng/primeng';
 
 import { AppComponent } from './app.component';
+import { WeatherIconComponent } from './components/weather-icon/weather-icon.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    WeatherIconComponent
   ],
   imports: [
     BrowserModule,

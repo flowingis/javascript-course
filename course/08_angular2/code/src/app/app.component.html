@@ -3,27 +3,27 @@
 <div *ngIf="laoding">
     Getting data...
 </div>
-<p-panel *ngIf="!laoding && results" header="{{results.name}}">
+<p-panel *ngIf="!laoding && wheaterInfo" header="{{wheaterInfo.name}}">
     <ul>
         <li>
-            {{results.weather[0].main}}
-            <img [src]="'http://openweathermap.org/img/w/' + results.weather[0].icon + '.png'" />
+            {{wheaterInfo.weather[0].main}}
+            <img [src]="'http://openweathermap.org/img/w/' + wheaterInfo.weather[0].icon + '.png'" />
         </li>
         <li>
-            Temperatura: {{results.main.temp | kelvinToCelsius | number}}
+            Temperatura: {{wheaterInfo.main.temp | kelvinToCelsius | number}}
         </li>
         <li>
-            Pressione: {{results.main.pressure}}
+            Pressione: {{wheaterInfo.main.pressure}}
         </li>
         <li>
-            Umidità: {{results.main.humidity}}
+            Umidità: {{wheaterInfo.main.humidity}}
         </li>
         <li>
-            Temperatura minima: {{results.main.temp_min | kelvinToCelsius}}
+            Temperatura minima: {{wheaterInfo.main.temp_min | kelvinToCelsius}}
         </li>
         <li>
-            Temperatura massima: {{results.main.temp_max | kelvinToCelsius}}
+            Temperatura massima: {{wheaterInfo.main.temp_max | kelvinToCelsius}}
         </li>
-
     </ul>
+    <comment-list [value]="comments"></comment-list>
 </p-panel>

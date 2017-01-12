@@ -1,3 +1,9 @@
 <p-panel header="Angular2 Course">
-    {{title}}
+    {{results | json}}
+    <ul *ngIf="results">
+        <li>
+            {{results.weather[0].main}}
+            <img [src]="'http://openweathermap.org/img/w/' + results.weather[0].icon + '.png'" />
+        </li>
+    </ul>
 </p-panel>

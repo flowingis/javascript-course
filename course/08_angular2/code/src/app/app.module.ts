@@ -1,3 +1,4 @@
+import { WheaterService } from './services/wheater.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -16,7 +17,9 @@ import { AppComponent } from './app.component';
     HttpModule,
     PanelModule
   ],
-  providers: [],
+  providers: [
+    WheaterService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

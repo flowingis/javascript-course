@@ -7,11 +7,13 @@ import { PanelModule } from 'primeng/primeng';
 
 import { AppComponent } from './app.component';
 import { WeatherIconComponent } from './components/weather-icon/weather-icon.component';
+import { KelvinToCelsiusPipe } from './pipes/kelvin-to-celsius.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WeatherIconComponent
+    WeatherIconComponent,
+    KelvinToCelsiusPipe
   ],
   imports: [
     BrowserModule,

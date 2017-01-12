@@ -8,11 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   results;
-  
+
   constructor(private wheaterService: WheaterService) {}
 
   ngOnInit() {
-    this.wheaterService.current().subscribe(results => {
+    this.wheaterService.current('bologna').subscribe(results => {
       this.results = results;
     })
   }

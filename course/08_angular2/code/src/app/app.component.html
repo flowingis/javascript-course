@@ -1,9 +1,24 @@
 <p-panel header="Angular2 Course">
-    {{results | json}}
     <ul *ngIf="results">
         <li>
             {{results.weather[0].main}}
             <img [src]="'http://openweathermap.org/img/w/' + results.weather[0].icon + '.png'" />
         </li>
+        <li>
+            Temperatura: {{results.main.temp | kelvinToCelsius | number}}
+        </li>
+        <li>
+            Pressione: {{results.main.pressure}}
+        </li>
+        <li>
+            Umidità: {{results.main.humidity}}
+        </li>
+        <li>
+            Temperatura minima: {{results.main.temp_min | kelvinToCelsius}}
+        </li>
+        <li>
+            Temperatura massima: {{results.main.temp_max | kelvinToCelsius}}
+        </li>
+
     </ul>
 </p-panel>

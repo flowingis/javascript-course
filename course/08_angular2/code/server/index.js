@@ -3,9 +3,7 @@ var app = express();
 var cors = require('cors');
 var bodyParser = require('body-parser');
 var CITIES = require('./cities.data');
-var comments = {
-  bologna: ['commento1', 'commento2']
-};
+var comments = {};
 
 app.use(cors())
 app.use(bodyParser.json());

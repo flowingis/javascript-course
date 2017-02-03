@@ -13,4 +13,9 @@ export class MessagesService {
     return this.http.get(url).map(res => res.json());
   }
 
+  public save(comment) {
+    const url = `api/comments`;
+    return this.http.post(url, comment).map(res => res.json());
+  }
+
 }

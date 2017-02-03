@@ -20,6 +20,7 @@
     "@angular/platform-browser": "2.2.3",
     "@angular/platform-browser-dynamic": "2.2.3",
     "@angular/router": "3.2.3",
+    "chartist": "^0.9.3",
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
     "primeng": "^1.1.2",
@@ -29,6 +30,7 @@
   },
   "devDependencies": {
     "@angular/compiler-cli": "2.2.3",
+    "@types/chartist": "^0.9.3",
     "@types/jasmine": "2.5.38",
     "@types/node": "^6.0.42",
     "angular-cli": "1.0.0-beta.22",

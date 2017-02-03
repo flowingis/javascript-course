@@ -1,21 +1,2 @@
-<app-search (onSearch)="onSearch($event)"></app-search>
-<div *ngIf="!loading">
-  <p-panel *ngIf="currentWeather" [header]="'Meteo ' + city">
-    <ul>
-      <li>{{currentWeather.weather[0].main}}
-        <app-icon [weather]="currentWeather.weather[0]"></app-icon>
-      </li>
-      <li>{{currentWeather.main.temp | fromKelvinToCelsius | number}}</li>
-      <li>{{currentWeather.main.pressure}}</li>
-      <li>{{currentWeather.main.humidity}}</li>
-      <li>{{currentWeather.main.temp_max | fromKelvinToCelsius}}/{{currentWeather.main.temp_min | fromKelvinToCelsius}}</li>
-    </ul>
-    <h6>Messages</h6>
-    <ul>
-      <li *ngFor="let message of messages">{{message}}</li>
-    </ul>
-  </p-panel>
-</div>
-<div *ngIf="loading">
-  Loading...
-</div>
+<h1>Lesson Angular</h1>
+<router-outlet></router-outlet>

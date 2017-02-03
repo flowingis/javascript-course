@@ -1,0 +1,3 @@
+<p>Commento</p>
+<textarea [(ngModel)]="commentText"></textarea>
+<button pButton label="Aggiungi" (click)="onSave();" [disabled]="commentText === ''"></button>

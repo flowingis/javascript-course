@@ -1,0 +1,6 @@
+{{error}}
+<p>Username: </p>
+<input type="text" pInputText [(ngModel)]="username" />
+<p>Password: </p>
+<input type="password" pInputText [(ngModel)]="password" />
+<button pButton type="button" label="Login" [disabled]="username === '' || password === ''" (click)="onLogin()"></button>

@@ -1,7 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+import App from './components/App'
+import repository from './model/repository'
+
 ReactDOM.render(
-  <h1>Hello, world!</h1>,
+  <App repository={repository} />,
   document.getElementById('root')
 )

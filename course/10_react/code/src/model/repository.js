@@ -1,7 +1,7 @@
 const todoList = []
 
 const list = () => {
-  return Object.freeze(todoList)
+  return Object.freeze([...todoList])
 }
 
 const store = todo => {

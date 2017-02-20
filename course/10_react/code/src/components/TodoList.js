@@ -12,8 +12,15 @@ export default class TodoList extends React.Component {
           key={index}
           style={textStyle}
           className='list-group-item'
-          onClick={() => this.props.onTodoClick(index)}>
-          <h4>{todo.message}</h4>
+          onClick={(event) => {
+            event.preventDefault()
+            this.props.onTodoClick(index)
+          }}>
+          <span>{todo.message}</span>
+          <span className='glyphicon glyphicon-trash pull-right' aria-hidden='true' onClick={(event) => {
+            event.stopPropagation()
+            this.props.onDeleteTodo(index)
+          }} />
         </li>
       )
     })
@@ -28,10 +35,12 @@ export default class TodoList extends React.Component {
 
 TodoList.propTypes = {
   todos: React.PropTypes.arrayOf(React.PropTypes.object),
-  onTodoClick: React.PropTypes.func
+  onTodoClick: React.PropTypes.func,
+  onDeleteTodo: React.PropTypes.func
 }
 
 TodoList.defaultProps = {
   todos: [],
-  onTodoClick: () => {}
+  onTodoClick: () => {},
+  onDeleteTodo: () => {}
 }

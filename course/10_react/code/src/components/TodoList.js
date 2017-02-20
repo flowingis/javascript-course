@@ -1,29 +1,16 @@
 import React from 'react'
 
+import Todo from './Todo'
+
 export default class TodoList extends React.Component {
   render () {
-    const elements = this.props.todos.map((todo, index) => {
-      const textStyle = {
-        textDecoration: todo.done ? 'line-through' : 'none'
-      }
-
-      return (
-        <li
-          key={index}
-          style={textStyle}
-          className='list-group-item'
-          onClick={(event) => {
-            event.preventDefault()
-            this.props.onTodoClick(index)
-          }}>
-          <span>{todo.message}</span>
-          <span className='glyphicon glyphicon-trash pull-right' aria-hidden='true' onClick={(event) => {
-            event.stopPropagation()
-            this.props.onDeleteTodo(index)
-          }} />
-        </li>
-      )
-    })
+    const elements = this.props.todos.map((todo, index) => (
+      <Todo
+        key={index}
+        index={index}
+        todo={todo}
+        {...this.props} />
+    ))
 
     return (
       <ul className='list-group'>

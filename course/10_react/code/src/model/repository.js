@@ -4,8 +4,11 @@ const list = () => {
   return Object.freeze([...todoList])
 }
 
-const store = todo => {
-  todoList.push(todo)
+const store = message => {
+  todoList.push({
+    message,
+    done: false
+  })
   return list()
 }
 
@@ -14,8 +17,14 @@ const remove = index => {
   return list()
 }
 
+const markAsDone = index => {
+  todoList[index].done = true
+  return list()
+}
+
 export default {
   list,
   store,
-  remove
+  remove,
+  markAsDone
 }

@@ -3,7 +3,19 @@ import React from 'react'
 export default class TodoList extends React.Component {
   render () {
     const elements = this.props.todos.map((todo, index) => {
-      return <li key={index} className='list-group-item'>{todo}</li>
+      const textStyle = {
+        textDecoration: todo.done ? 'line-through' : 'none'
+      }
+
+      return (
+        <li
+          key={index}
+          style={textStyle}
+          className='list-group-item'
+          onClick={() => this.props.onTodoClick(index)}>
+          <h4>{todo.message}</h4>
+        </li>
+      )
     })
 
     return (
@@ -15,9 +27,11 @@ export default class TodoList extends React.Component {
 }
 
 TodoList.propTypes = {
-  todos: React.PropTypes.arrayOf(React.PropTypes.string)
+  todos: React.PropTypes.arrayOf(React.PropTypes.object),
+  onTodoClick: React.PropTypes.func
 }
 
 TodoList.defaultProps = {
-  todos: []
+  todos: [],
+  onTodoClick: () => {}
 }

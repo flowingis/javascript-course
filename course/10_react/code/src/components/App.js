@@ -2,32 +2,30 @@ import React from 'react'
 import Header from './Header'
 import TodoForm from './TodoForm'
 import TodoList from './TodoList'
+import store from '../flux/store'
+import actions from '../flux/actions'
 
 export default class App extends React.Component {
 
   constructor (props) {
     super(props)
     this.state = {
-      list: []
+      list: store.list()
     }
   }
 
-  onTodoAdd (todo) {
+  listener () {
     this.setState({
-      list: this.props.repository.store(todo)
+      list: store.list()
     })
   }
 
-  onTodoClick (index) {
-    this.setState({
-      list: this.props.repository.markAsDone(index)
-    })
+  componentDidMount () {
+    store.addChangeListener(() => this.listener())
   }
 
-  onDeleteTodo (index) {
-    this.setState({
-      list: this.props.repository.remove(index)
-    })
+  componentWillUnmount () {
+    store.removeChangeListener(() => this.listener())
   }
 
   render () {
@@ -35,11 +33,11 @@ export default class App extends React.Component {
       <div className='container'>
         <Header />
         <div className='jumbotron text-center'>
-          <TodoForm onAdd={todo => this.onTodoAdd(todo)} />
+          <TodoForm onAdd={todo => actions.add(todo)} />
           <TodoList
             todos={this.state.list}
-            onTodoClick={index => this.onTodoClick(index)}
-            onDeleteTodo={index => this.onDeleteTodo(index)} />
+            onTodoClick={index => actions.markAsDone(index)}
+            onDeleteTodo={index => actions.remove(index)} />
         </div>
       </div>
     )

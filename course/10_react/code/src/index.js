@@ -2,9 +2,13 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 import App from './components/App'
-import repository from './model/repository'
+import AppState from './model/AppState'
+import repositoryFactory from './model/repository'
+
+const state = new AppState()
+const repository = repositoryFactory(state)
 
 ReactDOM.render(
-  <App repository={repository} />,
+  <App state={state} repository={repository} />,
   document.getElementById('root')
 )

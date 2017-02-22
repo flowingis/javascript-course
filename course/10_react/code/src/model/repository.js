@@ -1,30 +1,43 @@
-const todoList = []
+export default (appState) => {
+  const store = message => {
+    appState.loading = true
+    return new Promise(resolve => {
+      setTimeout(() => {
+        appState.loading = false
+        appState.todos.push({
+          message,
+          done: false
+        })
+        return appState
+      }, 1000)
+    })
+  }
 
-const list = () => {
-  return Object.freeze([...todoList])
-}
+  const remove = index => {
+    appState.loading = true
+    return new Promise(resolve => {
+      setTimeout(() => {
+        appState.loading = false
+        appState.todos.splice(index, 1)
+        return appState
+      }, 1000)
+    })
+  }
 
-const store = message => {
-  todoList.push({
-    message,
-    done: false
-  })
-  return list()
-}
+  const markAsDone = index => {
+    appState.loading = true
+    return new Promise(resolve => {
+      setTimeout(() => {
+        appState.loading = false
+        appState.todos[index] = {...appState.todos[index], done: true}
+        return appState
+      }, 1000)
+    })
+  }
 
-const remove = index => {
-  todoList.splice(index, 1)
-  return list()
-}
-
-const markAsDone = index => {
-  todoList[index].done = true
-  return list()
-}
-
-export default {
-  list,
-  store,
-  remove,
-  markAsDone
+  return {
+    store,
+    remove,
+    markAsDone
+  }
 }

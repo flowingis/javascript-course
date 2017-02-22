@@ -1,7 +1,11 @@
 const todoList = []
 
 const list = () => {
-  return Object.freeze([...todoList])
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(Object.freeze([...todoList]))
+    }, 2000)
+  })
 }
 
 const store = message => {

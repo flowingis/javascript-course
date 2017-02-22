@@ -9,7 +9,7 @@ import actions from '../redux/actions'
 
 const App = props => (
   <div className='container'>
-    <Header />
+    <Header loading={props.loading} />
     <div className='jumbotron text-center'>
       <TodoForm onAdd={todo => props.dispatch(actions.add(todo))} />
       <TodoList
@@ -22,6 +22,7 @@ const App = props => (
 
 export default connect(state => {
   return {
-    list: state.todos
+    list: state.todos,
+    loading: state.loading
   }
 })(App)

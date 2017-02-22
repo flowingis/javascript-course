@@ -1,47 +1,27 @@
 import React from 'react'
+import { connect } from 'react-redux'
+
 import Header from './Header'
 import TodoForm from './TodoForm'
 import TodoList from './TodoList'
 
-export default class App extends React.Component {
+import actions from '../redux/actions'
 
-  constructor (props) {
-    super(props)
-    this.state = {
-      list: []
-    }
-  }
+const App = props => (
+  <div className='container'>
+    <Header />
+    <div className='jumbotron text-center'>
+      <TodoForm onAdd={todo => props.dispatch(actions.add(todo))} />
+      <TodoList
+        todos={props.list}
+        onTodoClick={index => props.dispatch(actions.markAsDone(index))}
+        onDeleteTodo={index => props.dispatch(actions.remove(index))} />
+    </div>
+  </div>
+)
 
-  onTodoAdd (todo) {
-    this.setState({
-      list: this.props.repository.store(todo)
-    })
+export default connect(state => {
+  return {
+    list: state.todos
   }
-
-  onTodoClick (index) {
-    this.setState({
-      list: this.props.repository.markAsDone(index)
-    })
-  }
-
-  onDeleteTodo (index) {
-    this.setState({
-      list: this.props.repository.remove(index)
-    })
-  }
-
-  render () {
-    return (
-      <div className='container'>
-        <Header />
-        <div className='jumbotron text-center'>
-          <TodoForm onAdd={todo => this.onTodoAdd(todo)} />
-          <TodoList
-            todos={this.state.list}
-            onTodoClick={index => this.onTodoClick(index)}
-            onDeleteTodo={index => this.onDeleteTodo(index)} />
-        </div>
-      </div>
-    )
-  }
-}
+})(App)

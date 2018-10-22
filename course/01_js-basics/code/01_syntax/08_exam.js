@@ -2,7 +2,7 @@ function printTodos(){
     console.log(JSON.stringify(todos, undefined, 2) + '\n');
 }
 
-//Execution
+// Execution: Bonus if you use high order functions
 
 printTodos();
 addTodo('Go to the Gym');

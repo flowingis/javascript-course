@@ -1,6 +1,17 @@
 var todos = [];
 var i;
 
+var filter = function(array, test) {
+    var toReturn = [];
+    for (var index = 0; index < array.length; index++) {
+        const element = array[index];
+        if(test(element)){
+            toReturn.push(element)
+        } 
+    }
+    return toReturn;
+}
+
 function addTodo(text){
     todos.push({
         text:text,
@@ -21,13 +32,9 @@ function markAsDone(index){
 }
 
 function getDoneTodos(){
-    var doneTodos = [];
-    for (i = 0; i < todos.length; i++) {
-        if(todos[i].done){
-            doneTodos.push(todos[i]);
-        }
-    }
-    return doneTodos;
+    return filter(todos, function(todo){
+        return todo.done;
+    });
 }
 
 function printTodos(){

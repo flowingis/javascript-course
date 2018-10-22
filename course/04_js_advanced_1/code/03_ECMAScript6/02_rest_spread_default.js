@@ -13,14 +13,12 @@ print(...data);
 /*
     In realtà l'utilizzo più comune è quello di clonare rapidamente degli array
  */
-
 const newData = [0,...data,4]; //Scrittura equivalente a [0,1,2,3,4]
 console.log(newData);
 
 /*
     Il rest operator invece fa un lavoro praticamente opposto...
  */
-
 const print2 = function(...args){
     console.log(args.concat(['a param']));      //args è un vero array
 };
@@ -31,7 +29,6 @@ print2('Hello','Wolrd','!');
 /*
     È inolte possibile definire dei parametri di default nelle funzioni
  */
-
 const print3 = function(value = 'hello'){
     console.log(value);
 };

@@ -19,12 +19,12 @@
   },
   "homepage": "https://github.com/e-xtrategy/javascript-course#readme",
   "dependencies": {
-    "lodash": "4.14.0",
-    "moment": "2.14.1"
+    "lodash": "^4.17.11",
+    "moment": "^2.22.2"
   },
   "devDependencies": {
     "gh-pages": "0.11.0",
-    "http-server": "0.9.0",
+    "http-server": "^0.11.1",
     "jquery": "3.1.0"
   }
 }

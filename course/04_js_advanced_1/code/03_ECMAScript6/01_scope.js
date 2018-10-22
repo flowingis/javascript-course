@@ -1,7 +1,6 @@
 /*
     In ECMA5 per dichiarare variabili con scope di "block" bisogna ricorrere alle IFEE
  */
-
 var aFunction = function(){
     var x = 1;
     if(x){
@@ -42,7 +41,6 @@ bFunction();
     Inoltre è possibile utilizzare anche const che oltre ad avere il block scope come let, rende anche
     l'oggetto non riassegnabile
  */
-
 var cFunction = function(){
     var x = 1;
     if(x){
@@ -61,7 +59,6 @@ cFunction();
 /*
     Notate però che const rende il riferimento immutabile e non l'oggetto in se
  */
-
 var dFunction = function(){
     var x = 1;
     if(x){
@@ -77,3 +74,12 @@ var dFunction = function(){
 
 dFunction();
 
+/*
+    In ES6 le funzioni hanno la possibilità di definire valori di default
+*/
+var eFunction = function(value = 0){
+    console.log(value)
+};
+
+eFunction(1);
+eFunction();

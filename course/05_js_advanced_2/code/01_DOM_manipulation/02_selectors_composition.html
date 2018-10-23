@@ -5,16 +5,16 @@
         <script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
         <script src="../../../node_modules/lodash/lodash.min.js"></script>
         <script type="text/javascript">
-            var printInPage = function(params){
-                var title = params.title.toUpperCase();
+            const printInPage = (params) => {
+                const title = params.title.toUpperCase();
                 console.log(title);
                 delete params.title;
-                console.log("--------------------"+title+"--------------------");
-                _.each(params, function(a, key){
+                console.log(`--------------------${title}--------------------`);
+                _.each(params, (value, key) => {
                     console.log(key+"-> ");
-                    console.log(a);
+                    console.log(value);
                 });
-                console.log("-------------------/"+title+"--------------------");
+                console.log(`--------------------/${title}--------------------`);
             };
         </script>
         <style>
@@ -55,22 +55,22 @@
             </div>
         </div>
         <script type="text/javascript">
-            var fooNested = document.querySelectorAll(".nesting > .foo");
-            var barNested = document.querySelectorAll(".nesting > .bar");
-            var bazNested = document.querySelectorAll(".nesting > .baz");
-            var deepFooNested = document.querySelectorAll(".nesting .foo");
+            const fooNested = document.querySelectorAll(".nesting > .foo");
+            const barNested = document.querySelectorAll(".nesting > .bar");
+            const bazNested = document.querySelectorAll(".nesting > .baz");
+            const deepFooNested = document.querySelectorAll(".nesting .foo");
 
-            var jQueryFooNested = $(".nesting > .foo");
-            var jQueryBarNested = $(".nesting > .bar");
-            var jQueryBazNested = $(".nesting > .baz");
+            const jQueryFooNested = $(".nesting > .foo");
+            const jQueryBarNested = $(".nesting > .bar");
+            const jQueryBazNested = $(".nesting > .baz");
 
 
             printInPage({
                 title:"nesting",
-                fooNested: fooNested,
-                deepFooNested: deepFooNested,
-                barNested: barNested,
-                bazNested: bazNested,
+                fooNested,
+                deepFooNested,
+                barNested,
+                bazNested,
                 jQueryFooNested: jQueryFooNested.get(),
                 jQueryBarNested: jQueryBarNested.get(),
                 jQueryBazNested: jQueryBazNested.get()
@@ -87,19 +87,19 @@
             <div class="baz">baz div</div>
         </div>
         <script type="text/javascript">
-            var spanFoo = document.querySelectorAll(".combine > span.foo");
-            var spanBar = document.querySelectorAll(".combine > span.bar");
-            var spanBaz = document.querySelectorAll(".combine > span.baz");
+            const spanFoo = document.querySelectorAll(".combine > span.foo");
+            const spanBar = document.querySelectorAll(".combine > span.bar");
+            const spanBaz = document.querySelectorAll(".combine > span.baz");
 
-            var jQuerySpanFoo = $(".combine > span.foo");
-            var jQuerySpanBar = $(".combine > span.bar");
-            var jQuerySpanBaz = $(".combine > span.baz");
+            const jQuerySpanFoo = $(".combine > span.foo");
+            const jQuerySpanBar = $(".combine > span.bar");
+            const jQuerySpanBaz = $(".combine > span.baz");
 
             printInPage({
                 title:"combine",
-                spanFoo: spanFoo,
-                spanBar: spanBar,
-                spanBaz: spanBaz,
+                spanFoo,
+                spanBar,
+                spanBaz,
                 jQuerySpanFoo: jQuerySpanFoo.get(),
                 jQuerySpanBar: jQuerySpanBar.get(),
                 jQuerySpanBaz: jQuerySpanBaz.get()
@@ -122,13 +122,13 @@
 
         </div>
         <script type="text/javascript">
-            var spanAndDiv = document.querySelectorAll(".multipleSelection > span, .multipleSelection > div");
+            const spanAndDiv = document.querySelectorAll(".multipleSelection > span, .multipleSelection > div");
             
-            var jQuerySpanAndDiv = $(".multipleSelection > span, .multipleSelection > div");
+            const jQuerySpanAndDiv = $(".multipleSelection > span, .multipleSelection > div");
 
             printInPage({
                 title:"multipleSelection",
-                spanAndDiv: spanAndDiv,
+                spanAndDiv,
                 jQuerySpanAndDiv: jQuerySpanAndDiv.get()
             });
         </script>
@@ -140,13 +140,13 @@
             <p class="foo">foo p</p>
         </div>
         <script type="text/javascript">
-            var fooNotDiv = document.querySelectorAll(".negation > .foo:not(div)");
+            const fooNotDiv = document.querySelectorAll(".negation > .foo:not(div)");
             
-            var jQueryFooNotDiv = $(".negation > .foo:not(div)");
+            const jQueryFooNotDiv = $(".negation > .foo:not(div)");
 
             printInPage({
                 title:"negation",
-                fooNotDiv: fooNotDiv,
+                fooNotDiv,
                 jQueryFooNotDiv: jQueryFooNotDiv.get()
             });
         </script>

@@ -6,16 +6,16 @@
     <script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../../../node_modules/lodash/lodash.min.js"></script>
     <script type="text/javascript">
-        var printInPage = function (params) {
-            var title = params.title.toUpperCase();
+        const printInPage = (params) => {
+            const title = params.title.toUpperCase();
             console.log(title);
             delete params.title;
-            console.log("--------------------" + title + "--------------------");
-            _.each(params, function (a, key) {
+            console.log(`--------------------${title}--------------------`);
+            _.each(params, (value, key) => {
                 console.log(key + "-> ");
-                console.log(a);
+                console.log(value);
             });
-            console.log("-------------------/" + title + "--------------------");
+            console.log(`--------------------/${title}--------------------`);
         };
     </script>
     <style>
@@ -56,12 +56,12 @@
     <button class="removeLi">Remove li</button>
     <button class="jQueryRemoveLi">Remove li with jQuery</button>
     <script type="text/javascript">
-        (function () {
-            document.querySelector(".removeLi").onclick = function () {
-                var elementToRemove = document.querySelector(".removeElement").querySelector("li");
+        (() => {
+            document.querySelector(".removeLi").onclick = () => {
+                const elementToRemove = document.querySelector(".removeElement").querySelector("li");
                 // Alternatives
-                // var elementToRemove = document.querySelector(".removeElement > ul > li");
-                // var elementToRemove = document.querySelector(".removeElement li");
+                // const elementToRemove = document.querySelector(".removeElement > ul > li");
+                // const elementToRemove = document.querySelector(".removeElement li");
                 if (elementToRemove) {
                     elementToRemove.remove();
                 } else {
@@ -69,8 +69,8 @@
                 }
             };
 
-            $(".jQueryRemoveLi").click(function () {
-                var elementToRemove = $(".removeElement").find("li")[0];
+            $(".jQueryRemoveLi").click(() => {
+                const elementToRemove = $(".removeElement").find("li")[0];
                 if (elementToRemove) {
                     $(elementToRemove).remove();
                 } else {
@@ -88,11 +88,11 @@
         </ul>
     </div>
     <script type="text/javascript">
-        (function () {
-            var firstDiv = '<div style="background-color: #000000; color: #FFFFFF">Before Ul</div>';
-            var firstLi = '<li style="background-color: #FFFFFF">First li</li>';
-            var secondLi = '<li style="background-color: #000000; color: #FFFFFF">Last li</li>';
-            var secondDiv = '<div style="background-color: #FFFFFF">After Ul</div>';
+        (() => {
+            const firstDiv = '<div style="background-color: #000000; color: #FFFFFF">Before Ul</div>';
+            const firstLi = '<li style="background-color: #FFFFFF">First li</li>';
+            const secondLi = '<li style="background-color: #000000; color: #FFFFFF">Last li</li>';
+            const secondDiv = '<div style="background-color: #FFFFFF">After Ul</div>';
 
             document.querySelector(".usingInsertAdjacentHTML > ul").insertAdjacentHTML('beforebegin', firstDiv);
             document.querySelector(".usingInsertAdjacentHTML > ul").insertAdjacentHTML('afterbegin', firstLi);
@@ -106,17 +106,17 @@
         <ul></ul>
     </div>
     <script type="text/javascript">
-        (function () {
-            var firstLi = $.parseHTML('<li style="background-color: #FFFFFF">First li</li>');
-            var secondLi = '<li style="background-color: #000000; color: #FFFFFF">Second li</li>';
-            var thirdLi = '<li style="background-color: #FFFFFF">Third li</li>';
+        (() => {
+            const firstLi = $.parseHTML('<li style="background-color: #FFFFFF">First li</li>');
+            const secondLi = '<li style="background-color: #000000; color: #FFFFFF">Second li</li>';
+            const thirdLi = '<li style="background-color: #FFFFFF">Third li</li>';
 
             $($(".usingStrings > ul")[0]).append(firstLi);
 
-            var jQueryUlElement = $($(".usingStrings > ul")[0]);
+            const jQueryUlElement = $($(".usingStrings > ul")[0]);
             jQueryUlElement.html(jQueryUlElement.html() + secondLi);
 
-            var ulElement = document.querySelector(".usingStrings > ul");
+            const ulElement = document.querySelector(".usingStrings > ul");
 
             ulElement.innerHTML = ulElement.innerHTML + thirdLi;
         })();
@@ -129,10 +129,10 @@
         </ul>
     </div>
     <script type="text/javascript">
-        (function () {
-            var firstLi = document.createElement("li");
+        (() => {
+            const firstLi = document.createElement("li");
             firstLi.textContent = "First li";
-            var secondLi = document.createElement("li");
+            const secondLi = document.createElement("li");
             secondLi.textContent = "Second li";
             document.querySelector(".usingCreateElementAndAppendChild > ul").appendChild(firstLi);
             document.querySelector(".usingCreateElementAndAppendChild > ul").appendChild(secondLi);
@@ -144,10 +144,10 @@
         <ul></ul>
     </div>
     <script type="text/javascript">
-        var liTemplate = _.template("<li><%= text %></li>");
-        var ulElement = document.querySelector(".usingLodashUnderscoreTemplate > ul");
+        const liTemplate = _.template("<li><%= text %></li>");
+        const ulElement = document.querySelector(".usingLodashUnderscoreTemplate > ul");
 
-        _.each(["First template li", "Second template li"], function (text) {
+        _.each(["First template li", "Second template li"], (text) => {
             ulElement.innerHTML += liTemplate({ text: text });
         });
 
@@ -162,14 +162,14 @@
     <button class="addFromInput">ADD</button>
     <input class="textToPutInLi" type="text" />
     <script type="text/javascript">
-        (function () {
-            var input = document.querySelector(".textToPutInLi");
+        (() => {
+            const input = document.querySelector(".textToPutInLi");
 
-            var liTemplate = _.template("<li><%= text %></li>");
-            var ulElement = document.querySelector(".usingDataFromInput > ul");
+            const liTemplate = _.template("<li><%= text %></li>");
+            const ulElement = document.querySelector(".usingDataFromInput > ul");
 
-            document.querySelector(".addFromInput").onclick = function () {
-                var text = input.value || "default";
+            document.querySelector(".addFromInput").onclick = () => {
+                const text = input.value || "default";
                 ulElement.innerHTML += liTemplate({ text: text });
             };
         })();
@@ -184,13 +184,13 @@
         </div>
     </template>
     <script type="text/javascript">
-        (function () {
-            var template = document.querySelector('template')
-            var container = document.querySelector("[data-template-container]");
+        (() => {
+            const template = document.querySelector('template')
+            const container = document.querySelector("[data-template-container]");
 
-            document.querySelector("[data-add-from-template]").onclick = function () {
-                var index = container.querySelectorAll('div').length + 1;
-                var element = template.content.cloneNode(true);
+            document.querySelector("[data-add-from-template]").onclick = () => {
+                const index = container.querySelectorAll('div').length + 1;
+                const element = template.content.cloneNode(true);
                 element.querySelector("[data-number]").innerText = index;
                 container.appendChild(element);
             };
@@ -201,14 +201,14 @@
     <button data-add-from-template-fly>ADD FROM TEMPLATE ON THE FLY</button>
     <div data-template-fly-container></div>
     <script type="text/javascript">
-        (function () {
-            var container = document.querySelector("[data-template-fly-container]");
+        (() => {
+            const container = document.querySelector("[data-template-fly-container]");
 
-            document.querySelector("[data-add-from-template-fly]").onclick = function () {
-                var index = container.querySelectorAll('div').length + 1;
-                var template = document.createElement('template')
-                template.innerHTML = '<div>This is element number ' + index + '</div>';
-                var element = template.content.cloneNode(true);
+            document.querySelector("[data-add-from-template-fly]").onclick = () => {
+                const index = container.querySelectorAll('div').length + 1;
+                const template = document.createElement('template')
+                template.innerHTML = `<div>This is element number ${index}</div>`;
+                const element = template.content.cloneNode(true);
                 container.appendChild(element);
             };
         })();

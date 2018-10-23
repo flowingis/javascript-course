@@ -9,8 +9,7 @@
   },
   "scripts": {
     "deploy": "node publish",
-    "prestart": "npm install",
-    "start": "node ./node_modules/http-server/bin/http-server"
+    "start": "http-server"
   },
   "author": "e-xtrategy",
   "license": "WTFPL",

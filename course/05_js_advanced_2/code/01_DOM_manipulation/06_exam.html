@@ -1,108 +1,123 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>06 Exam</title>
-        <script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
-        <script src="../../../node_modules/lodash/lodash.min.js"></script>
-        <script type="text/javascript">
-            var todoList = function(){
-                var todos = [];
 
-                var add = function(desc){
-                    todos.push({
-                        text: desc,
-                        done: false
-                    })
-                };
+<head>
+    <title>06 Exam</title>
+    <script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../../../node_modules/lodash/lodash.min.js"></script>
+    <script type="text/javascript">
+        const todoListFactory = () => {
+            let todos = [];
 
-                var remove = function(desc){
-                    todos = _.filter(todos, function(todo){
-                        return todo.text !== desc;
-                    });
-                };
-
-                var changeDoneStatus = function(desc){
-                    _.each(todos, function(todo){
-                        if(todo.text === desc){
-                            todo.done = !todo.done;
-                        }
-                    });
-                };
-
-                return {
-                    add: add,
-                    remove: remove,
-                    changeDoneStatus: changeDoneStatus
-                };
+            const add = desc => {
+                todos.push({
+                    text: desc,
+                    done: false
+                })
             };
 
-            var makeIdFromDescription = function(desc){
-                return desc.replace(/\s/g, '');
+            const remove = desc => {
+                todos = todos.filter(todo => todo.text !== desc)
             };
 
-            var myTodoList = todoList();
-
-            var addToList = function(){
-
+            const changeDoneStatus = desc => {
+                todos.forEach(todo => {
+                    if (todo.text === desc) {
+                        todo.done = !todo.done;
+                    }
+                });
             };
 
-            var removeFromList = function(desc){
-
+            const getStatus = (desc) => {
+                const todo = todos.find(todo => todo.text !== desc)
+                if (!todo) {
+                    return
+                }
+                return todo.done;
             };
 
-            var changeStatus = function(desc){
 
+            return {
+                add,
+                remove,
+                changeDoneStatus,
+                getStatus
             };
+        };
 
-        </script>
-        <style type="text/css">
-            .todo:nth-child(odd){
-                background-color: #FFFFFF;
-            }
-            .todo:nth-child(even){
-                background-color: #CCCCCC;
-            }
-            .done {
-                background-color: #00FF00
-            }
-            .notDone {
-                background-color: #FF0000
-            }
-            .doneCheck {
-                float: right;
-                cursor: pointer;
-            }
-            .description {
-                text-align: center;
-            }
-            #myTodoList {
-                width: 400px
-            }
-            #newTodo {
-                margin-bottom: 25px
-            }
+        const makeIdFromDescription = desc => desc.replace(/\s/g, '');
 
-        </style>
-    </head>
-    <body>
-        <div id="newTodo">
-            <input id="descNewTodo" type="text" />
-            <button onclick="addToList()">ADD</button>
+        const todoList = todoListFactory();
+
+        const addToList = () => {
+
+        };
+
+        const removeFromList = (desc) => {
+
+        };
+
+        const changeStatus = (desc) => {
+
+        };
+
+    </script>
+    <style type="text/css">
+        .todo:nth-child(odd) {
+            background-color: #FFFFFF;
+        }
+
+        .todo:nth-child(even) {
+            background-color: #CCCCCC;
+        }
+
+        .done {
+            background-color: #00FF00
+        }
+
+        .notDone {
+            background-color: #FF0000
+        }
+
+        .doneCheck {
+            float: right;
+            cursor: pointer;
+        }
+
+        .description {
+            text-align: center;
+        }
+
+        #myTodoList {
+            width: 400px
+        }
+
+        #newTodo {
+            margin-bottom: 25px
+        }
+    </style>
+</head>
+
+<body>
+    <div id="newTodo">
+        <input id="descNewTodo" type="text" />
+        <button onclick="addToList()">ADD</button>
+    </div>
+
+    <div id="myTodoList">
+        <!-- This is an examples of todo -->
+        <div class="todo">
+            <div class="description">description of fisrt todo</div>
+            <button>REMOVE</button>
+            <span class="doneCheck notDone">&#9744;</span>
         </div>
-
-        <div id="myTodoList">
-            <!-- This is an examples of todo -->
-            <div class="todo">
-                <div class="description">description of fisrt todo</div>
-                <button>REMOVE</button>
-                <span class="doneCheck notDone">&#9744;</span>
-            </div>
-            <div class="todo">
-                <div class="description">description of second todo</div>
-                <button>REMOVE</button>
-                <span class="doneCheck done">&#9745;</span>
-            </div>
+        <div class="todo">
+            <div class="description">description of second todo</div>
+            <button>REMOVE</button>
+            <span class="doneCheck done">&#9745;</span>
         </div>
-        
-    </body>
+    </div>
+
+</body>
+
 </html>

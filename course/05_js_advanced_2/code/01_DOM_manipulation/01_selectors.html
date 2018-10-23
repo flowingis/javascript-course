@@ -5,16 +5,16 @@
         <script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
         <script src="../../../node_modules/lodash/lodash.min.js"></script>
         <script type="text/javascript">
-            var printInPage = function(params){
-                var title = params.title.toUpperCase();
+            const printInPage = (params) => {
+                const title = params.title.toUpperCase();
                 console.log(title);
                 delete params.title;
-                console.log("--------------------"+title+"--------------------");
-                _.each(params, function(a, key){
+                console.log(`--------------------${title}--------------------`);
+                _.each(params, (value, key) => {
                     console.log(key+"-> ");
-                    console.log(a);
+                    console.log(value);
                 });
-                console.log("-------------------/"+title+"--------------------");
+                console.log(`--------------------/${title}--------------------`);
             };
         </script>
         <style>
@@ -52,16 +52,16 @@
             <span class="evenSpan">my span 6</span>
         </div>
         <script type="text/javascript">
-            var pairSpans = document.getElementsByClassName("evenSpan");
-            var oddSpans = document.querySelectorAll(".oddSpan");
+            const pairSpans = document.getElementsByClassName("evenSpan");
+            const oddSpans = document.querySelectorAll(".oddSpan");
 
-            var jQueryPairSpans = $(".evenSpan");
-            var jQueryOddSpans = $(".oddSpan");
+            const jQueryPairSpans = $(".evenSpan");
+            const jQueryOddSpans = $(".oddSpan");
             
             printInPage({
                 title:"class",
-                pairSpans: pairSpans,
-                oddSpans: oddSpans,
+                pairSpans,
+                oddSpans,
                 jQueryPairSpans: jQueryPairSpans.get(),
                 jQueryOddSpans: jQueryOddSpans.get()
             });
@@ -76,18 +76,18 @@
             <p>my p 2</p>
         </div>
         <script type="text/javascript">
-            var p = document.getElementsByTagName("p");
-            var firstDiv = document.querySelector("div");
-            var div = document.querySelectorAll("div");
+            const p = document.getElementsByTagName("p");
+            const firstDiv = document.querySelector("div");
+            const div = document.querySelectorAll("div");
 
-            var jQueryP = $("p");
-            var jQueryDiv = $("div");
+            const jQueryP = $("p");
+            const jQueryDiv = $("div");
 
             printInPage({
                 title:"tag name",
-                p: p,
-                div: div,
-                firstDiv: firstDiv,
+                p,
+                div,
+                firstDiv,
                 jQueryP: jQueryP.get(),
                 jQueryDiv: jQueryDiv.get()
             });
@@ -99,16 +99,16 @@
             <div name="secondDiv" type="text">my second div with name</div>
         </div>
         <script type="text/javascript">
-            var firtsDiv = document.getElementsByName("firtsDiv");
-            var secondDiv = document.querySelectorAll("[name=secondDiv]");
+            const firtsDiv = document.getElementsByName("firtsDiv");
+            const secondDiv = document.querySelectorAll("[name=secondDiv]");
 
-            var jQueryfirtsDiv = $("[name=firtsDiv]");
-            var jQuerysecondDiv = $("[name=secondDiv]");
+            const jQueryfirtsDiv = $("[name=firtsDiv]");
+            const jQuerysecondDiv = $("[name=secondDiv]");
 
             printInPage({
                 title:"name",
-                firtsDiv: firtsDiv,
-                secondDiv: secondDiv,
+                firtsDiv,
+                secondDiv,
                 jQueryfirtsDiv: jQueryfirtsDiv.get(),
                 jQuerysecondDiv: jQuerysecondDiv.get()
             });
@@ -119,13 +119,13 @@
             <span role="myCustomRole">my span with role</span>
         </div>
         <script type="text/javascript">
-            var spanWithRole = document.querySelectorAll("[role='myCustomRole']");
+            const spanWithRole = document.querySelectorAll("[role='myCustomRole']");
             
-            var jQuerySpanWithRole = $("[role='myCustomRole']");
+            const jQuerySpanWithRole = $("[role='myCustomRole']");
 
             printInPage({
                 title:"role",
-                spanWithRole: spanWithRole,
+                spanWithRole,
                 jQuerySpanWithRole: jQuerySpanWithRole.get()
             });
         </script>
@@ -135,15 +135,15 @@
             <div id="myDivId">my div with id</div>
         </div>
         <script type="text/javascript">
-            var divWithId = document.getElementById("myDivId");
-            var divWithIdQuery = document.querySelectorAll("#myDivId");
+            const divWithId = document.getElementById("myDivId");
+            const divWithIdQuery = document.querySelectorAll("#myDivId");
                         
-            var jQueryDivWithId = $("#myDivId");
+            const jQueryDivWithId = $("#myDivId");
 
             printInPage({
                 title:"id",
-                divWithId: divWithId,
-                divWithIdQuery: divWithIdQuery,
+                divWithId,
+                divWithIdQuery,
                 jQueryDivWithId: jQueryDivWithId.get()
             });
         </script>
@@ -156,30 +156,30 @@
             <div title="second div title">second div with title</div>
         </div>
         <script type="text/javascript">
-            var divWithCustomAttribute = document.querySelectorAll("[data-myCustomAttribute]");
-            var divWithTitle = document.querySelectorAll("[title]");
+            const divWithCustomAttribute = document.querySelectorAll("[data-myCustomAttribute]");
+            const divWithTitle = document.querySelectorAll("[title]");
 
-            var jQueryDivWithCustomAttribute = $("[data-myCustomAttribute]");
-            var jQueryDivWithTitle = $("[title]");
+            const jQueryDivWithCustomAttribute = $("[data-myCustomAttribute]");
+            const jQueryDivWithTitle = $("[title]");
 
-            var firstDivWithTitle = document.querySelectorAll("[title=divTitle]");
-            var secondDivWithTitle = document.querySelectorAll("[title='second div title']");
+            const firstDivWithTitle = document.querySelectorAll("[title=divTitle]");
+            const secondDivWithTitle = document.querySelectorAll("[title='second div title']");
             
-            var jQueryFirstDivWithTitle = $("[title=divTitle]");
-            var jQuerySecondDivWithTitle = $("[title='second div title']");
+            const jQueryFirstDivWithTitle = $("[title=divTitle]");
+            const jQuerySecondDivWithTitle = $("[title='second div title']");
 
             printInPage({
                 title:"attribute",
-                divWithCustomAttribute: divWithCustomAttribute,
-                divWithTitle: divWithTitle,
+                divWithCustomAttribute,
+                divWithTitle,
                 jQueryDivWithCustomAttribute: jQueryDivWithCustomAttribute.get(),
                 jQueryDivWithTitle: jQueryDivWithTitle.get()
             });
             
             printInPage({
                 title:"value of attribute",
-                firstDivWithTitle: firstDivWithTitle,
-                secondDivWithTitle: secondDivWithTitle,
+                firstDivWithTitle,
+                secondDivWithTitle,
                 jQueryFirstDivWithTitle: jQueryFirstDivWithTitle.get(),
                 jQuerySecondDivWithTitle: jQuerySecondDivWithTitle.get()
             });

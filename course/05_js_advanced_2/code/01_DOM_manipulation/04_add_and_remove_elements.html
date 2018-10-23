@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>04 add and remove elements</title>
-        <script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
-        <script src="../../../node_modules/lodash/lodash.min.js"></script>
-        <script type="text/javascript">
-            var printInPage = function(params){
-                var title = params.title.toUpperCase();
-                console.log(title);
-                delete params.title;
-                console.log("--------------------"+title+"--------------------");
-                _.each(params, function(a, key){
-                    console.log(key+"-> ");
-                    console.log(a);
-                });
-                console.log("-------------------/"+title+"--------------------");
-            };
-        </script>
-        <style>
-            div.examples {
+
+<head>
+    <title>04 add and remove elements</title>
+    <script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../../../node_modules/lodash/lodash.min.js"></script>
+    <script type="text/javascript">
+        var printInPage = function (params) {
+            var title = params.title.toUpperCase();
+            console.log(title);
+            delete params.title;
+            console.log("--------------------" + title + "--------------------");
+            _.each(params, function (a, key) {
+                console.log(key + "-> ");
+                console.log(a);
+            });
+            console.log("-------------------/" + title + "--------------------");
+        };
+    </script>
+    <style>
+        div.examples {
                 margin-bottom: 50px;
                 border: 1px solid #000000;
                 text-align: center;
@@ -40,138 +41,179 @@
                 text-align: center;
             }
         </style>
-    </head>
-    <body>
-        <h1>REMOVE ELEMENT</h1>
-        <div class="examples removeElement">
-            <ul>
-                <li>First li</li>
-                <li>Second li</li>
-                <li>Third li</li>
-                <li>Fourth li</li>
-            </ul>
-        </div>
-        <button class="removeLi">Remove li</button>
-        <button class="jQueryRemoveLi">Remove li with jQuery</button>
-        <script type="text/javascript">
-            (function(){
-                document.querySelector(".removeLi").onclick = function(){
-                    var elementToRemove = document.querySelector(".removeElement").querySelector("li");
-                    // Alternatives
-                    // var elementToRemove = document.querySelector(".removeElement > ul > li");
-                    // var elementToRemove = document.querySelector(".removeElement li");
-                    if(elementToRemove){
-                        elementToRemove.remove();
-                    }else{
-                        console.log("No element to remove left");
-                    }
-                };
+</head>
 
-                $(".jQueryRemoveLi").click(function(){
-                    var elementToRemove = $(".removeElement").find("li")[0];
-                    if(elementToRemove){
-                        $(elementToRemove).remove();
-                    }else{
-                        console.log("No element to remove with jQuery left");   
-                    }
-                });
-            })();
-        </script>
+<body>
+    <h1>REMOVE ELEMENT</h1>
+    <div class="examples removeElement">
+        <ul>
+            <li>First li</li>
+            <li>Second li</li>
+            <li>Third li</li>
+            <li>Fourth li</li>
+        </ul>
+    </div>
+    <button class="removeLi">Remove li</button>
+    <button class="jQueryRemoveLi">Remove li with jQuery</button>
+    <script type="text/javascript">
+        (function () {
+            document.querySelector(".removeLi").onclick = function () {
+                var elementToRemove = document.querySelector(".removeElement").querySelector("li");
+                // Alternatives
+                // var elementToRemove = document.querySelector(".removeElement > ul > li");
+                // var elementToRemove = document.querySelector(".removeElement li");
+                if (elementToRemove) {
+                    elementToRemove.remove();
+                } else {
+                    console.log("No element to remove left");
+                }
+            };
 
-        <h1>CREATE &amp; ADD ELEMENTS</h1>
-        <h3>Using insertAdjacentHTML</h3>
-        <div class="examples usingInsertAdjacentHTML">
-            <ul style="border: 3px solid #00FF00">
-                <li>li already in</li>
-            </ul>
-        </div>
-        <script type="text/javascript">
-            (function(){
-                var firstDiv = '<div style="background-color: #000000; color: #FFFFFF">Before Ul</div>';
-                var firstLi = '<li style="background-color: #FFFFFF">First li</li>';
-                var secondLi = '<li style="background-color: #000000; color: #FFFFFF">Last li</li>';
-                var secondDiv = '<div style="background-color: #FFFFFF">After Ul</div>';
-
-                document.querySelector(".usingInsertAdjacentHTML > ul").insertAdjacentHTML('beforebegin', firstDiv);
-                document.querySelector(".usingInsertAdjacentHTML > ul").insertAdjacentHTML('afterbegin', firstLi);
-                document.querySelector(".usingInsertAdjacentHTML > ul").insertAdjacentHTML('beforeend', secondLi);
-                document.querySelector(".usingInsertAdjacentHTML > ul").insertAdjacentHTML('afterend', secondDiv);
-            })();
-        </script>
-
-        <h3>Using Strings</h3>
-        <div class="examples usingStrings">
-            <ul></ul>
-        </div>
-        <script type="text/javascript">
-            (function(){
-                var firstLi = $.parseHTML('<li style="background-color: #FFFFFF">First li</li>');
-                var secondLi = '<li style="background-color: #000000; color: #FFFFFF">Second li</li>';
-                var thirdLi = '<li style="background-color: #FFFFFF">Third li</li>';
-
-                $($(".usingStrings > ul")[0]).append(firstLi);
-
-                var jQueryUlElement = $($(".usingStrings > ul")[0]);
-                jQueryUlElement.html(jQueryUlElement.html()+secondLi);
-
-                var ulElement = document.querySelector(".usingStrings > ul");
-
-                ulElement.innerHTML = ulElement.innerHTML+thirdLi;
-            })();
-        </script>
-
-        <h3>Using createElement and appendChild</h3>
-        <div class="examples usingCreateElementAndAppendChild">
-            <ul>
-                
-            </ul>            
-        </div>
-        <script type="text/javascript">
-            (function(){
-                var firstLi = document.createElement("li");
-                firstLi.textContent = "First li";
-                var secondLi = document.createElement("li");
-                secondLi.textContent = "Second li";
-                document.querySelector(".usingCreateElementAndAppendChild > ul").appendChild(firstLi);
-                document.querySelector(".usingCreateElementAndAppendChild > ul").appendChild(secondLi);
-            })();
-        </script>
-
-        <h3>Using lodash/underscore template</h3>
-        <div class="examples usingLodashUnderscoreTemplate">
-            <ul></ul>
-        </div>
-        <script type="text/javascript">
-            var liTemplate = _.template("<li><%= text %></li>");
-            var ulElement = document.querySelector(".usingLodashUnderscoreTemplate > ul");
-            
-            _.each(["First template li", "Second template li"], function(text){
-                ulElement.innerHTML += liTemplate({ text: text});
+            $(".jQueryRemoveLi").click(function () {
+                var elementToRemove = $(".removeElement").find("li")[0];
+                if (elementToRemove) {
+                    $(elementToRemove).remove();
+                } else {
+                    console.log("No element to remove with jQuery left");
+                }
             });
+        })();
+    </script>
 
-        </script>
+    <h1>CREATE &amp; ADD ELEMENTS</h1>
+    <h3>Using insertAdjacentHTML</h3>
+    <div class="examples usingInsertAdjacentHTML">
+        <ul style="border: 3px solid #00FF00">
+            <li>li already in</li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        (function () {
+            var firstDiv = '<div style="background-color: #000000; color: #FFFFFF">Before Ul</div>';
+            var firstLi = '<li style="background-color: #FFFFFF">First li</li>';
+            var secondLi = '<li style="background-color: #000000; color: #FFFFFF">Last li</li>';
+            var secondDiv = '<div style="background-color: #FFFFFF">After Ul</div>';
 
-        <h3>Using data from input</h3>
-        <div class="examples usingDataFromInput">
-            <ul>
-                
-            </ul>
+            document.querySelector(".usingInsertAdjacentHTML > ul").insertAdjacentHTML('beforebegin', firstDiv);
+            document.querySelector(".usingInsertAdjacentHTML > ul").insertAdjacentHTML('afterbegin', firstLi);
+            document.querySelector(".usingInsertAdjacentHTML > ul").insertAdjacentHTML('beforeend', secondLi);
+            document.querySelector(".usingInsertAdjacentHTML > ul").insertAdjacentHTML('afterend', secondDiv);
+        })();
+    </script>
+
+    <h3>Using Strings</h3>
+    <div class="examples usingStrings">
+        <ul></ul>
+    </div>
+    <script type="text/javascript">
+        (function () {
+            var firstLi = $.parseHTML('<li style="background-color: #FFFFFF">First li</li>');
+            var secondLi = '<li style="background-color: #000000; color: #FFFFFF">Second li</li>';
+            var thirdLi = '<li style="background-color: #FFFFFF">Third li</li>';
+
+            $($(".usingStrings > ul")[0]).append(firstLi);
+
+            var jQueryUlElement = $($(".usingStrings > ul")[0]);
+            jQueryUlElement.html(jQueryUlElement.html() + secondLi);
+
+            var ulElement = document.querySelector(".usingStrings > ul");
+
+            ulElement.innerHTML = ulElement.innerHTML + thirdLi;
+        })();
+    </script>
+
+    <h3>Using createElement and appendChild</h3>
+    <div class="examples usingCreateElementAndAppendChild">
+        <ul>
+
+        </ul>
+    </div>
+    <script type="text/javascript">
+        (function () {
+            var firstLi = document.createElement("li");
+            firstLi.textContent = "First li";
+            var secondLi = document.createElement("li");
+            secondLi.textContent = "Second li";
+            document.querySelector(".usingCreateElementAndAppendChild > ul").appendChild(firstLi);
+            document.querySelector(".usingCreateElementAndAppendChild > ul").appendChild(secondLi);
+        })();
+    </script>
+
+    <h3>Using lodash/underscore template</h3>
+    <div class="examples usingLodashUnderscoreTemplate">
+        <ul></ul>
+    </div>
+    <script type="text/javascript">
+        var liTemplate = _.template("<li><%= text %></li>");
+        var ulElement = document.querySelector(".usingLodashUnderscoreTemplate > ul");
+
+        _.each(["First template li", "Second template li"], function (text) {
+            ulElement.innerHTML += liTemplate({ text: text });
+        });
+
+    </script>
+
+    <h3>Using data from input</h3>
+    <div class="examples usingDataFromInput">
+        <ul>
+
+        </ul>
+    </div>
+    <button class="addFromInput">ADD</button>
+    <input class="textToPutInLi" type="text" />
+    <script type="text/javascript">
+        (function () {
+            var input = document.querySelector(".textToPutInLi");
+
+            var liTemplate = _.template("<li><%= text %></li>");
+            var ulElement = document.querySelector(".usingDataFromInput > ul");
+
+            document.querySelector(".addFromInput").onclick = function () {
+                var text = input.value || "default";
+                ulElement.innerHTML += liTemplate({ text: text });
+            };
+        })();
+    </script>
+
+    <h3>Using templates</h3>
+    <button data-add-from-template>ADD FROM TEMPLATE</button>
+    <div data-template-container></div>
+    <template>
+        <div>
+            This is element number <span data-number></span>
         </div>
-        <button class="addFromInput">ADD</button>
-        <input class="textToPutInLi" type="text" />
-        <script type="text/javascript">
-            (function(){
-                var input = document.querySelector(".textToPutInLi");
+    </template>
+    <script type="text/javascript">
+        (function () {
+            var template = document.querySelector('template')
+            var container = document.querySelector("[data-template-container]");
 
-                var liTemplate = _.template("<li><%= text %></li>");
-                var ulElement = document.querySelector(".usingDataFromInput > ul");
-                
-                document.querySelector(".addFromInput").onclick = function(){
-                    var text = input.value || "default";
-                    ulElement.innerHTML += liTemplate({ text: text});
-                };
-            })();
-        </script>
+            document.querySelector("[data-add-from-template]").onclick = function () {
+                var index = container.querySelectorAll('div').length + 1;
+                var element = template.content.cloneNode(true);
+                element.querySelector("[data-number]").innerText = index;
+                container.appendChild(element);
+            };
+        })();
+    </script>
 
-    </body>
+    <h3>Creating templates on the fly</h3>
+    <button data-add-from-template-fly>ADD FROM TEMPLATE ON THE FLY</button>
+    <div data-template-fly-container></div>
+    <script type="text/javascript">
+        (function () {
+            var container = document.querySelector("[data-template-fly-container]");
+
+            document.querySelector("[data-add-from-template-fly]").onclick = function () {
+                var index = container.querySelectorAll('div').length + 1;
+                var template = document.createElement('template')
+                template.innerHTML = '<div>This is element number ' + index + '</div>';
+                var element = template.content.cloneNode(true);
+                container.appendChild(element);
+            };
+        })();
+    </script>
+
+</body>
+
 </html>

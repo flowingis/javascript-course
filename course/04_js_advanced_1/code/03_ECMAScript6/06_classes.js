@@ -39,7 +39,7 @@ console.log(e.getFullname());
  */
 
 p.constructor.prototype.getFullname = function () {
-    return 'Hello Prometeia';
+    return 'Hello Another Guy';
 };
 
 console.log(p.getFullname());

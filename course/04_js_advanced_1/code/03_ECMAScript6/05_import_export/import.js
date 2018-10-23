@@ -1,6 +1,6 @@
 /*
     Per utilizzare un named export basta utilizzare l'object destructuring visto in precedenza.
-    Il nome deve essere identico a quello definito nell'export
+    Il nome deve essere identico a quello definito nell'export. In Node questa cosa non è ancora possibile.
  */
 import {object} from './exports';
 import {object2} from './exports';

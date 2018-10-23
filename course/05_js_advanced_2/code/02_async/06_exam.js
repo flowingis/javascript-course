@@ -1,6 +1,6 @@
 "use strict"
 
-var request = require('request');
+const request = require('request');
 
 // 3 entry point:
 //  -entry1 -> request: {} -> response: { code: code }
@@ -19,11 +19,11 @@ var request = require('request');
 // chain without error must be printed before the one without error
 // use callback for ensure this sequence
 
-var callToServer = function(entryPoint, data, callback){
+const callToServer = (entryPoint, data, callback) => {
     request.post('http://127.0.0.1:9090/'+entryPoint,
         { json: data },
-        function (error, response, body) {
-            var result;
+        (error, response, body) => {
+            let result;
             if (!error && response.statusCode == 200) {
                 result = response.body.code;
             }else{

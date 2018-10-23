@@ -1,7 +1,7 @@
 "use strict"
 
-var infiniteSequentialUnitGenerator = function* (){
-    var counter = 0
+const infiniteSequentialUnitGenerator = function* (){
+    let counter = 0
     while(true){
         try{
             yield counter++;
@@ -11,8 +11,8 @@ var infiniteSequentialUnitGenerator = function* (){
     }
 };
 
-var unit = infiniteSequentialUnitGenerator();
-var unit2 = infiniteSequentialUnitGenerator();
+const unit = infiniteSequentialUnitGenerator();
+const unit2 = infiniteSequentialUnitGenerator();
 
 console.log("UNIT GENERATOR");
 console.log(unit.next());

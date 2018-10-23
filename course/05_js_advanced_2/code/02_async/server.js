@@ -1,26 +1,23 @@
 "use strict"
 
-var express = require('express');
-var http = require('http');
+const express = require('express');
+const http = require('http');
 
-var app = express();
+const app = express();
 
-app.post("*entry1", function(req, res){
-    var requestBody = "";
-    setTimeout(function(){
-        req.on("data", function(chunk) {
-            requestBody = JSON.parse(chunk.toString());
+app.post("*entry1", (req, res) => {
+    setTimeout(() => {
+        req.on("data", () => {
             res.write(JSON.stringify({ code: 'secret_code_1' }));
             res.end();
         });
     }, 500);
 });
 
-app.post("*entry2", function(req, res){
-    var requestBody = "";
-    setTimeout(function(){
-        req.on("data", function(chunk) {
-            requestBody = JSON.parse(chunk.toString());
+app.post("*entry2", (req, res) => {
+    setTimeout(() => {
+        req.on("data", (chunk) => {
+            const requestBody = JSON.parse(chunk.toString());
             if(requestBody.code === "secret_code_1"){
                 res.write(JSON.stringify({ code: "code_secret_2" }));
             }else{
@@ -31,11 +28,10 @@ app.post("*entry2", function(req, res){
     }, 3000);
 });
 
-app.post("*entry3", function(req, res){
-    var requestBody = "";
-    setTimeout(function(){
-        req.on("data", function(chunk) {
-            requestBody = JSON.parse(chunk.toString());
+app.post("*entry3", (req, res) => {
+    setTimeout(() => {
+        req.on("data", (chunk) => {
+            const requestBody = JSON.parse(chunk.toString());
             if(requestBody.code === "code_secret_2"){
                 res.write(JSON.stringify({ result: "SUCCESS" }));
             }else{
@@ -46,32 +42,28 @@ app.post("*entry3", function(req, res){
     }, 1000);
 });
 
-app.post("*entryError1", function(req, res){
-    var requestBody = "";
-    setTimeout(function(){
-        req.on("data", function(chunk) {
-            requestBody = JSON.parse(chunk.toString());
+app.post("*entryError1", (req, res) => {
+    setTimeout(() => {
+        req.on("data", (chunk) => {
             res.write(JSON.stringify({ code: 'secret_code_1' }));
             res.end();
         });
     }, 500);
 });
 
-app.post("*entryError2", function(req, res){
-    var requestBody = "";
-    setTimeout(function(){
-        req.on("data", function(chunk) {
-            requestBody = JSON.parse(chunk.toString());
+app.post("*entryError2", (req, res) => {
+    setTimeout(() => {
+        req.on("data", () => {
             res.status(400).send('Invalid code');
             res.end();
         });
     }, 3000);
 });
 
-app.post("*entryError3", function(req, res){
+app.post("*entryError3", (req, res) => {
     var requestBody = "";
     setTimeout(function(){
-        req.on("data", function(chunk) {
+        req.on("data", (chunk) => {
             requestBody = JSON.parse(chunk.toString());
             if(requestBody.code === "code_secret_2"){
                 res.write(JSON.stringify({ result: "SUCCESS" }));

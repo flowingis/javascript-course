@@ -1,6 +1,6 @@
 "use strict"
 
-var request = require('request');
+const request = require('request');
 
 // 3 entry point with no error:
 //  -entry1 -> request: {} -> response: { code: code }
@@ -19,11 +19,11 @@ var request = require('request');
 // chain without error must be printed before the one without error
 // use callback for ensure this sequence
 
-var callToServer = function(entryPoint, data){
-    return new Promise(function(resolve, reject){
+const callToServer = (entryPoint, data) => {
+    return new Promise((resolve, reject) => {
         request.post('http://127.0.0.1:9090/'+entryPoint,
             { json: data },
-            function (error, response, body) {
+            (error, response, body) => {
                 if (!error && response.statusCode == 200) {
                     resolve(response.body);
                 }else{
@@ -34,32 +34,32 @@ var callToServer = function(entryPoint, data){
     });
 };
 
-var chainNoError = function(callback){
-    callToServer("entry1", {}).then(function(result){
-        var code = result.code;
-        return callToServer("entry2", { code: code});
-    }).then(function(result){
-        var code = result.code;
-        return callToServer("entry3", { code: code});
-    }).then(function(result){
+const chainNoError = (callback) => {
+    callToServer("entry1", {}).then((result) => {
+        const { code } = result;
+        return callToServer("entry2", { code });
+    }).then((result) => {
+        const { code } = result;
+        return callToServer("entry3", { code });
+    }).then((result) => {
         console.log(result.result);
         callback();
     });
 };
 
-var chainError = function(){
+const chainError = () => {
     console.log("chain with error start");
-    callToServer("entryError1", {}).then(function(result){
-        var code = result.code;
-        return callToServer("entryError2", { code: code});
-    }).then(function(result){
-        var code = result.code;
-        return callToServer("entryError3", { code: code});
-    }).then(function(result){
+    callToServer("entryError1", {}).then((result) => {
+        const { code } = result;
+        return callToServer("entryError2", { code });
+    }).then((result) => {
+        const { code } = result;
+        return callToServer("entryError3", { code });
+    }).then((result) => {
         console.log(result.result);
-    }).catch(function(e){
+    }).catch((e) => {
         console.log(e);
-    }).then(function(){
+    }).then(() => {
         console.log("chain with error stop");
     });
 };
